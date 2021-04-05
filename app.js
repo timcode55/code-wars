@@ -19,29 +19,78 @@
 // 	)
 // );
 
-function order(words) {
-	if (words.length === 0) {
-		return '';
-	} else {
-		let array = words.split(' ');
-		let newArray = [];
+// function order(words) {
+// 	if (words.length === 0) {
+// 		return '';
+// 	} else {
+// 		let array = words.split(' ');
+// 		let newArray = [];
 
-		function searchArray(itemNum) {
-			for (let i = 0; i < array.length; i++) {
-				if (array[i].includes(`${itemNum}`)) {
-					newArray.push(array[i]);
-				}
+// 		function searchArray(itemNum) {
+// 			for (let i = 0; i < array.length; i++) {
+// 				if (array[i].includes(`${itemNum}`)) {
+// 					newArray.push(array[i]);
+// 				}
+// 			}
+// 		}
+// 		let itemNum = 1;
+// 		while (itemNum < array.length + 1) {
+// 			searchArray(itemNum);
+// 			itemNum++;
+// 		}
+// 		return newArray.join(' ');
+// 	}
+// }
+
+// console.log(order('is2 Thi1s T4est 3a'));
+// console.log(order('4of Fo1r pe6ople g3ood th5e the2'));
+// console.log(order(''));
+
+// b = [ 'ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600' ];
+// c = [ 'A', 'B' ];
+
+b = [ 'CBART 20', 'CDXEF 50', 'BKWRK 25', 'BTSQZ 89', 'DRTYM 60' ];
+c = [ 'A', 'B', 'C', 'W' ];
+
+function stockList(listOfArt, listOfCat) {
+	let newObj = {};
+	// const listArt = listOfArt.forEach((item) => {
+	// 	if (listOfCat.includes(item[0]) && !newObj[item[0]]) {
+	// 		let test = item.split(' ')[1];
+	// 		newObj[item[0]] = Number(item.split(' ')[1]);
+	// 	} else if (listOfCat.includes(item[0])) {
+	// 		newObj[item[0]] += Number(item.split(' ')[1]);
+	// 	}
+	// });
+	for (let item of listOfCat) {
+		listOfArt.forEach((el) => {
+			if (el[0] !== item) {
+				newObj[item] = 0;
+			}
+		});
+		for (let el of listOfArt) {
+			if (el[0] === item && !newObj[item]) {
+				newObj[item] = Number(el.split(' ')[1]);
+			} else if (el[0] === item) {
+				newObj[item] += Number(el.split(' ')[1]);
 			}
 		}
-		let itemNum = 1;
-		while (itemNum < array.length + 1) {
-			searchArray(itemNum);
-			itemNum++;
-		}
-		return newArray.join(' ');
 	}
+
+	let returnObj = Object.entries(newObj);
+	let finalString = '';
+	returnObj.forEach((item, i) => {
+		let string;
+
+		if (i < returnObj.length - 1) {
+			string = `(${item[0]} : ${item[1]}) - `;
+			finalString += string;
+		} else {
+			anotherString = `(${item[0]} : ${item[1]})`;
+			finalString += anotherString;
+		}
+	});
+	return finalString;
 }
 
-console.log(order('is2 Thi1s T4est 3a'));
-console.log(order('4of Fo1r pe6ople g3ood th5e the2'));
-console.log(order(''));
+console.log(stockList(b, c));
