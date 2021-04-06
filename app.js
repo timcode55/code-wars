@@ -54,14 +54,6 @@ c = [ 'A', 'B', 'C', 'W' ];
 
 function stockList(listOfArt, listOfCat) {
 	let newObj = {};
-	// const listArt = listOfArt.forEach((item) => {
-	// 	if (listOfCat.includes(item[0]) && !newObj[item[0]]) {
-	// 		let test = item.split(' ')[1];
-	// 		newObj[item[0]] = Number(item.split(' ')[1]);
-	// 	} else if (listOfCat.includes(item[0])) {
-	// 		newObj[item[0]] += Number(item.split(' ')[1]);
-	// 	}
-	// });
 	for (let item of listOfCat) {
 		listOfArt.forEach((el) => {
 			if (el[0] !== item) {
