@@ -49,40 +49,68 @@
 // b = [ 'ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600' ];
 // c = [ 'A', 'B' ];
 
-b = [ 'CBART 20', 'CDXEF 50', 'BKWRK 25', 'BTSQZ 89', 'DRTYM 60' ];
-c = [ 'A', 'B', 'C', 'W' ];
+// b = [ 'CBART 20', 'CDXEF 50', 'BKWRK 25', 'BTSQZ 89', 'DRTYM 60' ];
+// c = [ 'A', 'B', 'C', 'W' ];
 
-function stockList(listOfArt, listOfCat) {
-	let newObj = {};
-	for (let item of listOfCat) {
-		listOfArt.forEach((el) => {
-			if (el[0] !== item) {
-				newObj[item] = 0;
-			}
-		});
-		for (let el of listOfArt) {
-			if (el[0] === item && !newObj[item]) {
-				newObj[item] = Number(el.split(' ')[1]);
-			} else if (el[0] === item) {
-				newObj[item] += Number(el.split(' ')[1]);
-			}
-		}
-	}
+// function stockList(listOfArt, listOfCat) {
+// 	let newObj = {};
+// 	for (let item of listOfCat) {
+// 		listOfArt.forEach((el) => {
+// 			if (el[0] !== item) {
+// 				newObj[item] = 0;
+// 			}
+// 		});
+// 		for (let el of listOfArt) {
+// 			if (el[0] === item && !newObj[item]) {
+// 				newObj[item] = Number(el.split(' ')[1]);
+// 			} else if (el[0] === item) {
+// 				newObj[item] += Number(el.split(' ')[1]);
+// 			}
+// 		}
+// 	}
 
-	let returnObj = Object.entries(newObj);
-	let finalString = '';
-	returnObj.forEach((item, i) => {
-		let string;
+// 	let returnObj = Object.entries(newObj);
+// 	let finalString = '';
+// 	returnObj.forEach((item, i) => {
+// 		let string;
 
-		if (i < returnObj.length - 1) {
-			string = `(${item[0]} : ${item[1]}) - `;
-			finalString += string;
+// 		if (i < returnObj.length - 1) {
+// 			string = `(${item[0]} : ${item[1]}) - `;
+// 			finalString += string;
+// 		} else {
+// 			anotherString = `(${item[0]} : ${item[1]})`;
+// 			finalString += anotherString;
+// 		}
+// 	});
+// 	return finalString;
+// }
+
+// console.log(stockList(b, c));
+
+function insideOut(x) {
+	let newArray = [];
+	let sep = x.split(' ');
+	let inOut = sep.forEach((item) => {
+		if (item.length < 4) {
+			newArray.push(item);
+		} else if (item.length % 2 === 0) {
+			let newString = '';
+			let middle = item.length / 2;
+			newString +=
+				Array.from(item.slice(0, middle)).reverse().join('') +
+				Array.from(item.slice(middle, item.length)).reverse().join('');
+			newArray.push(newString);
 		} else {
-			anotherString = `(${item[0]} : ${item[1]})`;
-			finalString += anotherString;
+			let newString = '';
+			let middle = Math.round(item.length / 2);
+			newString +=
+				Array.from(item.slice(0, middle - 1)).reverse().join('') +
+				item.slice(middle - 1, middle) +
+				Array.from(item.slice(middle, item.length)).reverse().join('');
+			newArray.push(newString);
 		}
 	});
-	return finalString;
+	return newArray.join(' ');
 }
 
-console.log(stockList(b, c));
+console.log(insideOut('man i need a taxi up to ubud'));
