@@ -115,21 +115,28 @@
 
 // console.log(insideOut('man i need a taxi up to ubud'));
 
-function solution(value) {
-	//...
-	// let newString = '';
-	// let test = value.length;
-	// newString += value.toString();
-	let array = value.toString().split('');
+// function solution(value) {
+// 	let array = value.toString().split('');
+// 	for (let i = array.length; i < 5; i++) {
+// 		array.unshift('0');
+// 	}
+// 	return `Value is ${array.join('')}`;
+// }
 
-	for (let i = array.length; i < 5; i++) {
-		array.unshift('0');
-	}
-	// return newString;
-	return `Value is ${array.join('')}`;
+// console.log(solution(5)); //"Value is 00005")
+// console.log(solution(1204)); //"Value is 01204")
+// console.log(solution(109)); //"Value is 00109")
+// console.log(solution(0)); //"Value is 00000")
+
+function digitize(n) {
+	let array = n.toString().split('');
+	return array.map((item) => {
+		return Number(item);
+	});
 }
 
-console.log(solution(5)); //"Value is 00005")
-console.log(solution(1204)); //"Value is 01204")
-console.log(solution(109)); //"Value is 00109")
-console.log(solution(0)); //"Value is 00000")
+console.log(digitize(123)); // [1,2,3])
+console.log(digitize(1)); // [1])
+console.log(digitize(0)); // [0])
+console.log(digitize(1230)); // [1,2,3, 0])
+console.log(digitize(8675309)); // [8,6,7,5,3,0,9])
