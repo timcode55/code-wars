@@ -49,43 +49,43 @@
 // b = [ 'ABAR 200', 'CDXE 500', 'BKWR 250', 'BTSQ 890', 'DRTY 600' ];
 // c = [ 'A', 'B' ];
 
-b = [ 'CBART 20', 'CDXEF 50', 'BKWRK 25', 'BTSQZ 89', 'DRTYM 60' ];
-c = [ 'A', 'B', 'C', 'W' ];
+// b = [ 'CBART 20', 'CDXEF 50', 'BKWRK 25', 'BTSQZ 89', 'DRTYM 60' ];
+// c = [ 'A', 'B', 'C', 'W' ];
 
-function stockList(listOfArt, listOfCat) {
-	let newObj = {};
-	for (let item of listOfCat) {
-		listOfArt.forEach((el) => {
-			if (el[0] !== item) {
-				newObj[item] = 0;
-			}
-		});
-		for (let el of listOfArt) {
-			if (el[0] === item && !newObj[item]) {
-				newObj[item] = Number(el.split(' ')[1]);
-			} else if (el[0] === item) {
-				newObj[item] += Number(el.split(' ')[1]);
-			}
-		}
-	}
+// function stockList(listOfArt, listOfCat) {
+// 	let newObj = {};
+// 	for (let item of listOfCat) {
+// 		listOfArt.forEach((el) => {
+// 			if (el[0] !== item) {
+// 				newObj[item] = 0;
+// 			}
+// 		});
+// 		for (let el of listOfArt) {
+// 			if (el[0] === item && !newObj[item]) {
+// 				newObj[item] = Number(el.split(' ')[1]);
+// 			} else if (el[0] === item) {
+// 				newObj[item] += Number(el.split(' ')[1]);
+// 			}
+// 		}
+// 	}
 
-	let returnObj = Object.entries(newObj);
-	let finalString = '';
-	returnObj.forEach((item, i) => {
-		let string;
+// 	let returnObj = Object.entries(newObj);
+// 	let finalString = '';
+// 	returnObj.forEach((item, i) => {
+// 		let string;
 
-		if (i < returnObj.length - 1) {
-			string = `(${item[0]} : ${item[1]}) - `;
-			finalString += string;
-		} else {
-			anotherString = `(${item[0]} : ${item[1]})`;
-			finalString += anotherString;
-		}
-	});
-	return finalString;
-}
+// 		if (i < returnObj.length - 1) {
+// 			string = `(${item[0]} : ${item[1]}) - `;
+// 			finalString += string;
+// 		} else {
+// 			anotherString = `(${item[0]} : ${item[1]})`;
+// 			finalString += anotherString;
+// 		}
+// 	});
+// 	return finalString;
+// }
 
-console.log(stockList(b, c));
+// console.log(stockList(b, c));
 
 // function insideOut(x) {
 // 	let newArray = [];
@@ -114,3 +114,22 @@ console.log(stockList(b, c));
 // }
 
 // console.log(insideOut('man i need a taxi up to ubud'));
+
+function solution(value) {
+	//...
+	// let newString = '';
+	// let test = value.length;
+	// newString += value.toString();
+	let array = value.toString().split('');
+
+	for (let i = array.length; i < 5; i++) {
+		array.unshift('0');
+	}
+	// return newString;
+	return `Value is ${array.join('')}`;
+}
+
+console.log(solution(5)); //"Value is 00005")
+console.log(solution(1204)); //"Value is 01204")
+console.log(solution(109)); //"Value is 00109")
+console.log(solution(0)); //"Value is 00000")
