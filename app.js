@@ -199,32 +199,64 @@
 
 // console.log(fib(8));
 
-var list1 = [
-	{ firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C' },
-	{
-		firstName: 'Anna',
-		lastName: 'R.',
-		country: 'Liechtenstein',
-		continent: 'Europe',
-		age: 52,
-		language: 'JavaScript'
-	},
-	{ firstName: 'Ramon', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby' },
-	{ firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C' }
-];
+// var list1 = [
+// 	{ firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C' },
+// 	{
+// 		firstName: 'Anna',
+// 		lastName: 'R.',
+// 		country: 'Liechtenstein',
+// 		continent: 'Europe',
+// 		age: 52,
+// 		language: 'JavaScript'
+// 	},
+// 	{ firstName: 'Ramon', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby' },
+// 	{ firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C' }
+// ];
 
-var answer = { C: 2, JavaScript: 1, Ruby: 1 };
+// var answer = { C: 2, JavaScript: 1, Ruby: 1 };
 
-function countLanguages(list) {
-	let newObj = {};
-	const array = list.forEach((item) => {
-		if (!newObj[item.language]) {
-			newObj[item.language] = 1;
-		} else {
-			newObj[item.language] += 1;
+// function countLanguages(list) {
+// 	let newObj = {};
+// 	const array = list.forEach((item) => {
+// 		if (!newObj[item.language]) {
+// 			newObj[item.language] = 1;
+// 		} else {
+// 			newObj[item.language] += 1;
+// 		}
+// 	});
+// 	return newObj;
+// }
+
+// console.log(countLanguages(list1)); //, answer);
+
+// function pipeFix(numbers) {
+// 	let result = [];
+// 	for (let i = Math.min(...numbers); i <= Math.max(...numbers); i++) {
+// 		result.push(i);
+// 	}
+// 	return result;
+// }
+
+// console.log(pipeFix([ 1, 2, 3, 5, 6, 8, 9 ])); //,[1,2,3,4,5,6,7,8,9]);
+// console.log(pipeFix([ 1, 2, 3, 12 ])); //,[1,2,3,4,5,6,7,8,9,10,11,12]);
+// console.log(pipeFix([ 6, 9 ])); //,[6,7,8,9]);
+// console.log(pipeFix([ -1, 4 ])); //,[-1,0,1,2,3,4]);
+// console.log(pipeFix([ 1, 2, 3 ])); //,[1,2,3]);
+
+// return masked string
+function maskify(cc) {
+	let pound = '';
+	let newString = `${cc.slice(-4)}`;
+	if (cc.length < 5) {
+		return cc;
+	} else {
+		for (let i = 0; i < cc.length - 4; i++) {
+			pound += '#';
 		}
-	});
-	return newObj;
+	}
+	return pound + newString;
 }
 
-console.log(countLanguages(list1)); //, answer);
+console.log(maskify('4556364607935616')); //, '############5616');
+console.log(maskify('1')); //, '1');
+console.log(maskify('11111')); //, '#1111');
