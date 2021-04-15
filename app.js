@@ -128,15 +128,64 @@
 // console.log(solution(109)); //"Value is 00109")
 // console.log(solution(0)); //"Value is 00000")
 
-function digitize(n) {
-	let array = n.toString().split('');
-	return array.map((item) => {
-		return Number(item);
+// function digitize(n) {
+// 	let array = n.toString().split('');
+// 	return array.map((item) => {
+// 		return Number(item);
+// 	});
+// }
+
+// console.log(digitize(123)); // [1,2,3])
+// console.log(digitize(1)); // [1])
+// console.log(digitize(0)); // [0])
+// console.log(digitize(1230)); // [1,2,3, 0])
+// console.log(digitize(8675309)); // [8,6,7,5,3,0,9])
+// function solution(nums) {
+// 	if (nums === null || nums.length === 0) {
+// 		return [];
+// 	} else {
+// 		return nums.sort((a, b) => {
+// 			return a - b;
+// 		});
+// 	}
+// }
+
+// console.log(solution([ 1, 2, 3, 10, 5 ])); //, [1,2,3,5,10])
+// console.log(solution(null)); //, [])
+// console.log(solution([])); //, [])
+// console.log(solution([ 20, 2, 10 ])); //, [2,10,20])
+// console.log(solution([ 2, 20, 10 ])); //, [2,10,20])
+
+function well(x) {
+	let array = [];
+	x.forEach((item) => {
+		item.forEach((el) => {
+			if (typeof el === Number) {
+				array.push(el);
+			} else {
+				array.push(el.toString().toLowerCase());
+			}
+		});
 	});
+	let count = 0;
+
+	array.forEach((item) => {
+		if (item === 'good') {
+			count += 1;
+		}
+	});
+	if (!count) {
+		return 'Fail!';
+	} else if (count > 2) {
+		return 'I smell a series!';
+	} else {
+		return 'Publish!';
+	}
 }
 
-console.log(digitize(123)); // [1,2,3])
-console.log(digitize(1)); // [1])
-console.log(digitize(0)); // [0])
-console.log(digitize(1230)); // [1,2,3, 0])
-console.log(digitize(8675309)); // [8,6,7,5,3,0,9])
+console.log(well([ [ 16, bad, CAPS, bad, cheat, bAd, BAD, bad, DAB, cheat, CAPS ] ])); //, 'Fail!');
+console.log(well([ [ 'gOOd', 'bad', 'BAD', 'bad', 'bad' ], [ 'bad', 'bAd', 'bad' ], [ 'GOOD', 'bad', 'bad', 'bAd' ] ])); //,
+('Publish!');
+
+console.log(well([ [ 'gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD' ], [ 'bad' ], [ 'gOOd', 'BAD' ] ])); //,
+('I smell a series!');
