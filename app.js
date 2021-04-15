@@ -156,36 +156,75 @@
 // console.log(solution([ 20, 2, 10 ])); //, [2,10,20])
 // console.log(solution([ 2, 20, 10 ])); //, [2,10,20])
 
-function well(x) {
-	let array = [];
-	x.forEach((item) => {
-		item.forEach((el) => {
-			if (typeof el === Number) {
-				array.push(el);
-			} else {
-				array.push(el.toString().toLowerCase());
-			}
-		});
-	});
-	let count = 0;
+// function well(x) {
+// 	let array = [];
+// 	x.forEach((item) => {
+// 		item.forEach((el) => {
+// 			if (typeof el === Number) {
+// 				array.push(el);
+// 			} else {
+// 				array.push(el.toString().toLowerCase());
+// 			}
+// 		});
+// 	});
+// 	let count = 0;
 
-	array.forEach((item) => {
-		if (item === 'good') {
-			count += 1;
+// 	array.forEach((item) => {
+// 		if (item === 'good') {
+// 			count += 1;
+// 		}
+// 	});
+// 	if (!count) {
+// 		return 'Fail!';
+// 	} else if (count > 2) {
+// 		return 'I smell a series!';
+// 	} else {
+// 		return 'Publish!';
+// 	}
+// }
+
+// console.log(well([ [ 16, bad, CAPS, bad, cheat, bAd, BAD, bad, DAB, cheat, CAPS ] ])); //, 'Fail!');
+// console.log(well([ [ 'gOOd', 'bad', 'BAD', 'bad', 'bad' ], [ 'bad', 'bAd', 'bad' ], [ 'GOOD', 'bad', 'bad', 'bAd' ] ])); //,
+// ('Publish!');
+
+// console.log(well([ [ 'gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD' ], [ 'bad' ], [ 'gOOd', 'BAD' ] ])); //,
+// ('I smell a series!');
+
+// function fib(n) {
+// 	if (n < 2) {
+// 		return n;
+// 	}
+// 	return fib(n - 1) + fib(n - 2);
+// }
+
+// console.log(fib(8));
+
+var list1 = [
+	{ firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C' },
+	{
+		firstName: 'Anna',
+		lastName: 'R.',
+		country: 'Liechtenstein',
+		continent: 'Europe',
+		age: 52,
+		language: 'JavaScript'
+	},
+	{ firstName: 'Ramon', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby' },
+	{ firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C' }
+];
+
+var answer = { C: 2, JavaScript: 1, Ruby: 1 };
+
+function countLanguages(list) {
+	let newObj = {};
+	const array = list.forEach((item) => {
+		if (!newObj[item.language]) {
+			newObj[item.language] = 1;
+		} else {
+			newObj[item.language] += 1;
 		}
 	});
-	if (!count) {
-		return 'Fail!';
-	} else if (count > 2) {
-		return 'I smell a series!';
-	} else {
-		return 'Publish!';
-	}
+	return newObj;
 }
 
-console.log(well([ [ 16, bad, CAPS, bad, cheat, bAd, BAD, bad, DAB, cheat, CAPS ] ])); //, 'Fail!');
-console.log(well([ [ 'gOOd', 'bad', 'BAD', 'bad', 'bad' ], [ 'bad', 'bAd', 'bad' ], [ 'GOOD', 'bad', 'bad', 'bAd' ] ])); //,
-('Publish!');
-
-console.log(well([ [ 'gOOd', 'bAd', 'BAD', 'bad', 'bad', 'GOOD' ], [ 'bad' ], [ 'gOOd', 'BAD' ] ])); //,
-('I smell a series!');
+console.log(countLanguages(list1)); //, answer);
