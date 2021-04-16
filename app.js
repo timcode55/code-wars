@@ -244,19 +244,55 @@
 // console.log(pipeFix([ 1, 2, 3 ])); //,[1,2,3]);
 
 // return masked string
-function maskify(cc) {
-	let pound = '';
-	let newString = `${cc.slice(-4)}`;
-	if (cc.length < 5) {
-		return cc;
+// function maskify(cc) {
+// 	let pound = '';
+// 	let newString = `${cc.slice(-4)}`;
+// 	if (cc.length < 5) {
+// 		return cc;
+// 	} else {
+// 		for (let i = 0; i < cc.length - 4; i++) {
+// 			pound += '#';
+// 		}
+// 	}
+// 	return pound + newString;
+// }
+
+// console.log(maskify('4556364607935616')); //, '############5616');
+// console.log(maskify('1')); //, '1');
+// console.log(maskify('11111')); //, '#1111');
+// chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
+// chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+// chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+// chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
+// chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
+
+// function chunk(array, size) {
+// 	const chunked = [];
+// 	for (let element of array) {
+// 		const last = chunked[chunked.length - 1];
+
+// 		if (!last || last.length === size) {
+// 			chunked.push([ element ]);
+// 		} else {
+// 			last.push(element);
+// 		}
+// 	}
+// 	return chunked;
+// }
+
+// console.log(chunk([ 1, 2, 3, 4, 5 ], 2));
+function anagrams(stringA, stringB) {
+	let simpleA = stringA.replace(/[^\w]/g, '').toLowerCase();
+	let simpleB = stringB.replace(/[^\w]/g, '').toLowerCase();
+	let sortA = simpleA.split('').sort().join('');
+	let sortB = simpleB.split('').sort().join('');
+	if (sortA === sortB) {
+		return true;
 	} else {
-		for (let i = 0; i < cc.length - 4; i++) {
-			pound += '#';
-		}
+		return false;
 	}
-	return pound + newString;
 }
 
-console.log(maskify('4556364607935616')); //, '############5616');
-console.log(maskify('1')); //, '1');
-console.log(maskify('11111')); //, '#1111');
+console.log(anagrams('rail safety', 'fairy tales'));
+console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
+console.log(anagrams('Hi there', 'Bye there'));
