@@ -281,18 +281,42 @@
 // }
 
 // console.log(chunk([ 1, 2, 3, 4, 5 ], 2));
-function anagrams(stringA, stringB) {
-	let simpleA = stringA.replace(/[^\w]/g, '').toLowerCase();
-	let simpleB = stringB.replace(/[^\w]/g, '').toLowerCase();
-	let sortA = simpleA.split('').sort().join('');
-	let sortB = simpleB.split('').sort().join('');
-	if (sortA === sortB) {
-		return true;
-	} else {
-		return false;
-	}
-}
+// function anagrams(stringA, stringB) {
+// 	let simpleA = stringA.replace(/[^\w]/g, '').toLowerCase();
+// 	let simpleB = stringB.replace(/[^\w]/g, '').toLowerCase();
+// 	let sortA = simpleA.split('').sort().join('');
+// 	let sortB = simpleB.split('').sort().join('');
+// 	if (sortA === sortB) {
+// 		return true;
+// 	} else {
+// 		return false;
+// 	}
+// }
 
-console.log(anagrams('rail safety', 'fairy tales'));
-console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
-console.log(anagrams('Hi there', 'Bye there'));
+// console.log(anagrams('rail safety', 'fairy tales'));
+// console.log(anagrams('RAIL! SAFETY!', 'fairy tales'));
+// console.log(anagrams('Hi there', 'Bye there'));
+// function capitalize(str) {
+// 	let array = str.split(' ');
+// 	// console.log(array);
+// 	let result = array.map((item) => {
+// 		return item[0].toUpperCase() + item.slice(1);
+// 	});
+
+// 	return result.join(' ');
+// }
+
+// console.log(capitalize('a short sentence')); // --> 'A Short Sentence'
+// console.log(capitalize('a lazy fox')); // --> 'A Lazy Fox'
+// console.log(capitalize('look, it is working!')); // --> 'Look, It Is Working!'
+
+// function isIsogram(str) {
+// 	return new Set(str.toUpperCase()).size === str.length;
+// }
+
+// console.log(isIsogram('Dermatoglyphics')); //, true );
+// console.log(isIsogram('isogram')); //, true );
+// console.log(isIsogram('aba')); //, false, "same chars may not be adjacent" );
+// console.log(isIsogram('moOse')); //, false, "same chars may not be same case" );
+// console.log(isIsogram('isIsogram')); //, false );
+// console.log(isIsogram('')); //, true, "an empty string is a valid isogram" );
