@@ -320,3 +320,43 @@
 // console.log(isIsogram('moOse')); //, false, "same chars may not be same case" );
 // console.log(isIsogram('isIsogram')); //, false );
 // console.log(isIsogram('')); //, true, "an empty string is a valid isogram" );
+
+// function accum(s) {
+// 	let newString = '';
+// 	function addLower(letter, idx) {
+// 		let addString = '';
+// 		for (let j = 0; j < idx; j++) {
+// 			addString += letter;
+// 		}
+// 		return addString;
+// 	}
+// 	for (let i = 0; i < s.length; i++) {
+// 		if (i === s.length - 1) {
+// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase(), i);
+// 		} else {
+// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase(), i) + '-';
+// 		}
+// 	}
+// 	return newString;
+// }
+
+// console.log(accum('ZpglnRxqenU')); //, "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu");
+// console.log(accum('NyffsGeyylB')); //, "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb");
+// console.log(accum('MjtkuBovqrU')); //, "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu");
+// console.log(accum('EvidjUnokmM')); //, "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm");
+// console.log(accum('HbideVbxncC')); //, "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc");
+
+function disemvowel(str) {
+	let vowels = 'aeiou';
+	let newString = '';
+	for (let item of str) {
+		if (!vowels.includes(item.toLowerCase())) {
+			newString += item;
+		}
+	}
+	return newString;
+}
+
+console.log(disemvowel('This website is for losers LOL!')); //, "Ths wbst s fr lsrs LL!")
+console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")); //, "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+console.log(disemvowel('What are you, a communist?')); //, "Wht r y,  cmmnst?")
