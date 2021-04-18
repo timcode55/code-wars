@@ -361,16 +361,53 @@
 // console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")); //, "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
 // console.log(disemvowel('What are you, a communist?')); //, "Wht r y,  cmmnst?")
 
-function stray(numbers) {
-	let obj = {};
-	for (let item of numbers) {
-		obj[item] ? (obj[item] += 1) : (obj[item] = 1);
-	}
-	for (let key in obj) {
-		if (obj[key] === 1) {
-			return Number(key);
+// function stray(numbers) {
+// 	let obj = {};
+// 	for (let item of numbers) {
+// 		obj[item] ? (obj[item] += 1) : (obj[item] = 1);
+// 	}
+// 	for (let key in obj) {
+// 		if (obj[key] === 1) {
+// 			return Number(key);
+// 		}
+// 	}
+// }
+
+// console.log(stray([ 1, 1, 2 ]));
+
+// function duplicateCount(text) {
+// 	let obj = {};
+// 	if (text.length < 1) return 0;
+// 	let adjust = text.toLowerCase().split('').sort().join('');
+// 	for (let item of adjust) {
+// 		obj[item] ? (obj[item] += 1) : (obj[item] = 1);
+// 	}
+// 	let values = Object.values(obj).filter((item) => {
+// 		return item > 1;
+// 	});
+// 	return values.length;
+// }
+
+// console.log(duplicateCount('')); //, 0);
+// console.log(duplicateCount('abcde')); //, 0);
+// console.log(duplicateCount('aabbcde')); //, 2);
+// console.log(duplicateCount('aabBcde')); //, 2,"should ignore case");
+// console.log(duplicateCount('Indivisibility')); //, 1)
+// console.log(duplicateCount('Indivisibilities')); //, 2, "characters may not be adjacent")
+
+function arrayDiff(a, b) {
+	let newArray = [];
+	if (a.length === 0) return [];
+	if (b.length === 0) return a;
+	for (let item of a) {
+		if (!b.includes(item)) {
+			newArray.push(item);
 		}
 	}
+	return newArray;
 }
 
-console.log(stray([ 1, 1, 2 ]));
+console.log(arrayDiff([], [ 4, 5 ])); //, [], "a was [], b was [4,5]");
+console.log(arrayDiff([ 3, 4 ], [ 3 ])); //, [4]//, "a was [3,4], b was [3]");
+console.log(arrayDiff([ 1, 8, 2 ], [])); //, [1,8,2]//, "a was [1,8,2], b was []");
+console.log(arrayDiff([ 1, 2, 3 ], [ 1, 2 ])); //, [3]//, "a was [1,2,3], b was [1,2]")
