@@ -346,17 +346,31 @@
 // console.log(accum('EvidjUnokmM')); //, "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm");
 // console.log(accum('HbideVbxncC')); //, "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc");
 
-function disemvowel(str) {
-	let vowels = 'aeiou';
-	let newString = '';
-	for (let item of str) {
-		if (!vowels.includes(item.toLowerCase())) {
-			newString += item;
+// function disemvowel(str) {
+// 	let vowels = 'aeiou';
+// 	let newString = '';
+// 	for (let item of str) {
+// 		if (!vowels.includes(item.toLowerCase())) {
+// 			newString += item;
+// 		}
+// 	}
+// 	return newString;
+// }
+
+// console.log(disemvowel('This website is for losers LOL!')); //, "Ths wbst s fr lsrs LL!")
+// console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")); //, "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+// console.log(disemvowel('What are you, a communist?')); //, "Wht r y,  cmmnst?")
+
+function stray(numbers) {
+	let obj = {};
+	for (let item of numbers) {
+		obj[item] ? (obj[item] += 1) : (obj[item] = 1);
+	}
+	for (let key in obj) {
+		if (obj[key] === 1) {
+			return Number(key);
 		}
 	}
-	return newString;
 }
 
-console.log(disemvowel('This website is for losers LOL!')); //, "Ths wbst s fr lsrs LL!")
-console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read")); //, "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
-console.log(disemvowel('What are you, a communist?')); //, "Wht r y,  cmmnst?")
+console.log(stray([ 1, 1, 2 ]));
