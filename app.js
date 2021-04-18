@@ -395,19 +395,57 @@
 // console.log(duplicateCount('Indivisibility')); //, 1)
 // console.log(duplicateCount('Indivisibilities')); //, 2, "characters may not be adjacent")
 
-function arrayDiff(a, b) {
-	let newArray = [];
-	if (a.length === 0) return [];
-	if (b.length === 0) return a;
-	for (let item of a) {
-		if (!b.includes(item)) {
-			newArray.push(item);
-		}
+// function arrayDiff(a, b) {
+// 	let newArray = [];
+// 	if (a.length === 0) return [];
+// 	if (b.length === 0) return a;
+// 	for (let item of a) {
+// 		if (!b.includes(item)) {
+// 			newArray.push(item);
+// 		}
+// 	}
+// 	return newArray;
+// }
+
+// console.log(arrayDiff([], [ 4, 5 ])); //, [], "a was [], b was [4,5]");
+// console.log(arrayDiff([ 3, 4 ], [ 3 ])); //, [4]//, "a was [3,4], b was [3]");
+// console.log(arrayDiff([ 1, 8, 2 ], [])); //, [1,8,2]//, "a was [1,8,2], b was []");
+// console.log(arrayDiff([ 1, 2, 3 ], [ 1, 2 ])); //, [3]//, "a was [1,2,3], b was [1,2]")
+
+// function partsSums(ls) {
+// 	let final = [];
+
+// 	const helper = (input) => {
+// 		if (input.length === 0) {
+// 			return [ 0 ];
+// 		}
+// 		let sum = input.reduce((acc, val) => {
+// 			return acc + val;
+// 		});
+
+// 		final.push(sum);
+// 		helper(input.slice(1));
+// 	};
+
+// 	helper(ls);
+// 	return final.concat(0);
+// }
+
+function partsSums(ls) {
+	let result = [];
+	if (ls.length === 0) return [ 0 ];
+	let sum = ls.reduce((acc, val) => {
+		return acc + val;
+	});
+	result.push(sum);
+	for (let i = 0; i < ls.length; i++) {
+		result.push(result[i] - ls[i]);
 	}
-	return newArray;
+	return result;
 }
 
-console.log(arrayDiff([], [ 4, 5 ])); //, [], "a was [], b was [4,5]");
-console.log(arrayDiff([ 3, 4 ], [ 3 ])); //, [4]//, "a was [3,4], b was [3]");
-console.log(arrayDiff([ 1, 8, 2 ], [])); //, [1,8,2]//, "a was [1,8,2], b was []");
-console.log(arrayDiff([ 1, 2, 3 ], [ 1, 2 ])); //, [3]//, "a was [1,2,3], b was [1,2]")
+console.log(partsSums([])); //, [0]);
+console.log(partsSums([ 0, 1, 3, 6, 10 ])); //, [20, 20, 19, 16, 10, 0]);
+console.log(partsSums([ 1, 2, 3, 4, 5, 6 ])); //, [21, 20, 18, 15, 11, 6, 0]);
+console.log(partsSums([ 744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358 ])); //,
+//[10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]);
