@@ -431,21 +431,54 @@
 // 	return final.concat(0);
 // }
 
-function partsSums(ls) {
-	let result = [];
-	if (ls.length === 0) return [ 0 ];
-	let sum = ls.reduce((acc, val) => {
-		return acc + val;
-	});
-	result.push(sum);
-	for (let i = 0; i < ls.length; i++) {
-		result.push(result[i] - ls[i]);
+// function partsSums(ls) {
+// 	let result = [];
+// 	if (ls.length === 0) return [ 0 ];
+// 	let sum = ls.reduce((acc, val) => {
+// 		return acc + val;
+// 	});
+// 	result.push(sum);
+// 	for (let i = 0; i < ls.length; i++) {
+// 		result.push(result[i] - ls[i]);
+// 	}
+// 	return result;
+// }
+
+// console.log(partsSums([])); //, [0]);
+// console.log(partsSums([ 0, 1, 3, 6, 10 ])); //, [20, 20, 19, 16, 10, 0]);
+// console.log(partsSums([ 1, 2, 3, 4, 5, 6 ])); //, [21, 20, 18, 15, 11, 6, 0]);
+// console.log(partsSums([ 744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358 ])); //,
+// //[10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]);
+
+// var moveZeros = function(arr) {
+// 	let result = [];
+// 	let count = 0;
+// 	for (let item of arr) {
+// 		if (item === 0) {
+// 			count++;
+// 		} else {
+// 			result.push(item);
+// 		}
+// 	}
+
+// 	return result.concat(Array(count).fill(0));
+// };
+
+// var moveZeros = function(arr) {
+// 	return arr.filter((item) => item !== 0).concat(arr.filter((item) => item === 0));
+// };
+
+// console.log(moveZeros([ 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 ])); //,
+//JSON.stringify([ 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 ])
+
+function broken(x) {
+	let newString = '';
+	for (let item of x) {
+		item === '1' ? (newString += '0') : (newString += '1');
 	}
-	return result;
+	return newString;
 }
 
-console.log(partsSums([])); //, [0]);
-console.log(partsSums([ 0, 1, 3, 6, 10 ])); //, [20, 20, 19, 16, 10, 0]);
-console.log(partsSums([ 1, 2, 3, 4, 5, 6 ])); //, [21, 20, 18, 15, 11, 6, 0]);
-console.log(partsSums([ 744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358 ])); //,
-//[10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]);
+console.log(broken('1')); //, "0");
+console.log(broken('10000000101101111110011001000')); //, "01111111010010000001100110111");
+console.log(broken('100010')); //, "011101");
