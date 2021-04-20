@@ -471,14 +471,38 @@
 // console.log(moveZeros([ 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 ])); //,
 //JSON.stringify([ 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 ])
 
-function broken(x) {
-	let newString = '';
-	for (let item of x) {
-		item === '1' ? (newString += '0') : (newString += '1');
-	}
-	return newString;
+// function broken(x) {
+// 	let newString = '';
+// 	for (let item of x) {
+// 		item === '1' ? (newString += '0') : (newString += '1');
+// 	}
+// 	return newString;
+// }
+
+// console.log(broken('1')); //, "0");
+// console.log(broken('10000000101101111110011001000')); //, "01111111010010000001100110111");
+// console.log(broken('100010')); //, "011101");
+
+// function gordon(a) {
+// 	let result = [];
+// 	for (let item of a.split(' ')) {
+// 		result.push(item.replace(/[a]/g, '@').replace(/[eiou]/g, '*').toUpperCase().concat('!!!!'));
+// 	}
+// 	return result.join(' ');
+// }
+
+// console.log(gordon('What feck damn cake')); //, 'WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!');
+// console.log(gordon('are you stu pid')); //, '@R*!!!! Y**!!!! ST*!!!! P*D!!!!');
+// console.log(gordon('i am a chef')); //, '*!!!! @M!!!! @!!!! CH*F!!!!');
+
+function last(x) {
+	let array = x.split(' ');
+	// return array.sort((a, b) => {
+	// 	return a[a.length - 1] - b[a.length - 1];
+	// });
+	return array.sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
 }
 
-console.log(broken('1')); //, "0");
-console.log(broken('10000000101101111110011001000')); //, "01111111010010000001100110111");
-console.log(broken('100010')); //, "011101");
+console.log(last('man i need a taxi up to ubud')); //, ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']);
+console.log(last('what time are we climbing up the volcano')); //, ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']);
+console.log(last('take me to semynak')); //, ['take', 'me', 'semynak', 'to']);
