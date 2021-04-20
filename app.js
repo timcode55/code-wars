@@ -495,14 +495,36 @@
 // console.log(gordon('are you stu pid')); //, '@R*!!!! Y**!!!! ST*!!!! P*D!!!!');
 // console.log(gordon('i am a chef')); //, '*!!!! @M!!!! @!!!! CH*F!!!!');
 
-function last(x) {
-	let array = x.split(' ');
-	// return array.sort((a, b) => {
-	// 	return a[a.length - 1] - b[a.length - 1];
-	// });
-	return array.sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
+// function last(x) {
+// 	let array = x.split(' ');
+// 	return array.sort((a, b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length - 1));
+// }
+
+// console.log(last('man i need a taxi up to ubud')); //, ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']);
+// console.log(last('what time are we climbing up the volcano')); //, ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']);
+// console.log(last('take me to semynak')); //, ['take', 'me', 'semynak', 'to']);
+
+// s = 'Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill';
+s =
+	'Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn';
+
+function meeting(s) {
+	let newArray = [];
+	for (let item of s.split(';')) {
+		newArray.push(item.split(':'));
+	}
+	let result = newArray.sort(
+		(a, b) =>
+			a[1].toLowerCase() > b[1].toLowerCase()
+				? 1
+				: a[1].toLowerCase() === b[1].toLowerCase() ? (a[0] > b[0] ? 1 : -1) : -1
+	);
+	console.log(result, 'result');
+	let finalString = '';
+	for (let el of result) {
+		finalString += `(${el[1].toUpperCase()}, ${el[0].toUpperCase()})`;
+	}
+	return finalString;
 }
 
-console.log(last('man i need a taxi up to ubud')); //, ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']);
-console.log(last('what time are we climbing up the volcano')); //, ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']);
-console.log(last('take me to semynak')); //, ['take', 'me', 'semynak', 'to']);
+console.log(meeting(s));
