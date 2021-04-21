@@ -505,26 +505,45 @@
 // console.log(last('take me to semynak')); //, ['take', 'me', 'semynak', 'to']);
 
 // s = 'Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill';
-s =
-	'Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn';
+// s =
+// 	'Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn';
 
-function meeting(s) {
+// function meeting(s) {
+// 	let newArray = [];
+// 	for (let item of s.split(';')) {
+// 		newArray.push(item.split(':'));
+// 	}
+// 	let result = newArray.sort(
+// 		(a, b) =>
+// 			a[1].toLowerCase() > b[1].toLowerCase()
+// 				? 1
+// 				: a[1].toLowerCase() === b[1].toLowerCase() ? (a[0] > b[0] ? 1 : -1) : -1
+// 	);
+// 	console.log(result, 'result');
+// 	let finalString = '';
+// 	for (let el of result) {
+// 		finalString += `(${el[1].toUpperCase()}, ${el[0].toUpperCase()})`;
+// 	}
+// 	return finalString;
+// }
+
+// console.log(meeting(s));
+
+function inArray(array1, array2) {
 	let newArray = [];
-	for (let item of s.split(';')) {
-		newArray.push(item.split(':'));
+	for (let item of array1) {
+		if (array2.join(',').includes(item)) {
+			newArray.push(item);
+		}
 	}
-	let result = newArray.sort(
-		(a, b) =>
-			a[1].toLowerCase() > b[1].toLowerCase()
-				? 1
-				: a[1].toLowerCase() === b[1].toLowerCase() ? (a[0] > b[0] ? 1 : -1) : -1
-	);
-	console.log(result, 'result');
-	let finalString = '';
-	for (let el of result) {
-		finalString += `(${el[1].toUpperCase()}, ${el[0].toUpperCase()})`;
-	}
-	return finalString;
+	return newArray.sort();
 }
 
-console.log(meeting(s));
+a2 = [ 'lively', 'alive', 'harp', 'sharp', 'armstrong' ];
+
+a1 = [ 'xyz', 'live', 'strong' ];
+console.log(inArray(a1, a2)); //, ["live", "strong"])
+a1 = [ 'live', 'strong', 'arp' ];
+console.log(inArray(a1, a2)); //, ["arp", "live", "strong"])
+a1 = [ 'tarp', 'mice', 'bull' ];
+console.log(inArray(a1, a2)); //, [])
