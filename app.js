@@ -529,21 +529,26 @@
 
 // console.log(meeting(s));
 
-function inArray(array1, array2) {
-	let newArray = [];
-	for (let item of array1) {
-		if (array2.join(',').includes(item)) {
-			newArray.push(item);
-		}
-	}
-	return newArray.sort();
+// function inArray(array1, array2) {
+// 	let newArray = [];
+// 	for (let item of array1) {
+// 		if (array2.join(',').includes(item)) {
+// 			newArray.push(item);
+// 		}
+// 	}
+// 	return newArray.sort();
+// }
+
+// a2 = [ 'lively', 'alive', 'harp', 'sharp', 'armstrong' ];
+
+// a1 = [ 'xyz', 'live', 'strong' ];
+// console.log(inArray(a1, a2)); //, ["live", "strong"])
+// a1 = [ 'live', 'strong', 'arp' ];
+// console.log(inArray(a1, a2)); //, ["arp", "live", "strong"])
+// a1 = [ 'tarp', 'mice', 'bull' ];
+// console.log(inArray(a1, a2)); //, [])
+function filterLongWords(sentence, n) {
+	return sentence.split(' ').filter((item) => item.length > n);
 }
 
-a2 = [ 'lively', 'alive', 'harp', 'sharp', 'armstrong' ];
-
-a1 = [ 'xyz', 'live', 'strong' ];
-console.log(inArray(a1, a2)); //, ["live", "strong"])
-a1 = [ 'live', 'strong', 'arp' ];
-console.log(inArray(a1, a2)); //, ["arp", "live", "strong"])
-a1 = [ 'tarp', 'mice', 'bull' ];
-console.log(inArray(a1, a2)); //, [])
+console.log(filterLongWords('The quick brown fox jumps over the lazy dog', 4)); //, ['quick', 'brown', 'jumps']);
