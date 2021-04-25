@@ -547,8 +547,36 @@
 // console.log(inArray(a1, a2)); //, ["arp", "live", "strong"])
 // a1 = [ 'tarp', 'mice', 'bull' ];
 // console.log(inArray(a1, a2)); //, [])
-function filterLongWords(sentence, n) {
-	return sentence.split(' ').filter((item) => item.length > n);
+// function filterLongWords(sentence, n) {
+// 	return sentence.split(' ').filter((item) => item.length > n);
+// }
+
+// console.log(filterLongWords('The quick brown fox jumps over the lazy dog', 4)); //, ['quick', 'brown', 'jumps']);
+
+function twistedSum(n) {
+	if (!n) return 0;
+	let total = 0;
+	if (n > 9) {
+		for (let i = 0; i <= 9; i++) {
+			total += i;
+		}
+		for (let j = 10; j <= n; j++) {
+			let spl = j.toString().split('');
+			let sumSplit = spl.reduce((acc, val) => {
+				return Number(acc) + Number(val);
+			});
+			total += sumSplit;
+		}
+	} else {
+		for (let m = 1; m <= n; m++) {
+			total += m;
+		}
+	}
+
+	return total;
 }
 
-console.log(filterLongWords('The quick brown fox jumps over the lazy dog', 4)); //, ['quick', 'brown', 'jumps']);
+console.log(twistedSum(3)); //, 6, "n = 3"); });
+console.log(twistedSum(10)); //, 46, "n = 10"); });
+console.log(twistedSum(11)); //, 48, "n = 11"); });
+console.log(twistedSum(12)); //, 51, "n = 12"); });
