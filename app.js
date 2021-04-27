@@ -553,30 +553,46 @@
 
 // console.log(filterLongWords('The quick brown fox jumps over the lazy dog', 4)); //, ['quick', 'brown', 'jumps']);
 
-function twistedSum(n) {
-	if (!n) return 0;
-	let total = 0;
-	if (n > 9) {
-		for (let i = 0; i <= 9; i++) {
-			total += i;
-		}
-		for (let j = 10; j <= n; j++) {
-			let spl = j.toString().split('');
-			let sumSplit = spl.reduce((acc, val) => {
-				return Number(acc) + Number(val);
-			});
-			total += sumSplit;
-		}
-	} else {
-		for (let m = 1; m <= n; m++) {
-			total += m;
+// function twistedSum(n) {
+// 	if (!n) return 0;
+// 	let total = 0;
+// 	if (n > 9) {
+// 		for (let i = 0; i <= 9; i++) {
+// 			total += i;
+// 		}
+// 		for (let j = 10; j <= n; j++) {
+// 			let spl = j.toString().split('');
+// 			let sumSplit = spl.reduce((acc, val) => {
+// 				return Number(acc) + Number(val);
+// 			});
+// 			total += sumSplit;
+// 		}
+// 	} else {
+// 		for (let m = 1; m <= n; m++) {
+// 			total += m;
+// 		}
+// 	}
+
+// 	return total;
+// }
+
+// console.log(twistedSum(3)); //, 6, "n = 3"); });
+// console.log(twistedSum(10)); //, 46, "n = 10"); });
+// console.log(twistedSum(11)); //, 48, "n = 11"); });
+// console.log(twistedSum(12)); //, 51, "n = 12"); });
+
+function cleanString(s) {
+	if (s.length === 0) return '';
+	let array = [];
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === '#') {
+			array.pop();
+		} else {
+			array.push(s[i]);
 		}
 	}
-
-	return total;
+	return array.join('');
 }
 
-console.log(twistedSum(3)); //, 6, "n = 3"); });
-console.log(twistedSum(10)); //, 46, "n = 10"); });
-console.log(twistedSum(11)); //, 48, "n = 11"); });
-console.log(twistedSum(12)); //, 51, "n = 12"); });
+console.log(cleanString('abc#d##c')); //, "ac")
+console.log(cleanString('abc####d##c#')); //, "" )
