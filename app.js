@@ -581,18 +581,36 @@
 // console.log(twistedSum(11)); //, 48, "n = 11"); });
 // console.log(twistedSum(12)); //, 51, "n = 12"); });
 
-function cleanString(s) {
-	if (s.length === 0) return '';
-	let array = [];
-	for (let i = 0; i < s.length; i++) {
-		if (s[i] === '#') {
-			array.pop();
-		} else {
-			array.push(s[i]);
-		}
+// function cleanString(s) {
+// 	if (s.length === 0) return '';
+// 	let array = [];
+// 	for (let i = 0; i < s.length; i++) {
+// 		if (s[i] === '#') {
+// 			array.pop();
+// 		} else {
+// 			array.push(s[i]);
+// 		}
+// 	}
+// 	return array.join('');
+// }
+
+// console.log(cleanString('abc#d##c')); //, "ac")
+// console.log(cleanString('abc####d##c#')); //, "" )
+
+// function test(...args) {
+// 	console.log(args);
+// }
+
+// console.log(test('test1', 'test2'));
+
+function shorter_reverse_longer(a, b) {
+	if (a.length >= b.length) {
+		return `${b}${a.split('').reverse().join('')}${b}`;
+	} else {
+		return `${a}${b.split('').reverse().join('')}${a}`;
 	}
-	return array.join('');
 }
 
-console.log(cleanString('abc#d##c')); //, "ac")
-console.log(cleanString('abc####d##c#')); //, "" )
+console.log(shorter_reverse_longer('first', 'abcde')); //, "abcdetsrifabcde");
+console.log(shorter_reverse_longer('hello', 'bau')); //, "bauollehbau");
+console.log(shorter_reverse_longer('abcde', 'fghi')); //, "fghiedcbafghi");
