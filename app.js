@@ -603,14 +603,29 @@
 
 // console.log(test('test1', 'test2'));
 
-function shorter_reverse_longer(a, b) {
-	if (a.length >= b.length) {
-		return `${b}${a.split('').reverse().join('')}${b}`;
-	} else {
-		return `${a}${b.split('').reverse().join('')}${a}`;
+// function shorter_reverse_longer(a, b) {
+// 	if (a.length >= b.length) {
+// 		return `${b}${a.split('').reverse().join('')}${b}`;
+// 	} else {
+// 		return `${a}${b.split('').reverse().join('')}${a}`;
+// 	}
+// }
+
+// console.log(shorter_reverse_longer('first', 'abcde')); //, "abcdetsrifabcde");
+// console.log(shorter_reverse_longer('hello', 'bau')); //, "bauollehbau");
+// console.log(shorter_reverse_longer('abcde', 'fghi')); //, "fghiedcbafghi");
+
+function count(string) {
+	let result = {};
+	for (let el of string) {
+		if (!result[el]) {
+			result[el] = 1;
+		} else {
+			result[el] += 1;
+		}
 	}
+	return result;
 }
 
-console.log(shorter_reverse_longer('first', 'abcde')); //, "abcdetsrifabcde");
-console.log(shorter_reverse_longer('hello', 'bau')); //, "bauollehbau");
-console.log(shorter_reverse_longer('abcde', 'fghi')); //, "fghiedcbafghi");
+console.log(count('aba')); //, { a: 2, b: 1 });
+console.log(count('')); //, {});
