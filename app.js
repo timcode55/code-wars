@@ -615,17 +615,24 @@
 // console.log(shorter_reverse_longer('hello', 'bau')); //, "bauollehbau");
 // console.log(shorter_reverse_longer('abcde', 'fghi')); //, "fghiedcbafghi");
 
-function count(string) {
-	let result = {};
-	for (let el of string) {
-		if (!result[el]) {
-			result[el] = 1;
-		} else {
-			result[el] += 1;
-		}
-	}
-	return result;
+// function count(string) {
+// 	let result = {};
+// 	for (let el of string) {
+// 		if (!result[el]) {
+// 			result[el] = 1;
+// 		} else {
+// 			result[el] += 1;
+// 		}
+// 	}
+// 	return result;
+// }
+
+// console.log(count('aba')); //, { a: 2, b: 1 });
+// console.log(count('')); //, {});
+
+function highAndLow(numbers) {
+	let array = numbers.split(' ');
+	return [ Math.max(...array), Math.min(...array) ].join(' ');
 }
 
-console.log(count('aba')); //, { a: 2, b: 1 });
-console.log(count('')); //, {});
+console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6')); //, "542 -214");
