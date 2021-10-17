@@ -697,9 +697,21 @@
 
 // console.log(wordsToSentence([ 'hello', 'world' ])); //, 'hello world');
 
-const nums = [1, 3, 2, 1];
-var getConcatenation = function (nums) {
-  return nums.concat(nums);
+// const nums = [1, 3, 2, 1];
+// var getConcatenation = function (nums) {
+//   return nums.concat(nums);
+// };
+
+// console.log(getConcatenation(nums));
+const s = "aiohn";
+const indices = [3, 1, 4, 2, 0];
+const result = [];
+
+var restoreString = function (s, indices) {
+  indices.forEach((item, i) => {
+    result[item] = s[i];
+  });
+  return result.join("");
 };
 
-console.log(getConcatenation(nums));
+console.log(restoreString(s, indices));
