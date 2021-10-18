@@ -703,15 +703,48 @@
 // };
 
 // console.log(getConcatenation(nums));
-const s = "aiohn";
-const indices = [3, 1, 4, 2, 0];
-const result = [];
+// const s = "aiohn";
+// const indices = [3, 1, 4, 2, 0];
+// const result = [];
 
-var restoreString = function (s, indices) {
-  indices.forEach((item, i) => {
-    result[item] = s[i];
-  });
-  return result.join("");
+// var restoreString = function (s, indices) {
+//   indices.forEach((item, i) => {
+//     result[item] = s[i];
+//   });
+//   return result.join("");
+// };
+
+// console.log(restoreString(s, indices));
+
+const operations = ["++X", "++X", "X++"];
+var finalValueAfterOperations = function (operations) {
+  let x = 0;
+  for (let item of operations) {
+    if (item === "--X" || item === "X--") {
+      x -= 1;
+    } else {
+      x += 1;
+    }
+  }
+  return x;
 };
 
-console.log(restoreString(s, indices));
+console.log(finalValueAfterOperations(operations));
+
+// const allowed = "cad";
+// const words = ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"];
+// let copy = [...words];
+// const final = [];
+// var countConsistentStrings = function (allowed, words) {
+//   let result = words.forEach((element, i) => {
+//     for (let char of allowed) {
+//       if (element.indexOf(char) === -1) {
+//         final.push(element);
+//       }
+//     }
+//   });
+
+//   return final;
+// };
+
+// console.log(countConsistentStrings(allowed, words));
