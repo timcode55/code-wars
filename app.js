@@ -716,20 +716,26 @@
 
 // console.log(restoreString(s, indices));
 
-const operations = ["++X", "++X", "X++"];
-var finalValueAfterOperations = function (operations) {
-  let x = 0;
-  for (let item of operations) {
-    if (item === "--X" || item === "X--") {
-      x -= 1;
-    } else {
-      x += 1;
-    }
-  }
-  return x;
+// const operations = ["++X", "++X", "X++"];
+// var finalValueAfterOperations = function (operations) {
+//   let x = 0;
+//   for (let item of operations) {
+//     if (item === "--X" || item === "X--") {
+//       x -= 1;
+//     } else {
+//       x += 1;
+//     }
+//   }
+//   return x;
+// };
+
+// console.log(finalValueAfterOperations(operations));
+const s = "Hello";
+var toLowerCase = function (s) {
+  return s.toLowerCase();
 };
 
-console.log(finalValueAfterOperations(operations));
+console.log(toLowerCase(s));
 
 // const allowed = "cad";
 // const words = ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"];
