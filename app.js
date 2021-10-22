@@ -730,27 +730,53 @@
 // };
 
 // console.log(finalValueAfterOperations(operations));
-const s = "Hello";
-var toLowerCase = function (s) {
-  return s.toLowerCase();
+// const s = "Hello";
+// var toLowerCase = function (s) {
+//   return s.toLowerCase();
+// };
+
+// console.log(toLowerCase(s));
+
+// const allowed = "fstqyienx";
+s = "  now is the time   ";
+var lengthOfLastWord = function (s) {
+  let array = s.trim().split(" ");
+
+  return array[array.length - 1].length;
 };
 
-console.log(toLowerCase(s));
+console.log(lengthOfLastWord(s));
 
-// const allowed = "cad";
-// const words = ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"];
-// let copy = [...words];
-// const final = [];
+// const words = [
+//   "n",
+//   "eeitfns",
+//   "eqqqsfs",
+//   "i",
+//   "feniqis",
+//   "lhoa",
+//   "yqyitei",
+//   "sqtn",
+//   "kug",
+//   "z",
+//   "neqqis"
+// ];
 // var countConsistentStrings = function (allowed, words) {
-//   let result = words.forEach((element, i) => {
-//     for (let char of allowed) {
-//       if (element.indexOf(char) === -1) {
-//         final.push(element);
+//   let sum = 0;
+//   for (let word of words) {
+//     let includes = false;
+//     for (let c of word) {
+//       if (!allowed.includes(c)) {
+//         includes = false;
+//         break;
+//       } else {
+//         includes = true;
 //       }
 //     }
-//   });
-
-//   return final;
+//     if (includes) {
+//       sum++;
+//     }
+//   }
+//   return sum;
 // };
 
 // console.log(countConsistentStrings(allowed, words));
