@@ -751,7 +751,6 @@ let digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
 var plusOne = function (digits) {
   let number = BigInt(digits.join(""));
   number++;
-  console.log(number, "number");
   let myFunc = (num) => Number(num);
   return Array.from(String(number), myFunc);
 };
