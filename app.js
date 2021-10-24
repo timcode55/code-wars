@@ -738,15 +738,24 @@
 // console.log(toLowerCase(s));
 
 // const allowed = "fstqyienx";
-s = "  now is the time   ";
-var lengthOfLastWord = function (s) {
-  let array = s.trim().split(" ");
+// s = "  now is the time   ";
+// var lengthOfLastWord = function (s) {
+//   let array = s.trim().split(" ");
 
-  return array[array.length - 1].length;
+//   return array[array.length - 1].length;
+// };
+
+// console.log(lengthOfLastWord(s));
+let digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
+
+var plusOne = function (digits) {
+  let number = BigInt(digits.join(""));
+  number++;
+  console.log(number, "number");
+  let myFunc = (num) => Number(num);
+  return Array.from(String(number), myFunc);
 };
-
-console.log(lengthOfLastWord(s));
-
+console.log(plusOne(digits));
 // const words = [
 //   "n",
 //   "eeitfns",
