@@ -746,15 +746,15 @@
 // };
 
 // console.log(lengthOfLastWord(s));
-let digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
+// let digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
 
-var plusOne = function (digits) {
-  let number = BigInt(digits.join(""));
-  number++;
-  let myFunc = (num) => Number(num);
-  return Array.from(String(number), myFunc);
-};
-console.log(plusOne(digits));
+// var plusOne = function (digits) {
+//   let number = BigInt(digits.join(""));
+//   number++;
+//   let myFunc = (num) => Number(num);
+//   return Array.from(String(number), myFunc);
+// };
+// console.log(plusOne(digits));
 // const words = [
 //   "n",
 //   "eeitfns",
@@ -788,3 +788,29 @@ console.log(plusOne(digits));
 // };
 
 // console.log(countConsistentStrings(allowed, words));
+const nums = [2, 2, 1, 1, 1, 2, 2];
+var majorityElement = function (nums) {
+  const result = {};
+  for (let ele of nums) {
+    if (result[ele]) {
+      result[ele] += 1;
+    } else {
+      result[ele] = 1;
+    }
+  }
+  let max = Math.max(...Object.values(result));
+  console.log(result);
+  for (let item in result) {
+    if (result[item] === max) {
+      return item;
+    }
+  }
+  // for (let item of result) {
+  //   let { k, v } = item;
+  //   if (v === max) {
+  //     return k;
+  //   }
+  // }
+};
+
+console.log(majorityElement(nums));
