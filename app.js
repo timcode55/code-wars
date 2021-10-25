@@ -799,18 +799,11 @@ var majorityElement = function (nums) {
     }
   }
   let max = Math.max(...Object.values(result));
-  console.log(result);
   for (let item in result) {
     if (result[item] === max) {
       return item;
     }
   }
-  // for (let item of result) {
-  //   let { k, v } = item;
-  //   if (v === max) {
-  //     return k;
-  //   }
-  // }
 };
 
 console.log(majorityElement(nums));
