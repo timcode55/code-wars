@@ -788,22 +788,40 @@
 // };
 
 // console.log(countConsistentStrings(allowed, words));
-const nums = [2, 2, 1, 1, 1, 2, 2];
-var majorityElement = function (nums) {
-  const result = {};
-  for (let ele of nums) {
-    if (result[ele]) {
-      result[ele] += 1;
-    } else {
-      result[ele] = 1;
-    }
-  }
-  let max = Math.max(...Object.values(result));
-  for (let item in result) {
-    if (result[item] === max) {
-      return item;
-    }
-  }
-};
+// const nums = [2, 2, 1, 1, 1, 2, 2];
+// var majorityElement = function (nums) {
+//   const result = {};
+//   for (let ele of nums) {
+//     if (result[ele]) {
+//       result[ele] += 1;
+//     } else {
+//       result[ele] = 1;
+//     }
+//   }
+//   let max = Math.max(...Object.values(result));
+//   for (let item in result) {
+//     if (result[item] === max) {
+//       return item;
+//     }
+//   }
+// };
 
-console.log(majorityElement(nums));
+// console.log(majorityElement(nums));
+
+function evenNumbers(array, number) {
+  const reverseArray = array.reverse();
+  let length = number;
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      result.push(array[i]);
+      length--;
+    }
+    if (length === 0) {
+      break;
+    }
+  }
+  return result.reverse();
+}
+
+console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2));
