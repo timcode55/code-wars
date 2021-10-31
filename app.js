@@ -808,20 +808,29 @@
 
 // console.log(majorityElement(nums));
 
-function evenNumbers(array, number) {
-  const reverseArray = array.reverse();
-  let length = number;
-  let result = [];
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 === 0) {
-      result.push(array[i]);
-      length--;
-    }
-    if (length === 0) {
-      break;
-    }
-  }
-  return result.reverse();
+// function evenNumbers(array, number) {
+//   const reverseArray = array.reverse();
+//   let length = number;
+//   let result = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] % 2 === 0) {
+//       result.push(array[i]);
+//       length--;
+//     }
+//     if (length === 0) {
+//       break;
+//     }
+//   }
+//   return result.reverse();
+// }
+
+// console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2));
+
+function diffBig2(arr) {
+  let sorted = arr.sort((a, b) => a - b);
+  return sorted[arr.length - 1] - sorted[arr.length - 2];
 }
 
-console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2));
+console.log(diffBig2([2, 1])); //, 1);
+console.log(diffBig2([8, 3, 1])); //, 5);
+console.log(diffBig2([1, 8, 3])); //, 5);
