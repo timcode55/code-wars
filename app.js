@@ -849,16 +849,23 @@
 // console.log(FilterString("a1b2c3")); //, 123, 'Just return the numbers');
 // console.log(FilterString("aa1bb2cc3dd")); //, 123, 'Just return the numbers');
 
-const areThereDuplicates = (...args) => {
-  let sorted = args.sort();
-  console.log(sorted, "SORTED");
-  for (let i = 0; i < sorted.length; i++) {
-    if (sorted[i] === sorted[i + 1]) {
-      return true;
-    }
-  }
-  return false;
-};
+// const areThereDuplicates = (...args) => {
+//   return new Set(args).size !== args.length;
+// };
 
-console.log(areThereDuplicates(1, 2, 3, 3));
-console.log(areThereDuplicates("a", "b", "c", "a"));
+// console.log(areThereDuplicates(1, 2, 3, 3));
+// console.log(areThereDuplicates("a", "b", "c", "a"));
+
+function isSubsequence(a, b) {
+  let index = 0;
+  for (let i = 0; i < a.length; i++) {
+    let updateIndex = b.indexOf(a[i], index);
+    if (updateIndex === -1) {
+      return false;
+    }
+    index = updateIndex;
+  }
+  return true;
+}
+
+console.log(isSubsequence("hello", "hello world"));
