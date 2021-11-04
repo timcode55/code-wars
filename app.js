@@ -834,17 +834,31 @@
 // console.log(diffBig2([2, 1])); //, 1);
 // console.log(diffBig2([8, 3, 1])); //, 5);
 // console.log(diffBig2([1, 8, 3])); //, 5);
-var FilterString = function (value) {
-  const result = [];
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  for (let ele of value) {
-    if (numbers.includes(Number(ele))) {
-      result.push(Number(ele));
+// var FilterString = function (value) {
+//   const result = [];
+//   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+//   for (let ele of value) {
+//     if (numbers.includes(Number(ele))) {
+//       result.push(Number(ele));
+//     }
+//   }
+//   return Number(result.join(""));
+// };
+
+// console.log(FilterString("123")); //, 123, 'Just return the numbers');
+// console.log(FilterString("a1b2c3")); //, 123, 'Just return the numbers');
+// console.log(FilterString("aa1bb2cc3dd")); //, 123, 'Just return the numbers');
+
+const areThereDuplicates = (...args) => {
+  let sorted = args.sort();
+  console.log(sorted, "SORTED");
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] === sorted[i + 1]) {
+      return true;
     }
   }
-  return Number(result.join(""));
+  return false;
 };
 
-console.log(FilterString("123")); //, 123, 'Just return the numbers');
-console.log(FilterString("a1b2c3")); //, 123, 'Just return the numbers');
-console.log(FilterString("aa1bb2cc3dd")); //, 123, 'Just return the numbers');
+console.log(areThereDuplicates(1, 2, 3, 3));
+console.log(areThereDuplicates("a", "b", "c", "a"));
