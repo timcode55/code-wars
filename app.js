@@ -826,11 +826,25 @@
 
 // console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2));
 
-function diffBig2(arr) {
-  let sorted = arr.sort((a, b) => a - b);
-  return sorted[arr.length - 1] - sorted[arr.length - 2];
-}
+// function diffBig2(arr) {
+//   let sorted = arr.sort((a, b) => a - b);
+//   return sorted[arr.length - 1] - sorted[arr.length - 2];
+// }
 
-console.log(diffBig2([2, 1])); //, 1);
-console.log(diffBig2([8, 3, 1])); //, 5);
-console.log(diffBig2([1, 8, 3])); //, 5);
+// console.log(diffBig2([2, 1])); //, 1);
+// console.log(diffBig2([8, 3, 1])); //, 5);
+// console.log(diffBig2([1, 8, 3])); //, 5);
+var FilterString = function (value) {
+  const result = [];
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  for (let ele of value) {
+    if (numbers.includes(Number(ele))) {
+      result.push(Number(ele));
+    }
+  }
+  return Number(result.join(""));
+};
+
+console.log(FilterString("123")); //, 123, 'Just return the numbers');
+console.log(FilterString("a1b2c3")); //, 123, 'Just return the numbers');
+console.log(FilterString("aa1bb2cc3dd")); //, 123, 'Just return the numbers');
