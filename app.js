@@ -856,16 +856,32 @@
 // console.log(areThereDuplicates(1, 2, 3, 3));
 // console.log(areThereDuplicates("a", "b", "c", "a"));
 
-function isSubsequence(a, b) {
-  let index = 0;
-  for (let i = 0; i < a.length; i++) {
-    let updateIndex = b.indexOf(a[i], index);
-    if (updateIndex === -1) {
-      return false;
+// function isSubsequence(a, b) {
+//   let index = 0;
+//   for (let i = 0; i < a.length; i++) {
+//     let updateIndex = b.indexOf(a[i], index);
+//     if (updateIndex === -1) {
+//       return false;
+//     }
+//     index = updateIndex;
+//   }
+//   return true;
+// }
+
+// console.log(isSubsequence("hello", "hello world"));
+
+function productOfArray(array) {
+  let result = 1;
+  function product(arr) {
+    if (arr.length === 0) {
+      return;
     }
-    index = updateIndex;
+    result *= arr[0];
+    product(arr.slice(1));
   }
-  return true;
+
+  product(array);
+  return result;
 }
 
-console.log(isSubsequence("hello", "hello world"));
+console.log(productOfArray([1, 2, 3]));
