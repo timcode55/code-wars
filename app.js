@@ -870,18 +870,39 @@
 
 // console.log(isSubsequence("hello", "hello world"));
 
-function productOfArray(array) {
-  let result = 1;
-  function product(arr) {
-    if (arr.length === 0) {
+// function productOfArray(array) {
+//   let result = 1;
+//   function product(arr) {
+//     if (arr.length === 0) {
+//       return;
+//     }
+//     result *= arr[0];
+//     product(arr.slice(1));
+//   }
+
+//   product(array);
+//   return result;
+// }
+
+// console.log(productOfArray([1, 2, 3]));
+
+function reverse(str) {
+  let result = "";
+  let array = str.split("");
+  console.log(array, "ARRAY");
+  function revString(string) {
+    console.log(array, "STRING");
+    if (string.length === 0) {
       return;
     }
-    result *= arr[0];
-    product(arr.slice(1));
+    result += string[string.length - 1];
+    console.log(result, "RESULT");
+    // string.pop();
+    revString(string.slice(0, -1));
   }
 
-  product(array);
+  revString(array);
   return result;
 }
 
-console.log(productOfArray([1, 2, 3]));
+console.log(reverse("awesome"));
