@@ -886,23 +886,55 @@
 
 // console.log(productOfArray([1, 2, 3]));
 
-function reverse(str) {
-  let result = "";
-  let array = str.split("");
-  console.log(array, "ARRAY");
-  function revString(string) {
-    console.log(array, "STRING");
-    if (string.length === 0) {
-      return;
+// function reverse(str) {
+//   let result = "";
+//   let array = str.split("");
+//   function revString(string) {
+//     if (string.length === 0) {
+//       return;
+//     }
+//     result += string[string.length - 1];
+//     revString(string.slice(0, -1));
+//   }
+
+//   revString(array);
+//   return result;
+// }
+
+// console.log(reverse("awesome"));
+
+// function isPalindrome(string) {
+//   let result = "";
+//   let array = string.split("");
+
+//   function testPal(arr) {
+//     if (arr.length === 0) {
+//       return;
+//     }
+//     result += arr[arr.length - 1];
+//     testPal(arr.slice(0, -1));
+//   }
+
+//   testPal(array);
+//   return result === string;
+// }
+
+// console.log(isPalindrome("awesome"));
+// console.log(isPalindrome("tacocat"));
+
+function firstRecurring(array) {
+  let obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!obj[array[i]]) {
+      obj[array[i]] = 1;
+    } else {
+      return array[i];
     }
-    result += string[string.length - 1];
-    console.log(result, "RESULT");
-    // string.pop();
-    revString(string.slice(0, -1));
   }
 
-  revString(array);
-  return result;
+  return undefined;
 }
 
-console.log(reverse("awesome"));
+console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
+console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
+console.log(firstRecurring([2, 3, 4, 5]));
