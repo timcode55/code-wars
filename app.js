@@ -922,19 +922,68 @@
 // console.log(isPalindrome("awesome"));
 // console.log(isPalindrome("tacocat"));
 
-function firstRecurring(array) {
-  let obj = {};
-  for (let i = 0; i < array.length; i++) {
-    if (!obj[array[i]]) {
-      obj[array[i]] = 1;
-    } else {
-      return array[i];
-    }
-  }
+// function firstRecurring(array) {
+//   let obj = {};
+//   for (let i = 0; i < array.length; i++) {
+//     if (!obj[array[i]]) {
+//       obj[array[i]] = 1;
+//     } else {
+//       return array[i];
+//     }
+//   }
 
-  return undefined;
+//   return undefined;
+// }
+
+// console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
+// console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
+// console.log(firstRecurring([2, 3, 4, 5]));
+// const isOdd = (val) => val % 2 !== 0;
+
+// function someRecursive(array, callback) {
+//   if (array.length === 0) return false;
+//   if (callback(array[0])) return true;
+//   return someRecursive(array.slice(1), callback);
+// }
+
+// console.log(someRecursive([1, 2, 3, 4], isOdd)); // true
+// console.log(someRecursive([4, 6, 8, 9], isOdd)); // true
+// console.log(someRecursive([4, 6, 8], isOdd)); // false
+// console.log(someRecursive([4, 6, 8], (val) => val > 10)); // false
+// function flatten(oldArr) {
+//   var newArr = [];
+//   for (var i = 0; i < oldArr.length; i++) {
+//     if (Array.isArray(oldArr[i])) {
+//       newArr = newArr.concat(flatten(oldArr[i]));
+//     } else {
+//       newArr.push(oldArr[i]);
+//     }
+//   }
+//   return newArr;
+// }
+
+// console.log(flatten([1, 2, 3, [4, 5]])); // [1, 2, 3, 4, 5]
+// console.log(flatten([1, [2, [3, 4], [[5]]]])); // [1, 2, 3, 4, 5]
+// console.log(flatten([[1], [2], [3]])); // [1,2,3]
+// console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])); // [1,2,3
+function binarySearch(array, val) {
+  let min = 0;
+  let max = array.length - 1;
+  let middle = Math.floor((max + min) / 2);
+  while (array[middle] !== val && min <= max) {
+    if (val < array[middle]) max = middle - 1;
+    else min = middle + 1;
+    middle = Math.floor((min + max) / 2);
+  }
+  return array[middle] === val ? middle : -1;
 }
 
-console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
-console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
-console.log(firstRecurring([2, 3, 4, 5]));
+console.log(
+  binarySearch(
+    [
+      5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98,
+      99
+    ],
+    84
+  )
+);
