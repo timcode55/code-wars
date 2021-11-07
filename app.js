@@ -966,24 +966,43 @@
 // console.log(flatten([1, [2, [3, 4], [[5]]]])); // [1, 2, 3, 4, 5]
 // console.log(flatten([[1], [2], [3]])); // [1,2,3]
 // console.log(flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])); // [1,2,3
-function binarySearch(array, val) {
-  let min = 0;
-  let max = array.length - 1;
-  let middle = Math.floor((max + min) / 2);
-  while (array[middle] !== val && min <= max) {
-    if (val < array[middle]) max = middle - 1;
-    else min = middle + 1;
-    middle = Math.floor((min + max) / 2);
-  }
-  return array[middle] === val ? middle : -1;
-}
+// function binarySearch(array, val) {
+//   let min = 0;
+//   let max = array.length - 1;
+//   let middle = Math.floor((max + min) / 2);
+//   while (array[middle] !== val && min <= max) {
+//     if (val < array[middle]) max = middle - 1;
+//     else min = middle + 1;
+//     middle = Math.floor((min + max) / 2);
+//   }
+//   return array[middle] === val ? middle : -1;
+// }
 
-console.log(
-  binarySearch(
-    [
-      5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98,
-      99
-    ],
-    84
-  )
-);
+// console.log(
+//   binarySearch(
+//     [
+//       5, 6, 10, 13, 14, 18, 30, 34, 35, 37, 40, 44, 64, 79, 84, 86, 95, 96, 98,
+//       99
+//     ],
+//     84
+//   )
+// );
+const nums = [1, 2, 3, 1, 1, 3];
+
+var numIdenticalPairs = function (nums) {
+  let count = 0;
+  function recurse(array) {
+    if (array.length === 0) return;
+    let idx = array.indexOf(array[0], 1);
+    while (idx !== -1) {
+      count++;
+      idx = array.indexOf(array[0], idx + 1);
+    }
+
+    recurse(array.slice(1));
+  }
+  recurse(nums);
+  return count;
+};
+
+console.log(numIdenticalPairs(nums));
