@@ -987,22 +987,111 @@
 //     84
 //   )
 // );
-const nums = [1, 2, 3, 1, 1, 3];
+// const nums = [1, 2, 3, 1, 1, 3];
 
-var numIdenticalPairs = function (nums) {
+// var numIdenticalPairs = function (nums) {
+//   let count = 0;
+//   function recurse(array) {
+//     if (array.length === 0) return;
+//     let idx = array.indexOf(array[0], 1);
+//     while (idx !== -1) {
+//       count++;
+//       idx = array.indexOf(array[0], idx + 1);
+//     }
+
+//     recurse(array.slice(1));
+//   }
+//   recurse(nums);
+//   return count;
+// };
+
+// console.log(numIdenticalPairs(nums));
+// const jewels = "zZ",
+//   stones = "ZZ";
+// var numJewelsInStones = function (jewels, stones) {
+//   let count = 0;
+//   function recurse(array1, array2) {
+//     console.log(array1, "ARRAY1");
+//     if (array1.length === 0) return;
+//     let idx = array2.indexOf(array1[0]);
+//     while (idx !== -1) {
+//       console.log(idx, "IDX");
+//       count++;
+//       idx = array2.indexOf(array1[0], idx + 1);
+//     }
+
+//     recurse(array1.slice(1), array2);
+//   }
+//   recurse(jewels, stones);
+//   return count;
+// };
+
+// var numJewelsInStones = function (jewels, stones) {
+//   const result = {};
+//   for (let i = 0; i < stones.length; i++) {
+//     if (!result[stones[i]]) {
+//       result[stones[i]] = 1;
+//     } else {
+//       result[stones[i]]++;
+//     }
+//   }
+//   let count = 0;
+//   jewels.split("").forEach((item) => {
+//     if (!result[item]) return 0;
+//     count += result[item];
+//   });
+//   return count;
+// };
+
+// console.log(numJewelsInStones(jewels, stones));
+
+// const nums = [8, 1, 2, 2, 3];
+// var smallerNumbersThanCurrent = function (nums) {
+//   let result = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     let count = 0;
+//     for (let j = 0; j < nums.length; j++) {
+//       if (nums[j] < nums[i]) {
+//         count++;
+//       }
+//     }
+//     result.push(count);
+//   }
+//   return result;
+// };
+
+// console.log(smallerNumbersThanCurrent(nums));
+const allowed = "abc";
+const words = ["a", "b", "c", "ab", "ac", "bc", "abc"];
+var countConsistentStrings = function (allowed, words) {
   let count = 0;
-  function recurse(array) {
-    if (array.length === 0) return;
-    let idx = array.indexOf(array[0], 1);
-    while (idx !== -1) {
-      count++;
-      idx = array.indexOf(array[0], idx + 1);
+  for (let i = 0; i < words.length; i++) {
+    let addOne = true;
+    for (let j = 0; j < words[i].length; j++) {
+      if (allowed.indexOf(words[i][j]) === -1) {
+        addOne = false;
+      }
     }
-
-    recurse(array.slice(1));
+    if (addOne) {
+      count++;
+    }
   }
-  recurse(nums);
+
   return count;
 };
 
-console.log(numIdenticalPairs(nums));
+console.log(
+  countConsistentStrings("fstqyienx", [
+    "n",
+    "eeitfns",
+    "eqqqsfs",
+    "i",
+    "feniqis",
+    "lhoa",
+    "yqyitei",
+    "sqtn",
+    "kug",
+    "z",
+    "neqqis"
+  ])
+);
