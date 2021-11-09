@@ -1061,37 +1061,116 @@
 // };
 
 // console.log(smallerNumbersThanCurrent(nums));
-const allowed = "abc";
-const words = ["a", "b", "c", "ab", "ac", "bc", "abc"];
-var countConsistentStrings = function (allowed, words) {
-  let count = 0;
-  for (let i = 0; i < words.length; i++) {
-    let addOne = true;
-    for (let j = 0; j < words[i].length; j++) {
-      if (allowed.indexOf(words[i][j]) === -1) {
-        addOne = false;
+// const allowed = "abc";
+// const words = ["a", "b", "c", "ab", "ac", "bc", "abc"];
+// var countConsistentStrings = function (allowed, words) {
+//   let count = 0;
+//   for (let i = 0; i < words.length; i++) {
+//     let addOne = true;
+//     for (let j = 0; j < words[i].length; j++) {
+//       if (allowed.indexOf(words[i][j]) === -1) {
+//         addOne = false;
+//       }
+//     }
+//     if (addOne) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// };
+
+// console.log(
+//   countConsistentStrings("fstqyienx", [
+//     "n",
+//     "eeitfns",
+//     "eqqqsfs",
+//     "i",
+//     "feniqis",
+//     "lhoa",
+//     "yqyitei",
+//     "sqtn",
+//     "kug",
+//     "z",
+//     "neqqis"
+//   ])
+// );
+
+// var checkIfPangram = function (sentence) {
+//   const letters = [
+//     "a",
+//     "b",
+//     "c",
+//     "d",
+//     "e",
+//     "f",
+//     "g",
+//     "h",
+//     "i",
+//     "j",
+//     "k",
+//     "l",
+//     "m",
+//     "n",
+//     "o",
+//     "p",
+//     "q",
+//     "r",
+//     "s",
+//     "t",
+//     "u",
+//     "v",
+//     "w",
+//     "x",
+//     "y",
+//     "z"
+//   ];
+//   for (let i = 0; i < sentence.length; i++) {
+//     if (letters.includes(sentence[i])) {
+//       letters.splice(letters.indexOf(sentence[i]), 1);
+//     }
+//   }
+//   if (letters.length === 0) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };
+
+// console.log(checkIfPangram("thequickbrownfoxjumpsoverthelazydog"));
+// console.log(checkIfPangram("leetcode"));
+
+// var firstUniqChar = function (s) {
+//   for (i = 0; i < s.length; i++) {
+//     if (s.indexOf(s[i]) === s.lastIndexOf(s[i])) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// };
+
+// console.log(firstUniqChar("leetcode"));
+// console.log(firstUniqChar("loveleetcode"));
+// console.log(firstUniqChar("aabb"));
+
+function bubbleSort(array) {
+  const result = [];
+  function recurse(arr) {
+    console.log(arr, "ARR");
+    if (arr.length === 0) return;
+    let max = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i];
       }
     }
-    if (addOne) {
-      count++;
-    }
+    result.unshift(max);
+    arr.splice(arr.indexOf(max), 1);
+    console.log(arr, "ARR");
+    recurse(arr);
   }
+  recurse(array);
+  return result;
+}
 
-  return count;
-};
-
-console.log(
-  countConsistentStrings("fstqyienx", [
-    "n",
-    "eeitfns",
-    "eqqqsfs",
-    "i",
-    "feniqis",
-    "lhoa",
-    "yqyitei",
-    "sqtn",
-    "kug",
-    "z",
-    "neqqis"
-  ])
-);
+console.log(bubbleSort([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]));
