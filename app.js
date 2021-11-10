@@ -1174,24 +1174,55 @@
 
 // console.log(bubbleSort([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]));
 
-const s = "is2 sentence4 This1 a3";
-var sortSentence = function (s) {
-  let split = s.split(" ");
-  let result = Array(split.length);
-  let object = {};
-  console.log(result);
-  for (let i = 0; i < split.length; i++) {
-    let toArray = split[i].split("");
-    // console.log(Number(toArray.pop()), "TOARRAY");
-    // result.splice(Number(toArray.pop()), 0, split[i]);
-    // console.log(result, "RESULT");
+// const s = "is2 sentence4 This1 a3";
+// var sortSentence = function (s) {
+//   let split = s.split(" ");
+//   let object = {};
+//   for (let i = 0; i < split.length; i++) {
+//     let toArray = split[i].split("");
+//     object[toArray.pop()] = split[i].slice(0, split[i].length - 1);
+//   }
+//   return Object.values(object).join(" ");
+// };
 
-    object[toArray.pop()] = split[i].slice(0, split[i].length - 1);
-    console.log(object, "OBJECT");
-    // result[1] = split[i];
-    // console.log(result[Number(toArray.pop())], "result add");
+// console.log(sortSentence(s));
+// function fizzBuzz(n) {
+//   for (let i = 1; i <= n; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) console.log("fizzbuzz");
+//     else if (i % 3 === 0) console.log("fizz");
+//     else if (i % 5 === 0) console.log("buzz");
+//     else console.log(i);
+//   }
+// }
+
+// console.log(fizzBuzz(20));
+
+//   capitalize('a short sentence') --> 'A Short Sentence'
+//   capitalize('a lazy fox') --> 'A Lazy Fox'
+//   capitalize('look, it is working!') --> 'Look, It Is Working!'
+
+// function capitalize(str) {
+//   let array = str.split(" ");
+//   let result = [];
+//   for (let i = 0; i < array.length; i++) {
+//     let temp = array[i][0].toUpperCase();
+//     let string = "";
+//     result.push((string += temp += array[i].slice(1)));
+//   }
+//   return result.join(" ");
+// }
+
+// console.log(capitalize("a short sentence"));
+// console.log(capitalize("a lazy fox"));
+// console.log(capitalize("I Love Breakfast At Bill Miller Bbq"));
+var mySqrt = function (x) {
+  if (x === 0) return 0;
+  for (let i = 0; i <= x; i++) {
+    if (i * i === x) return i;
+    if (i * i > x) return i - 1;
   }
-  return Object.values(object).join(" ");
 };
 
-console.log(sortSentence(s));
+console.log(mySqrt(1));
+console.log(mySqrt(0));
+console.log(mySqrt(8));
