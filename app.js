@@ -1153,24 +1153,45 @@
 // console.log(firstUniqChar("loveleetcode"));
 // console.log(firstUniqChar("aabb"));
 
-function bubbleSort(array) {
-  const result = [];
-  function recurse(arr) {
-    console.log(arr, "ARR");
-    if (arr.length === 0) return;
-    let max = 0;
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] > max) {
-        max = array[i];
-      }
-    }
-    result.unshift(max);
-    arr.splice(arr.indexOf(max), 1);
-    console.log(arr, "ARR");
-    recurse(arr);
-  }
-  recurse(array);
-  return result;
-}
+// function bubbleSort(array) {
+//   const result = [];
+//   function recurse(arr) {
+//     console.log(arr, "ARR");
+//     if (arr.length === 0) return;
+//     let max = 0;
+//     for (let i = 0; i < array.length; i++) {
+//       if (array[i] > max) {
+//         max = array[i];
+//       }
+//     }
+//     result.unshift(max);
+//     arr.splice(arr.indexOf(max), 1);
+//     recurse(arr);
+//   }
+//   recurse(array);
+//   return result;
+// }
 
-console.log(bubbleSort([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]));
+// console.log(bubbleSort([99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]));
+
+const s = "is2 sentence4 This1 a3";
+var sortSentence = function (s) {
+  let split = s.split(" ");
+  let result = Array(split.length);
+  let object = {};
+  console.log(result);
+  for (let i = 0; i < split.length; i++) {
+    let toArray = split[i].split("");
+    // console.log(Number(toArray.pop()), "TOARRAY");
+    // result.splice(Number(toArray.pop()), 0, split[i]);
+    // console.log(result, "RESULT");
+
+    object[toArray.pop()] = split[i].slice(0, split[i].length - 1);
+    console.log(object, "OBJECT");
+    // result[1] = split[i];
+    // console.log(result[Number(toArray.pop())], "result add");
+  }
+  return Object.values(object).join(" ");
+};
+
+console.log(sortSentence(s));
