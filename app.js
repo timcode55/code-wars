@@ -1227,13 +1227,16 @@
 // console.log(mySqrt(0));
 // console.log(mySqrt(8));
 
-function reverse(str) {
-  let reversed = "";
-  for (let char of str) {
-    reversed = char + reversed;
-    console.log(reversed, "REVERSED");
+function reverseInt(n) {
+  if (n < 0) {
+    return Number(n.toString().split("").slice(1).reverse().join("")) * -1;
+  } else {
+    return Number(n.toString().split("").reverse().join(""));
   }
-  return reversed;
 }
 
-console.log(reverse("testingone"));
+console.log(reverseInt(15)); // === 51
+console.log(reverseInt(981)); //=== 189
+console.log(reverseInt(500)); // === 5
+console.log(reverseInt(-15)); // === -51
+console.log(reverseInt(-90)); // === -9
