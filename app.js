@@ -1215,14 +1215,25 @@
 // console.log(capitalize("a short sentence"));
 // console.log(capitalize("a lazy fox"));
 // console.log(capitalize("I Love Breakfast At Bill Miller Bbq"));
-var mySqrt = function (x) {
-  if (x === 0) return 0;
-  for (let i = 0; i <= x; i++) {
-    if (i * i === x) return i;
-    if (i * i > x) return i - 1;
-  }
-};
+// var mySqrt = function (x) {
+//   if (x === 0) return 0;
+//   for (let i = 0; i <= x; i++) {
+//     if (i * i === x) return i;
+//     if (i * i > x) return i - 1;
+//   }
+// };
 
-console.log(mySqrt(1));
-console.log(mySqrt(0));
-console.log(mySqrt(8));
+// console.log(mySqrt(1));
+// console.log(mySqrt(0));
+// console.log(mySqrt(8));
+
+function reverse(str) {
+  let reversed = "";
+  for (let char of str) {
+    reversed = char + reversed;
+    console.log(reversed, "REVERSED");
+  }
+  return reversed;
+}
+
+console.log(reverse("testingone"));
