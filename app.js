@@ -1227,16 +1227,93 @@
 // console.log(mySqrt(0));
 // console.log(mySqrt(8));
 
-function reverseInt(n) {
-  if (n < 0) {
-    return Number(n.toString().split("").slice(1).reverse().join("")) * -1;
-  } else {
-    return Number(n.toString().split("").reverse().join(""));
-  }
-}
+// function reverseInt(n) {
+//   if (n < 0) {
+//     return Number(n.toString().split("").slice(1).reverse().join("")) * -1;
+//   } else {
+//     return Number(n.toString().split("").reverse().join(""));
+//   }
+// }
 
-console.log(reverseInt(15)); // === 51
-console.log(reverseInt(981)); //=== 189
-console.log(reverseInt(500)); // === 5
-console.log(reverseInt(-15)); // === -51
-console.log(reverseInt(-90)); // === -9
+// console.log(reverseInt(15)); // === 51
+// console.log(reverseInt(981)); //=== 189
+// console.log(reverseInt(500)); // === 5
+// console.log(reverseInt(-15)); // === -51
+// console.log(reverseInt(-90)); // === -9
+
+// function maxChar(str) {
+//   let object = {};
+//   for (let ele of str) {
+//     object[ele] = object[ele] + 1 || 1;
+//   }
+//   console.log(object);
+//   let maxValue = Math.max(...Object.values(object));
+
+//   for (let item in object) {
+//     if (object[item] === maxValue) {
+//       return item;
+//     }
+//   }
+// }
+
+// console.log(maxChar("abcccccccd")); // === "c"
+// console.log(maxChar("apple 1231111")); // === "1"
+
+// function chunk(array, size) {
+//   let final = [];
+//   let pushArray = [];
+//   for (let i = 0; i < array.length; i++) {
+//     if (pushArray.length === 2) {
+//       final.push(pushArray);
+//       pushArray = [];
+//     }
+//     pushArray.push(array[i]);
+//     // final.push(pushArray);
+//     // pushArray = [];
+//   }
+//   return final;
+// }
+
+// console.log(chunk([1, 2, 3, 4], 2)); // --> [[ 1, 2], [3, 4]])
+// console.log(chunk([1, 2, 3, 4, 5], 2)); // --> [[ 1, 2], [3, 4], [5]])
+// console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8], 3)); //--> [[ 1, 2, 3], [4, 5, 6], [7, 8]])
+// console.log(chunk([1, 2, 3, 4, 5], 4)); // --> [[ 1, 2, 3, 4], [5]])
+// console.log(chunk([1, 2, 3, 4, 5], 10)); //--> [[ 1, 2, 3, 4, 5]])
+// const nums = [2, 2, 3];
+// var singleNumber = function (nums) {
+//   // if (nums.length === 1) return nums[0];
+//   // for (let i = 0; i < nums.length; i++) {
+//   //   if (nums.indexOf(nums[i]) === nums.lastIndexOf(nums[i])) {
+//   //     return nums[i];
+//   //   }
+//   // }
+//   const result = {};
+//   for (let i = 0; i < nums.length; i++) {
+//     result[nums[i]] = result[nums[i]] + 1 || 1;
+//   }
+//   console.log(result);
+//   for (let ele in result) {
+//     if (result[ele] === 1) {
+//       return ele;
+//     }
+//   }
+// };
+
+// console.log(singleNumber(nums));
+
+var moveZeroes = function (nums) {
+  let a = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[a] = nums[i];
+    }
+    if (i !== a) {
+      nums[i] = 0;
+    }
+    a++;
+  }
+  return nums;
+};
+
+console.log(moveZeroes([0, 1, 0, 3, 12]));
+console.log(moveZeroes([0, 0, 1]));
