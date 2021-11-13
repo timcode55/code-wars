@@ -1339,24 +1339,100 @@
 // }
 
 // console.log(countUniqueValues([1, 2]));
-const s = "anagram",
-  t = "nagaram";
-var isAnagram = function (s, t) {
-  if (s.length !== t.length) {
-    return false;
-  }
-  let object = {};
-  for (let item of s) {
-    object[item] ? (object[item] += 1) : (object[item] = 1);
-  }
-  for (let item of t) {
-    if (!object[item]) {
-      return false;
-    } else {
-      object[item] -= 1;
-    }
-  }
-  return true;
-};
+// const s = "anagram",
+//   t = "nagaram";
+// var isAnagram = function (s, t) {
+//   if (s.length !== t.length) {
+//     return false;
+//   }
+//   let object = {};
+//   for (let item of s) {
+//     object[item] ? (object[item] += 1) : (object[item] = 1);
+//   }
+//   for (let item of t) {
+//     if (!object[item]) {
+//       return false;
+//     } else {
+//       object[item] -= 1;
+//     }
+//   }
+//   return true;
+// };
 
-console.log(isAnagram(s, t));
+// console.log(isAnagram(s, t));
+// const nums1 = [1, 2, 2, 1];
+// const nums2 = [2];
+// var intersect = function (nums1, nums2) {
+//   if (nums1.length === 0 || nums2.length === 0) return null;
+//   for (let i = 0; i < nums1.length; i++) {
+//     console.log(i, nums1[i], "I");
+//     if (!nums2.includes(nums1[i])) {
+//       nums1.splice(i, 1);
+//     } else {
+//       console.log(nums2.indexOf(nums1[i]), "nums2indewx");
+//       nums2.splice(nums2.indexOf(nums1[i]), 1);
+//     }
+//     console.log(nums2, "NUMS2");
+//     console.log(nums1, "NUMS1");
+//   }
+//   return nums1;
+// };
+
+// console.log(intersect(nums1, nums2));
+
+//   matrix(2)
+//     [[1, 2],
+//     [4, 3]]
+//   matrix(3)
+//     [[1, 2, 3],
+//     [8, 9, 4],
+//     [7, 6, 5]]
+//  matrix(4)
+//     [[1,   2,  3, 4],
+//     [12, 13, 14, 5],
+//     [11, 16, 15, 6],
+//     [10,  9,  8, 7]]
+
+function matrix(n) {
+  const result = [];
+
+  for (let i = 0; i < n; i++) {
+    result.push([]);
+  }
+  let counter = 1;
+  let startRow = 0;
+  let endRow = n - 1;
+  let startColumn = 0;
+  let endColumn = n - 1;
+
+  while (startColumn <= endColumn && startRow <= endRow) {
+    for (let i = startColumn; i <= endColumn; i++) {
+      result[startRow][i] = counter;
+      counter++;
+    }
+    startRow++;
+
+    for (let i = startRow; i <= endRow; i++) {
+      result[i][endColumn] = counter;
+      counter++;
+    }
+    endColumn--;
+
+    for (let i = endColumn; i >= startColumn; i--) {
+      result[endRow][i] = counter;
+      counter++;
+    }
+    endRow--;
+
+    for (let i = endRow; i >= startRow; i--) {
+      result[i][startColumn] = counter;
+      counter++;
+    }
+    startColumn++;
+  }
+  return result;
+}
+
+console.log(matrix(2));
+console.log(matrix(3));
+console.log(matrix(4));
