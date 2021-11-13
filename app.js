@@ -1301,19 +1301,62 @@
 
 // console.log(singleNumber(nums));
 
-var moveZeroes = function (nums) {
-  let a = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      nums[a] = nums[i];
-    }
-    if (i !== a) {
-      nums[i] = 0;
-    }
-    a++;
+// var moveZeroes = function (nums) {
+//   let a = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] === 0) nums.splice(i, 1);
+//     nums.push(0);
+//   }
+//   return nums;
+// };
+
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
+// console.log(moveZeroes([0, 0, 1]));
+
+// function steps(n) {
+//   let array = Array(2 * n - 1).fill(" ");
+//   let row = 0;
+//   for (let i = 1; i <= n; i++) {
+//     let middle = Math.floor(array.length / 2);
+//     array[middle] = "#";
+//     array[middle - row] = "#";
+//     array[middle + row] = "#";
+//     console.log(array.join(""));
+//     row++;
+//   }
+// }
+
+// console.log(steps(3));
+
+// function countUniqueValues(array) {
+//   let count = 1;
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] < array[i + 1]) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countUniqueValues([1, 2]));
+const s = "anagram",
+  t = "nagaram";
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) {
+    return false;
   }
-  return nums;
+  let object = {};
+  for (let item of s) {
+    object[item] ? (object[item] += 1) : (object[item] = 1);
+  }
+  for (let item of t) {
+    if (!object[item]) {
+      return false;
+    } else {
+      object[item] -= 1;
+    }
+  }
+  return true;
 };
 
-console.log(moveZeroes([0, 1, 0, 3, 12]));
-console.log(moveZeroes([0, 0, 1]));
+console.log(isAnagram(s, t));
