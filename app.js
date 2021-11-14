@@ -1393,46 +1393,122 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {
-  const result = [];
+// function matrix(n) {
+//   const result = [];
 
-  for (let i = 0; i < n; i++) {
-    result.push([]);
+//   for (let i = 0; i < n; i++) {
+//     result.push([]);
+//   }
+//   let counter = 1;
+//   let startRow = 0;
+//   let endRow = n - 1;
+//   let startColumn = 0;
+//   let endColumn = n - 1;
+
+//   while (startColumn <= endColumn && startRow <= endRow) {
+//     for (let i = startColumn; i <= endColumn; i++) {
+//       result[startRow][i] = counter;
+//       counter++;
+//     }
+//     startRow++;
+
+//     for (let i = startRow; i <= endRow; i++) {
+//       result[i][endColumn] = counter;
+//       counter++;
+//     }
+//     endColumn--;
+
+//     for (let i = endColumn; i >= startColumn; i--) {
+//       result[endRow][i] = counter;
+//       counter++;
+//     }
+//     endRow--;
+
+//     for (let i = endRow; i >= startRow; i--) {
+//       result[i][startColumn] = counter;
+//       counter++;
+//     }
+//     startColumn++;
+//   }
+//   return result;
+// }
+
+// console.log(matrix(2));
+// console.log(matrix(3));
+// console.log(matrix(4));
+// let calculations = 0;
+// function fibonacci(n) {
+//   //O(2^n)
+
+//   if (n < 2) {
+//     return n;
+//   }
+//   return fibonacci(n - 1) + fibonacci(n - 2);
+// }
+
+// function fibonacciMaster() {
+//   //O(n)
+//   let cache = {};
+//   return function fib(n) {
+//     calculations++;
+//     if (n in cache) {
+//       return cache[n];
+//     } else {
+//       if (n < 2) {
+//         return n;
+//       } else {
+//         cache[n] = fib(n - 1) + fib(n - 2);
+//         return cache[n];
+//       }
+//     }
+//   };
+// }
+
+// console.log(fibonacci(40), "slow");
+// const memo = fibonacciMaster();
+// console.log(memo(40), "memo");
+
+class Queue {
+  constructor() {
+    this.data = [];
   }
-  let counter = 1;
-  let startRow = 0;
-  let endRow = n - 1;
-  let startColumn = 0;
-  let endColumn = n - 1;
-
-  while (startColumn <= endColumn && startRow <= endRow) {
-    for (let i = startColumn; i <= endColumn; i++) {
-      result[startRow][i] = counter;
-      counter++;
-    }
-    startRow++;
-
-    for (let i = startRow; i <= endRow; i++) {
-      result[i][endColumn] = counter;
-      counter++;
-    }
-    endColumn--;
-
-    for (let i = endColumn; i >= startColumn; i--) {
-      result[endRow][i] = counter;
-      counter++;
-    }
-    endRow--;
-
-    for (let i = endRow; i >= startRow; i--) {
-      result[i][startColumn] = counter;
-      counter++;
-    }
-    startColumn++;
+  add(record) {
+    this.data.unshift(record);
   }
-  return result;
+  remove(record) {
+    return this.data.pop(record);
+  }
+  peek() {
+    return this.data[this.data.length - 1];
+  }
 }
 
-console.log(matrix(2));
-console.log(matrix(3));
-console.log(matrix(4));
+const s1 = new Queue();
+const s2 = new Queue();
+s1.add("a");
+s1.add("b");
+s2.add(1);
+s2.add(2);
+console.log(s1);
+console.log(s2);
+function weave(s1, s2) {
+  let combined = new Queue();
+  while (s1.peek() || s2.peek()) {
+    if (s1.peek()) {
+      combined.add(s1.remove());
+    }
+    if (s2.peek()) {
+      combined.add(s2.remove());
+    }
+  }
+  return combined;
+}
+
+console.log(weave(s1, s2));
+const line = new Queue();
+// console.log(line);
+line.add("john");
+line.add("sochin");
+line.add("mark");
+// console.log(line);
+line.remove();
