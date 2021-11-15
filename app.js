@@ -450,25 +450,28 @@
 // console.log(partsSums([ 744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358 ])); //,
 // //[10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]);
 
-// var moveZeros = function(arr) {
-// 	let result = [];
-// 	let count = 0;
-// 	for (let item of arr) {
-// 		if (item === 0) {
-// 			count++;
-// 		} else {
-// 			result.push(item);
-// 		}
-// 	}
+// var moveZeros = function (arr) {
+//   let result = [];
+//   let count = 0;
+//   for (let item of arr) {
+//     if (item === 0) {
+//       count++;
+//     } else {
+//       result.push(item);
+//     }
+//   }
 
-// 	return result.concat(Array(count).fill(0));
+//   return result.concat(Array(count).fill(0));
 // };
 
-// var moveZeros = function(arr) {
-// 	return arr.filter((item) => item !== 0).concat(arr.filter((item) => item === 0));
+// var moveZeros = function (arr) {
+//   return arr
+//     .filter((item) => item !== 0)
+//     .concat(arr.filter((item) => item === 0));
 // };
 
-// console.log(moveZeros([ 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 ])); //,
+// console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); //,
+// console.log(moveZeros([0, 1, 0, 3, 12])); //,
 //JSON.stringify([ 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 ])
 
 // function broken(x) {
@@ -1468,47 +1471,104 @@
 // const memo = fibonacciMaster();
 // console.log(memo(40), "memo");
 
-class Queue {
-  constructor() {
-    this.data = [];
+// class Queue {
+//   constructor() {
+//     this.data = [];
+//   }
+//   add(record) {
+//     this.data.unshift(record);
+//   }
+//   remove(record) {
+//     return this.data.pop(record);
+//   }
+//   peek() {
+//     return this.data[this.data.length - 1];
+//   }
+// }
+
+// const s1 = new Queue();
+// const s2 = new Queue();
+// s1.add("a");
+// s1.add("b");
+// s2.add(1);
+// s2.add(2);
+// console.log(s1);
+// console.log(s2);
+// function weave(s1, s2) {
+//   let combined = new Queue();
+//   while (s1.peek() || s2.peek()) {
+//     if (s1.peek()) {
+//       combined.add(s1.remove());
+//     }
+//     if (s2.peek()) {
+//       combined.add(s2.remove());
+//     }
+//   }
+//   return combined;
+// }
+
+// console.log(weave(s1, s2));
+// const line = new Queue();
+// // console.log(line);
+// line.add("john");
+// line.add("sochin");
+// line.add("mark");
+// // console.log(line);
+// line.remove();
+
+// You shouldn't need to modify this class
+// class Node {
+//   constructor(data) {
+//     this.data = data;
+//     this.children = [];
+//   }
+
+//   add(data) {
+//     this.children.push(new Node(data));
+//   }
+// }
+
+// function levelWidth(root) {
+//   const arr = [root, "s"];
+//   const counters = [0];
+
+//   while (arr.length > 1) {
+//     const node = arr.shift();
+
+//     if (node === "s") {
+//       counters.push(0);
+//       arr.push("s");
+//     } else {
+//       arr.push(...node.children);
+//       counters[counters.length - 1]++;
+//     }
+//   }
+
+//   return counters;
+// }
+
+// const root = new Node(0);
+// root.add(1);
+// root.add(2);
+// root.add(3);
+// root.children[0].add(4);
+// root.children[2].add(5);
+// console.log(levelWidth(root));
+
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[min] > arr[j]) {
+        min = j;
+      }
+    }
+    console.log(min, " min");
+    let temp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = temp;
   }
-  add(record) {
-    this.data.unshift(record);
-  }
-  remove(record) {
-    return this.data.pop(record);
-  }
-  peek() {
-    return this.data[this.data.length - 1];
-  }
+  return arr;
 }
 
-const s1 = new Queue();
-const s2 = new Queue();
-s1.add("a");
-s1.add("b");
-s2.add(1);
-s2.add(2);
-console.log(s1);
-console.log(s2);
-function weave(s1, s2) {
-  let combined = new Queue();
-  while (s1.peek() || s2.peek()) {
-    if (s1.peek()) {
-      combined.add(s1.remove());
-    }
-    if (s2.peek()) {
-      combined.add(s2.remove());
-    }
-  }
-  return combined;
-}
-
-console.log(weave(s1, s2));
-const line = new Queue();
-// console.log(line);
-line.add("john");
-line.add("sochin");
-line.add("mark");
-// console.log(line);
-line.remove();
+console.log(selectionSort([-30, 0, -5, 10, 2, 76]));
