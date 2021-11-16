@@ -469,6 +469,22 @@
 //     .filter((item) => item !== 0)
 //     .concat(arr.filter((item) => item === 0));
 // };
+// var moveZeros = function (arr) {
+//   let result = [];
+//   let count = 0;
+
+//   const test = arr.filter((item) => {
+//     return item !== 0;
+//   });
+//   for (let item of arr) {
+//     if (item === 0) {
+//       count++;
+//     }
+//   }
+//   result.push(...test);
+//   result.push(...Array(count).fill(0));
+//   return result;
+// };
 
 // console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); //,
 // console.log(moveZeros([0, 1, 0, 3, 12])); //,
@@ -1555,20 +1571,38 @@
 // root.children[2].add(5);
 // console.log(levelWidth(root));
 
-function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[min] > arr[j]) {
-        min = j;
-      }
-    }
-    console.log(min, " min");
-    let temp = arr[i];
-    arr[i] = arr[min];
-    arr[min] = temp;
-  }
-  return arr;
-}
+// function selectionSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let min = i;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[min] > arr[j]) {
+//         min = j;
+//       }
+//     }
+//     let temp = arr[i];
+//     arr[i] = arr[min];
+//     arr[min] = temp;
+//   }
+//   return arr;
+// }
 
-console.log(selectionSort([-30, 0, -5, 10, 2, 76]));
+// console.log(selectionSort([-30, 0, -5, 10, 2, 76]));
+const nums = [1, 1, 2];
+var removeDuplicates = function (nums) {
+  let slow = 0;
+  let fast = 1;
+  if (nums.length === 0) return null;
+  while (fast < nums.length) {
+    if (nums[slow] === nums[fast]) {
+      fast++;
+    } else {
+      let temp = nums[fast];
+      nums[slow + 1] = temp;
+      fast++;
+      slow++;
+    }
+  }
+  return nums;
+};
+
+console.log(removeDuplicates(nums));
