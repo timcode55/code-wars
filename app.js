@@ -1587,22 +1587,54 @@
 // }
 
 // console.log(selectionSort([-30, 0, -5, 10, 2, 76]));
-const nums = [1, 1, 2];
-var removeDuplicates = function (nums) {
-  let slow = 0;
-  let fast = 1;
-  if (nums.length === 0) return null;
-  while (fast < nums.length) {
-    if (nums[slow] === nums[fast]) {
-      fast++;
-    } else {
-      let temp = nums[fast];
-      nums[slow + 1] = temp;
-      fast++;
-      slow++;
-    }
+// const nums = [1, 1, 2];
+// var removeDuplicates = function (nums) {
+//   let slow = 0;
+//   let fast = 1;
+//   if (nums.length === 0) return null;
+//   while (fast < nums.length) {
+//     if (nums[slow] === nums[fast]) {
+//       fast++;
+//     } else {
+//       let temp = nums[fast];
+//       nums[slow + 1] = temp;
+//       fast++;
+//       slow++;
+//     }
+//   }
+//   return nums;
+// };
+
+// console.log(removeDuplicates(nums));
+// const nums = [-2, 1, -3, 4, -1, 2, 1, 5, 4];
+// var maxSubArray = function (nums) {
+//   let maxCurrent = nums[0];
+//   let maxGlobal = nums[0];
+
+//   for (let i = 1; i < nums.length; i++) {
+//     maxCurrent = Math.max(nums[i], maxCurrent + nums[i]);
+
+//     if (maxCurrent > maxGlobal) {
+//       maxGlobal = maxCurrent;
+//     }
+//   }
+//   return maxGlobal;
+// };
+
+// console.log(maxSubArray(nums));
+const a = -2,
+  b = 3;
+var getSum = function (a, b) {
+  let count = 0;
+
+  for (let i = 0; i < Math.abs(a); i++) {
+    a < 0 ? count-- : count++;
   }
-  return nums;
+
+  for (let j = 0; j < Math.abs(b); j++) {
+    b < 0 ? count-- : count++;
+  }
+  return count;
 };
 
-console.log(removeDuplicates(nums));
+console.log(getSum(a, b));
