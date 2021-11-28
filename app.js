@@ -1622,19 +1622,136 @@
 // };
 
 // console.log(maxSubArray(nums));
-const a = -2,
-  b = 3;
-var getSum = function (a, b) {
-  let count = 0;
+// const a = -2,
+//   b = 3;
+// var getSum = function (a, b) {
+//   let count = 0;
 
-  for (let i = 0; i < Math.abs(a); i++) {
-    a < 0 ? count-- : count++;
-  }
+//   for (let i = 0; i < Math.abs(a); i++) {
+//     a < 0 ? count-- : count++;
+//   }
 
-  for (let j = 0; j < Math.abs(b); j++) {
-    b < 0 ? count-- : count++;
-  }
-  return count;
-};
+//   for (let j = 0; j < Math.abs(b); j++) {
+//     b < 0 ? count-- : count++;
+//   }
+//   return count;
+// };
 
-console.log(getSum(a, b));
+// console.log(getSum(a, b));
+// const prices = [7, 6, 4, 3, 1];
+// var maxProfit = function (prices) {
+//   let result = 0;
+//   for (let i = 0; i < prices.length; i++) {
+//     if (prices[i + 1] > prices[i]) {
+//       result += prices[i + 1] - prices[i];
+//     }
+//   }
+//   return result;
+// };
+
+// console.log(maxProfit(prices));
+// const s = "leetcode";
+// var firstUniqChar = function (s) {
+//   let array = s.split("");
+//   let result = {};
+//   for (let item of array) {
+//     result[item] = result[item] + 1 || 1;
+//   }
+//   console.log(result, "RESULT");
+//   for (let ele in result) {
+//     if (result[ele] === 1) {
+//       return array.indexOf(ele);
+//     }
+//   }
+//   return -1;
+// };
+
+// console.log(firstUniqChar(s));
+
+// const nums = [1, 2, 3, 4, 5, 6, 7];
+// var rotate = function (nums, k) {
+//   let i = 1;
+//   while (i <= k) {
+//     nums.unshift(nums[nums.length - i]);
+//     i++;
+//   }
+//   return nums.slice(0, -k);
+// };
+
+// console.log(rotate(nums, 3));
+
+// var trailingZeroes = function (n) {
+//   let total = 1;
+//   function recurse(n) {
+//     if (n === 0) return;
+//     total *= n;
+//     recurse(n - 1);
+//   }
+//   recurse(n);
+//   console.log(total, "TOTAL");
+//   let array = total.toString().split("");
+//   let count = 0;
+//   while (array.pop() === "0") {
+//     count++;
+//   }
+//   return count;
+// };
+
+// console.log(trailingZeroes(3));
+// console.log(trailingZeroes(5));
+// console.log(trailingZeroes(0));
+// console.log(trailingZeroes(30));
+// function countMaximumTeams(skill, teamSize, maxDiff) {
+//   let sortSkill = skill.sort((a, b) => a - b);
+//   let teamCount = 0;
+//   let addTeamMember = 1;
+
+//   for (let i = 0; i < sortSkill.length; i++) {
+//     if (sortSkill[i + 1] - sortSkill[i] <= maxDiff) {
+//       addTeamMember++;
+//     }
+//     if (addTeamMember === teamSize) {
+//       teamCount++;
+//       addTeamMember = 1;
+//     }
+//   }
+//   return teamCount;
+// }
+
+// console.log(countMaximumTeams([3, 4, 3, 1, 6, 5], 3, 2));
+
+// function getTotalImbalance(weight) {
+//   let maxWeight = Math.max(...weight);
+//   let minWeight = Math.min(...weight);
+//   let total = 0;
+//   if (maxWeight - minWeight === 0) {
+//     return 0;
+//   } else {
+//     total += maxWeight - minWeight;
+//   }
+//   console.log(total);
+//   let size = 1;
+//   let min = 0;
+//   let max = size;
+//   while (size < weight.length - 1) {
+//     for (let i = 0; i < weight.length - 1; i++) {
+//       let maxWeight = Math.max(weight[i], weight[i + size]);
+//       console.log(maxWeight, "MAX");
+//       let minWeight = Math.min(weight[i], weight[i + size]);
+//       console.log(minWeight, "MIN");
+//       total += maxWeight - minWeight;
+//       size++;
+//     }
+//   }
+//   return total;
+// }
+
+// console.log(getTotalImbalance([4, 3, 2, 5, 6]));
+
+function toNumberArray(stringarray) {
+  return stringarray.map((item) => {
+    return Number(item);
+  });
+}
+
+console.log(toNumberArray(["1.1", "2.2", "3.3"])); //, [1.1,2.2,3.3]);
