@@ -1748,10 +1748,26 @@
 
 // console.log(getTotalImbalance([4, 3, 2, 5, 6]));
 
-function toNumberArray(stringarray) {
-  return stringarray.map((item) => {
-    return Number(item);
-  });
+// function toNumberArray(stringarray) {
+// return stringarray.map((item) => {
+//   return Number(item);
+// });
+// }
+
+// console.log(toNumberArray(["1.1", "2.2", "3.3"])); //, [1.1,2.2,3.3]);
+function bump(x) {
+  let count = 0;
+  for (let ele of x) {
+    if (ele === "n") {
+      count++;
+    }
+  }
+  if (count > 15) {
+    return "Car Dead";
+  }
+  return "Woohoo!";
 }
 
-console.log(toNumberArray(["1.1", "2.2", "3.3"])); //, [1.1,2.2,3.3]);
+console.log(bump("n")); //, "Woohoo!");
+console.log(bump("_nnnnnnn_n__n______nn__nn_nnn")); //, "Car Dead");
+console.log(bump("______n___n_")); //, "Woohoo!");
