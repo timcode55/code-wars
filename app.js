@@ -1755,19 +1755,32 @@
 // }
 
 // console.log(toNumberArray(["1.1", "2.2", "3.3"])); //, [1.1,2.2,3.3]);
-function bump(x) {
-  let count = 0;
-  for (let ele of x) {
-    if (ele === "n") {
-      count++;
-    }
+// function bump(x) {
+//   let count = 0;
+//   for (let ele of x) {
+//     if (ele === "n") {
+//       count++;
+//     }
+//   }
+//   if (count > 15) {
+//     return "Car Dead";
+//   }
+//   return "Woohoo!";
+// }
+
+// console.log(bump("n")); //, "Woohoo!");
+// console.log(bump("_nnnnnnn_n__n______nn__nn_nnn")); //, "Car Dead");
+// console.log(bump("______n___n_")); //, "Woohoo!");
+
+function getDecimal(n) {
+  let array = n.toString().split(".");
+  if (array.length <= 1) {
+    return 0;
   }
-  if (count > 15) {
-    return "Car Dead";
-  }
-  return "Woohoo!";
+  let result = `0.${array[1]}`;
+  return +result;
 }
 
-console.log(bump("n")); //, "Woohoo!");
-console.log(bump("_nnnnnnn_n__n______nn__nn_nnn")); //, "Car Dead");
-console.log(bump("______n___n_")); //, "Woohoo!");
+console.log(getDecimal(10)); //, 0);
+console.log(getDecimal(-1.2)); //, 0.2);
+console.log(getDecimal(4.5)); //, 0.5);
