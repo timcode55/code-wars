@@ -1785,21 +1785,69 @@
 // console.log(getDecimal(-1.2)); //, 0.2);
 // console.log(getDecimal(4.5)); //, 0.5);
 
-function mergeArrays(a, b) {
-  let result = [];
-  for (let i = 0; i < Math.max(a.length, b.length); i++) {
-    a[i] !== undefined ? result.push(a[i]) : null;
-    b[i] !== undefined ? result.push(b[i]) : null;
+// function mergeArrays(a, b) {
+//   let result = [];
+//   for (let i = 0; i < Math.max(a.length, b.length); i++) {
+//     a[i] !== undefined ? result.push(a[i]) : null;
+//     b[i] !== undefined ? result.push(b[i]) : null;
+//   }
+//   return result;
+// }
+
+// console.log(mergeArrays([1, 2, 3, 4, 5, 6, 7, 8], ["a", "b", "c", "d", "e"])); //, [1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, 7, 8]);
+// console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5])); //, ['a', 1, 'b', 2, 'c', 3, 'd', 4, 'e', 5]);
+// console.log(mergeArrays([2, 5, 8, 23, 67, 6], ["b", "r", "a", "u", "r", "s"])); //, [2, 'b', 5, 'r', 8, 'a', 23, 'u', 67, 'r', 6, 's']);
+// console.log(
+//   mergeArrays(
+//     ["b", "r", "a", "u", "r", "s", "e", "q", "z"],
+//     [2, 5, 8, 23, 67, 6]
+//   )
+// ); //, ['b', 2, 'r', 5, 'a', 8, 'u', 23, 'r', 67, 's', 6, 'e', 'q', 'z']);
+var list1 = [
+  {
+    firstName: "Harry",
+    lastName: "K.",
+    country: "Brazil",
+    continent: "Americas",
+    age: 22,
+    language: "JavaScript",
+    githubAdmin: "yes"
+  },
+  {
+    firstName: "Kseniya",
+    lastName: "T.",
+    country: "Belarus",
+    continent: "Europe",
+    age: 49,
+    language: "Ruby",
+    githubAdmin: "no"
+  },
+  {
+    firstName: "Jing",
+    lastName: "X.",
+    country: "China",
+    continent: "Asia",
+    age: 34,
+    language: "JavaScript",
+    githubAdmin: "yes"
+  },
+  {
+    firstName: "Piotr",
+    lastName: "B.",
+    country: "Poland",
+    continent: "Europe",
+    age: 128,
+    language: "JavaScript",
+    githubAdmin: "no"
   }
-  return result;
+];
+
+function findAdmin(list, lang) {
+  return list.filter((item) => {
+    return item.language === lang && item.githubAdmin === "yes";
+  });
 }
 
-console.log(mergeArrays([1, 2, 3, 4, 5, 6, 7, 8], ["a", "b", "c", "d", "e"])); //, [1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, 7, 8]);
-console.log(mergeArrays(["a", "b", "c", "d", "e"], [1, 2, 3, 4, 5])); //, ['a', 1, 'b', 2, 'c', 3, 'd', 4, 'e', 5]);
-console.log(mergeArrays([2, 5, 8, 23, 67, 6], ["b", "r", "a", "u", "r", "s"])); //, [2, 'b', 5, 'r', 8, 'a', 23, 'u', 67, 'r', 6, 's']);
-console.log(
-  mergeArrays(
-    ["b", "r", "a", "u", "r", "s", "e", "q", "z"],
-    [2, 5, 8, 23, 67, 6]
-  )
-); //, ['b', 2, 'r', 5, 'a', 8, 'u', 23, 'r', 67, 's', 6, 'e', 'q', 'z']);
+console.log(findAdmin(list1, "JavaScript")); //, answer1);
+console.log(findAdmin(list1, "Ruby")); //, []);
+console.log(findAdmin(list1, "Python")); //, []);
