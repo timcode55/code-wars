@@ -1803,51 +1803,62 @@
 //     [2, 5, 8, 23, 67, 6]
 //   )
 // ); //, ['b', 2, 'r', 5, 'a', 8, 'u', 23, 'r', 67, 's', 6, 'e', 'q', 'z']);
-var list1 = [
-  {
-    firstName: "Harry",
-    lastName: "K.",
-    country: "Brazil",
-    continent: "Americas",
-    age: 22,
-    language: "JavaScript",
-    githubAdmin: "yes"
-  },
-  {
-    firstName: "Kseniya",
-    lastName: "T.",
-    country: "Belarus",
-    continent: "Europe",
-    age: 49,
-    language: "Ruby",
-    githubAdmin: "no"
-  },
-  {
-    firstName: "Jing",
-    lastName: "X.",
-    country: "China",
-    continent: "Asia",
-    age: 34,
-    language: "JavaScript",
-    githubAdmin: "yes"
-  },
-  {
-    firstName: "Piotr",
-    lastName: "B.",
-    country: "Poland",
-    continent: "Europe",
-    age: 128,
-    language: "JavaScript",
-    githubAdmin: "no"
-  }
-];
+// var list1 = [
+//   {
+//     firstName: "Harry",
+//     lastName: "K.",
+//     country: "Brazil",
+//     continent: "Americas",
+//     age: 22,
+//     language: "JavaScript",
+//     githubAdmin: "yes"
+//   },
+//   {
+//     firstName: "Kseniya",
+//     lastName: "T.",
+//     country: "Belarus",
+//     continent: "Europe",
+//     age: 49,
+//     language: "Ruby",
+//     githubAdmin: "no"
+//   },
+//   {
+//     firstName: "Jing",
+//     lastName: "X.",
+//     country: "China",
+//     continent: "Asia",
+//     age: 34,
+//     language: "JavaScript",
+//     githubAdmin: "yes"
+//   },
+//   {
+//     firstName: "Piotr",
+//     lastName: "B.",
+//     country: "Poland",
+//     continent: "Europe",
+//     age: 128,
+//     language: "JavaScript",
+//     githubAdmin: "no"
+//   }
+// ];
 
-function findAdmin(list, lang) {
-  return list.filter((item) => {
-    return item.language === lang && item.githubAdmin === "yes";
-  });
+// function findAdmin(list, lang) {
+//   return list.filter((item) => {
+//     return item.language === lang && item.githubAdmin === "yes";
+//   });
+// }
+
+// console.log(findAdmin(list1, "JavaScript")); //, answer1);
+// console.log(findAdmin(list1, "Ruby")); //, []);
+// console.log(findAdmin(list1, "Python")); //, []);
+
+function getMissingElement(superImportantArray) {
+  for (let i = 0; i <= 9; i++) {
+    if (!superImportantArray.includes(i)) {
+      return i;
+    }
+  }
 }
 
-console.log(findAdmin(list1, "JavaScript")); //, answer1);
-console.log(findAdmin(list1, "Ruby")); //, []);
-console.log(findAdmin(list1, "Python")); //, []);
+console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); //, 8);
+console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //, 3);
