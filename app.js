@@ -1852,13 +1852,37 @@
 // console.log(findAdmin(list1, "Ruby")); //, []);
 // console.log(findAdmin(list1, "Python")); //, []);
 
-function getMissingElement(superImportantArray) {
-  for (let i = 0; i <= 9; i++) {
-    if (!superImportantArray.includes(i)) {
-      return i;
+// function getMissingElement(superImportantArray) {
+//   for (let i = 0; i <= 9; i++) {
+//     if (!superImportantArray.includes(i)) {
+//       return i;
+//     }
+//   }
+// }
+
+// console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); //, 8);
+// console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //, 3);
+let before = {
+  Ice: "Cream",
+  Age: "21",
+  Light: "Cream",
+  Double: "Cream"
+};
+
+let expectedAns = {
+  Cream: ["Ice", "Double", "Light"],
+  21: ["Age"]
+};
+function switchDict(dic) {
+  const result = {};
+  for (let item in dic) {
+    if (!result[dic[item]]) {
+      result[dic[item]] = [item];
+    } else {
+      result[dic[item]] = result[dic[item]].concat(item);
     }
   }
+  return result;
 }
 
-console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); //, 8);
-console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //, 3);
+console.log(switchDict(before));
