@@ -1862,27 +1862,44 @@
 
 // console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); //, 8);
 // console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //, 3);
-let before = {
-  Ice: "Cream",
-  Age: "21",
-  Light: "Cream",
-  Double: "Cream"
-};
+// let before = {
+//   Ice: "Cream",
+//   Age: "21",
+//   Light: "Cream",
+//   Double: "Cream"
+// };
 
-let expectedAns = {
-  Cream: ["Ice", "Double", "Light"],
-  21: ["Age"]
-};
-function switchDict(dic) {
-  const result = {};
-  for (let item in dic) {
-    if (!result[dic[item]]) {
-      result[dic[item]] = [item];
-    } else {
-      result[dic[item]] = result[dic[item]].concat(item);
+// let expectedAns = {
+//   Cream: ["Ice", "Double", "Light"],
+//   21: ["Age"]
+// };
+// function switchDict(dic) {
+//   const result = {};
+//   for (let item in dic) {
+//     if (!result[dic[item]]) {
+//       result[dic[item]] = [item];
+//     } else {
+//       result[dic[item]] = result[dic[item]].concat(item);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(switchDict(before));
+
+function findDeletedNumber(arr, mixArr) {
+  for (let item of arr) {
+    if (!mixArr.includes(item)) {
+      return item;
     }
   }
-  return result;
+  return 0;
 }
 
-console.log(switchDict(before));
+console.log(findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5])); //, 2, 'Deletion')
+console.log(
+  findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 9, 7, 4, 6, 2, 3, 8])
+); //, 5, 'Deletion')
+console.log(
+  findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 7, 6, 9, 4, 8, 1, 2, 3])
+); //, 0, 'No deletion')
