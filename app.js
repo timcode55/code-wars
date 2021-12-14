@@ -1904,31 +1904,53 @@
 //   findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 7, 6, 9, 4, 8, 1, 2, 3])
 // ); //, 0, 'No deletion')
 
-function adjacentElementsProduct(array) {
-  let maxValue = -Infinity;
-  for (let i = 0; i < array.length; i++) {
-    let multiplyValues = array[i] * array[i + 1];
-    if (multiplyValues > maxValue) {
-      maxValue = multiplyValues;
-    }
+// function adjacentElementsProduct(array) {
+//   let maxValue = -Infinity;
+//   for (let i = 0; i < array.length; i++) {
+//     let multiplyValues = array[i] * array[i + 1];
+//     if (multiplyValues > maxValue) {
+//       maxValue = multiplyValues;
+//     }
+//   }
+//   return maxValue;
+// }
+
+// console.log(adjacentElementsProduct([5, 8])); //, 40);
+// console.log(adjacentElementsProduct([1, 2, 3])); //, 6);
+// console.log(adjacentElementsProduct([1, 5, 10, 9])); //, 90);
+// console.log(adjacentElementsProduct([4, 12, 3, 1, 5])); //, 48);
+// console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); //, 6);
+
+// // describe("Both positive and negative values", function() {
+// console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); //, 21);
+// console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); //, 50);
+// console.log(adjacentElementsProduct([5, 6, -4, 2, 3, 2, -23])); //, 30);
+// console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); //, -14);
+// console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); //, 6);
+// // });
+
+// // describe("Contains zeroes", function() {
+// console.log(adjacentElementsProduct([1, 0, 1, 0, 1000])); //, 0);
+// console.log(adjacentElementsProduct([1, 2, 3, 0])); //, 6);
+
+function iTri(s) {
+  if (s === 0) return "Starting Line... Good Luck!";
+  if (s > 0 && s <= 2.4) {
+    return { Swim: `${(140.6 - s).toFixed(2)} to go!` };
   }
-  return maxValue;
+  if (s > 2.4 && s <= 114.4) {
+    return { Bike: `${(140.6 - s).toFixed(2)} to go!` };
+  }
+  if (s > 114.4 && s < 130.6) {
+    return { Run: `${(140.6 - s).toFixed(2)} to go!` };
+  }
+  if (s >= 130.6 && s < 140.6) {
+    return { Run: "Nearly there!" };
+  }
+  return "You're done! Stop running!";
 }
 
-console.log(adjacentElementsProduct([5, 8])); //, 40);
-console.log(adjacentElementsProduct([1, 2, 3])); //, 6);
-console.log(adjacentElementsProduct([1, 5, 10, 9])); //, 90);
-console.log(adjacentElementsProduct([4, 12, 3, 1, 5])); //, 48);
-console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); //, 6);
-
-// describe("Both positive and negative values", function() {
-console.log(adjacentElementsProduct([3, 6, -2, -5, 7, 3])); //, 21);
-console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48])); //, 50);
-console.log(adjacentElementsProduct([5, 6, -4, 2, 3, 2, -23])); //, 30);
-console.log(adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])); //, -14);
-console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); //, 6);
-// });
-
-// describe("Contains zeroes", function() {
-console.log(adjacentElementsProduct([1, 0, 1, 0, 1000])); //, 0);
-console.log(adjacentElementsProduct([1, 2, 3, 0])); //, 6);
+console.log(iTri(36)); //,{'Bike':'104.60 to go!'});
+console.log(iTri(103.5)); //,{'Bike':'37.10 to go!'});
+console.log(iTri(0)); //,'Starting Line... Good Luck!');
+console.log(iTri(2)); //,{'Swim':'138.60 to go!'});
