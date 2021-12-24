@@ -1981,16 +1981,75 @@
 // ); //,
 // ("d");
 
-function squareDigits(num) {
-  let result = "";
-  for (let ele of num.toString()) {
-    result += Math.pow(ele, 2);
+// function squareDigits(num) {
+//   let result = "";
+//   for (let ele of num.toString()) {
+//     result += Math.pow(ele, 2);
+//   }
+//   return result;
+// }
+
+// console.log(squareDigits(3212)); //,
+
+// console.log(squareDigits(2112)); //, 4114))//;
+
+// console.log(squareDigits(0), 0);
+
+// const object = {
+//   1: "golf",
+//   2: "tennis",
+//   3: "rugby"
+// };
+// const findKey = () => {
+//   for (let key in object) {
+//     if (object[key] === "golf") {
+//       return key;
+//     }
+//   }
+// };
+
+// const obj2 = { ...object };
+// obj2[1] = "swimming";
+// console.log(object === obj2);
+
+// console.log(obj2, "OBJ2");
+
+// console.log(Object.keys(object));
+// console.log(Object.values(object));
+// console.log(Object.entries(object));
+// console.log(findKey());
+// function maximumOccurringCharacter(text) {
+//   let result = {};
+//   for (let char of text) {
+//     if (!result[char]) {
+//       result[char] = 1;
+//     } else {
+//       result[char]++;
+//     }
+//   }
+//   let vals = Object.values(result);
+//   for (let key in result) {
+//     if (result[key] === Math.max(...vals)) {
+//       return key;
+//     }
+//   }
+// }
+
+// console.log(maximumOccurringCharacter("helloworld"));
+
+function findFulcrum(numbers) {
+  for (let i = 1; i < numbers.length - 1; i++) {
+    let leftSum = 0;
+    let rightSum = 0;
+    let leftArray = numbers.slice(0, i);
+    let rightArray = numbers.slice(i + 1, numbers.length);
+    leftSum = leftArray.reduce((acc, val) => acc + val);
+    rightSum = rightArray.reduce((acc, val) => acc + val);
+    if (leftSum === rightSum) {
+      return i;
+    }
   }
-  return result;
+  return -1;
 }
 
-console.log(squareDigits(3212)); //,
-
-console.log(squareDigits(2112)); //, 4114))//;
-
-console.log(squareDigits(0), 0);
+console.log(findFulcrum([4, 12, 13, 14, 2]));
