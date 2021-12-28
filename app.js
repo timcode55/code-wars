@@ -2037,19 +2037,61 @@
 
 // console.log(maximumOccurringCharacter("helloworld"));
 
-function findFulcrum(numbers) {
-  for (let i = 1; i < numbers.length - 1; i++) {
-    let leftSum = 0;
-    let rightSum = 0;
-    let leftArray = numbers.slice(0, i);
-    let rightArray = numbers.slice(i + 1, numbers.length);
-    leftSum = leftArray.reduce((acc, val) => acc + val);
-    rightSum = rightArray.reduce((acc, val) => acc + val);
-    if (leftSum === rightSum) {
-      return i;
-    }
+// function findFulcrum(numbers) {
+//   for (let i = 1; i < numbers.length - 1; i++) {
+//     let leftSum = 0;
+//     let rightSum = 0;
+//     let leftArray = numbers.slice(0, i);
+//     let rightArray = numbers.slice(i + 1, numbers.length);
+//     leftSum = leftArray.reduce((acc, val) => acc + val);
+//     rightSum = rightArray.reduce((acc, val) => acc + val);
+//     if (leftSum === rightSum) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
+// console.log(findFulcrum([4, 12, 13, 14, 2]));
+
+// function PowerSet(inputStr) {
+//   let result = [];
+//   for (let i = 0; i < inputStr.length; i++) {
+//     if (result.includes(inputStr[i])) {
+//       continue;
+//     } else {
+//       result.push(inputStr[i]);
+//     }
+//     for (let j = i; j < inputStr.length; j++) {
+//       if (result.includes(inputStr.slice(j, inputStr.length))) {
+//         continue;
+//       } else {
+//         result.push(inputStr.slice(j, inputStr.length));
+//       }
+//     }
+//   }
+//   return result.sort();
+// }
+
+// console.log(PowerSet("abc"));
+
+function productArray(numbers) {
+  let result = [];
+  for (let i = 0; i < numbers.length; i++) {
+    let array = [...numbers];
+    array.splice(i, 1);
+    // console.log(array, "ARRAY");
+    result.push(
+      array.reduce((acc, val) => {
+        return acc * val;
+      })
+    );
   }
-  return -1;
+  return result;
 }
 
-console.log(findFulcrum([4, 12, 13, 14, 2]));
+console.log(productArray([12, 20])); //, [20,12]);
+console.log(productArray([12, 20])); //, [20,12]);
+console.log(productArray([3, 27, 4, 2])); //, [216,24,162,324]);
+console.log(productArray([13, 10, 5, 2, 9])); //, [900,1170,2340,5850,1300]);
+console.log(productArray([16, 17, 4, 3, 5, 2])); //, [2040,1920,8160,10880,6528,16320]);
