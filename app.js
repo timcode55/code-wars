@@ -2095,14 +2095,26 @@
 // console.log(productArray([13, 10, 5, 2, 9])); //, [900,1170,2340,5850,1300]);
 // console.log(productArray([16, 17, 4, 3, 5, 2])); //, [2040,1920,8160,10880,6528,16320]);
 
-function evenLast(numbers) {
-  let result = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    if (i % 2 === 0) {
-      result += numbers[i] * numbers[numbers.length - 1];
-    }
-  }
-  return result;
+// function evenLast(numbers) {
+//   let result = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     if (i % 2 === 0) {
+//       result += numbers[i] * numbers[numbers.length - 1];
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(evenLast([2, 3, 4, 5])); //, 30)
+let results1 = twoOldestAges([1, 5, 87, 45, 8, 8]);
+// let results2 = twoOldestAges([6, 5, 83, 5, 3, 18]);
+
+function twoOldestAges(ages) {
+  let result = [];
+  result.push(Math.max(...ages));
+  ages.splice(ages.indexOf(Math.max(...ages)), 1);
+  result.push(Math.max(...ages));
+  return result.reverse();
 }
 
-console.log(evenLast([2, 3, 4, 5])); //, 30)
+console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
