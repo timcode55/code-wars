@@ -2106,15 +2106,25 @@
 // }
 
 // console.log(evenLast([2, 3, 4, 5])); //, 30)
-let results1 = twoOldestAges([1, 5, 87, 45, 8, 8]);
-// let results2 = twoOldestAges([6, 5, 83, 5, 3, 18]);
+// let results1 = twoOldestAges([1, 5, 87, 45, 8, 8]);
+// // let results2 = twoOldestAges([6, 5, 83, 5, 3, 18]);
 
-function twoOldestAges(ages) {
-  let result = [];
-  result.push(Math.max(...ages));
-  ages.splice(ages.indexOf(Math.max(...ages)), 1);
-  result.push(Math.max(...ages));
-  return result.reverse();
+// function twoOldestAges(ages) {
+//   let result = [];
+//   result.push(Math.max(...ages));
+//   ages.splice(ages.indexOf(Math.max(...ages)), 1);
+//   result.push(Math.max(...ages));
+//   return result.reverse();
+// }
+
+// console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
+
+function duplicateElements(m, n) {
+  if (m.length === 0 || n.length === 0) return false;
+  for (let item of m) {
+    if (n.includes(item)) {
+      return true;
+    }
+  }
+  return false;
 }
-
-console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
