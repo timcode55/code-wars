@@ -2119,12 +2119,26 @@
 
 // console.log(twoOldestAges([1, 5, 87, 45, 8, 8]));
 
-function duplicateElements(m, n) {
-  if (m.length === 0 || n.length === 0) return false;
-  for (let item of m) {
-    if (n.includes(item)) {
-      return true;
+// function duplicateElements(m, n) {
+//   if (m.length === 0 || n.length === 0) return false;
+//   for (let item of m) {
+//     if (n.includes(item)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+function trouble(x, t) {
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] + x[i + 1] === t) {
+      x.splice(i + 1, 1);
+      i--;
     }
   }
-  return false;
+  return x;
 }
+
+console.log(trouble([1, 3, 5, 6, 7, 4, 3], 7)); //, [1, 3, 5, 6, 7, 4]);
+console.log(trouble([4, 1, 1, 1, 4], 2)); //, [4, 1, 4]);
+console.log(trouble([2, 2, 2, 2, 2, 2], 4)); //, [2]);
+console.log(trouble([2, 6, 2], 8)); //, [2, 2]);
