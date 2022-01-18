@@ -2128,17 +2128,32 @@
 //   }
 //   return false;
 // }
-function trouble(x, t) {
-  for (let i = 0; i < x.length; i++) {
-    if (x[i] + x[i + 1] === t) {
-      x.splice(i + 1, 1);
-      i--;
-    }
-  }
-  return x;
+// function trouble(x, t) {
+//   for (let i = 0; i < x.length; i++) {
+//     if (x[i] + x[i + 1] === t) {
+//       x.splice(i + 1, 1);
+//       i--;
+//     }
+//   }
+//   return x;
+// }
+
+// console.log(trouble([1, 3, 5, 6, 7, 4, 3], 7)); //, [1, 3, 5, 6, 7, 4]);
+// console.log(trouble([4, 1, 1, 1, 4], 2)); //, [4, 1, 4]);
+// console.log(trouble([2, 2, 2, 2, 2, 2], 4)); //, [2]);
+// console.log(trouble([2, 6, 2], 8)); //, [2, 2]);
+function stringMerge(string1, string2, letter) {
+  let result = '';
+  return (
+    result +
+    string1.substring(0, string1.indexOf(letter)) +
+    string2.substring(string2.indexOf(letter))
+  );
 }
 
-console.log(trouble([1, 3, 5, 6, 7, 4, 3], 7)); //, [1, 3, 5, 6, 7, 4]);
-console.log(trouble([4, 1, 1, 1, 4], 2)); //, [4, 1, 4]);
-console.log(trouble([2, 2, 2, 2, 2, 2], 4)); //, [2]);
-console.log(trouble([2, 6, 2], 8)); //, [2, 2]);
+console.log(stringMerge('person', 'here', 'e')); //, "pere");
+console.log(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j')); //, "apowiejouh");
+console.log(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x')); //, "abcdefxxxyyyxyzz");
+console.log(stringMerge('12345654321', '123456789', '6')); //, "123456789");
+console.log(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd')); //, "JiOdddasdfdfsd");
+console.log(stringMerge('incredible', 'people', 'e')); //, "increople");
