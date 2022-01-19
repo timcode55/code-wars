@@ -2142,18 +2142,41 @@
 // console.log(trouble([4, 1, 1, 1, 4], 2)); //, [4, 1, 4]);
 // console.log(trouble([2, 2, 2, 2, 2, 2], 4)); //, [2]);
 // console.log(trouble([2, 6, 2], 8)); //, [2, 2]);
-function stringMerge(string1, string2, letter) {
-  let result = '';
-  return (
-    result +
-    string1.substring(0, string1.indexOf(letter)) +
-    string2.substring(string2.indexOf(letter))
-  );
+// function stringMerge(string1, string2, letter) {
+//   let result = '';
+//   return (
+//     result +
+//     string1.substring(0, string1.indexOf(letter)) +
+//     string2.substring(string2.indexOf(letter))
+//   );
+// }
+
+// console.log(stringMerge('person', 'here', 'e')); //, "pere");
+// console.log(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j')); //, "apowiejouh");
+// console.log(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x')); //, "abcdefxxxyyyxyzz");
+// console.log(stringMerge('12345654321', '123456789', '6')); //, "123456789");
+// console.log(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd')); //, "JiOdddasdfdfsd");
+// console.log(stringMerge('incredible', 'people', 'e')); //, "increople");
+function product(string) {
+  let excl = 0;
+  let question = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === '!') {
+      excl++;
+    } else if (string[i] === '?') {
+      question++;
+    }
+  }
+  return excl * question;
 }
 
-console.log(stringMerge('person', 'here', 'e')); //, "pere");
-console.log(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j')); //, "apowiejouh");
-console.log(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x')); //, "abcdefxxxyyyxyzz");
-console.log(stringMerge('12345654321', '123456789', '6')); //, "123456789");
-console.log(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd')); //, "JiOdddasdfdfsd");
-console.log(stringMerge('incredible', 'people', 'e')); //, "increople");
+console.log(product('', 0)); //;
+console.log(product('!', 0)); //;
+console.log(product('!!', 0)); //;
+console.log(product('!??', 2)); //;
+console.log(product('!???', 3)); //;
+console.log(product('!!!??', 6)); //;
+console.log(product('!!!???', 9)); //;
+console.log(product('!???!!', 9)); //;
+console.log(product('!ab? ?', 2)); //;
+console.log(product('!????!!!?', 20)); //;
