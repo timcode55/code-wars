@@ -2157,26 +2157,36 @@
 // console.log(stringMerge('12345654321', '123456789', '6')); //, "123456789");
 // console.log(stringMerge('JiOdIdA4', 'oopopopoodddasdfdfsd', 'd')); //, "JiOdddasdfdfsd");
 // console.log(stringMerge('incredible', 'people', 'e')); //, "increople");
-function product(string) {
-  let excl = 0;
-  let question = 0;
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === '!') {
-      excl++;
-    } else if (string[i] === '?') {
-      question++;
-    }
-  }
-  return excl * question;
+// function product(string) {
+//   let excl = 0;
+//   let question = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] === '!') {
+//       excl++;
+//     } else if (string[i] === '?') {
+//       question++;
+//     }
+//   }
+//   return excl * question;
+// }
+
+// console.log(product('', 0)); //;
+// console.log(product('!', 0)); //;
+// console.log(product('!!', 0)); //;
+// console.log(product('!??', 2)); //;
+// console.log(product('!???', 3)); //;
+// console.log(product('!!!??', 6)); //;
+// console.log(product('!!!???', 9)); //;
+// console.log(product('!???!!', 9)); //;
+// console.log(product('!ab? ?', 2)); //;
+// console.log(product('!????!!!?', 20)); //;
+
+function filter_list(l) {
+  return l.filter((item) => {
+    return typeof item !== 'string';
+  });
 }
 
-console.log(product('', 0)); //;
-console.log(product('!', 0)); //;
-console.log(product('!!', 0)); //;
-console.log(product('!??', 2)); //;
-console.log(product('!???', 3)); //;
-console.log(product('!!!??', 6)); //;
-console.log(product('!!!???', 9)); //;
-console.log(product('!???!!', 9)); //;
-console.log(product('!ab? ?', 2)); //;
-console.log(product('!????!!!?', 20)); //;
+console.log(filter_list([1, 2, 'a', 'b'])); //,[1,2])
+console.log(filter_list([1, 'a', 'b', 0, 15])); //,[1,0,15])
+console.log(filter_list([1, 2, 'aasf', '1', '123', 123])); //,[1,2,123])
