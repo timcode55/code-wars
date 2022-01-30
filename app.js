@@ -2190,18 +2190,24 @@
 // console.log(filter_list([1, 2, 'a', 'b'])); //,[1,2])
 // console.log(filter_list([1, 'a', 'b', 0, 15])); //,[1,0,15])
 // console.log(filter_list([1, 2, 'aasf', '1', '123', 123])); //,[1,2,123])
-function sumTwoSmallestNumbers(numbers) {
-  // const arraySort = c;
-  return numbers
-    .sort((a, b) => a - b)
-    .slice(0, 2)
-    .reduce((a, b) => {
-      return a + b;
-    });
+// function sumTwoSmallestNumbers(numbers) {
+//   return numbers
+//     .sort((a, b) => a - b)
+//     .slice(0, 2)
+//     .reduce((a, b) => {
+//       return a + b;
+//     });
+// }
+
+// console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //, 13 , "Sum should be 13");
+// console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])); //, 6 , "Sum should be 6");
+// console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])); //, 10 , "Sum should be 10");
+// console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])); //, 24 , "Sum should be 24");
+// console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //, 16 , "Sum should be 16");
+
+function minMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)];
 }
 
-console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22])); //, 13 , "Sum should be 13");
-console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])); //, 6 , "Sum should be 6");
-console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])); //, 10 , "Sum should be 10");
-console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])); //, 24 , "Sum should be 24");
-console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //, 16 , "Sum should be 16");
+console.log([1, 2, 3, 4, 5]); //, [1,5]);
+console.log([2334454, 5]); //, [5, 2334454]);
