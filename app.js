@@ -2205,9 +2205,75 @@
 // console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])); //, 24 , "Sum should be 24");
 // console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //, 16 , "Sum should be 16");
 
-function minMax(arr) {
-  return [Math.min(...arr), Math.max(...arr)];
+// function minMax(arr) {
+//   return [Math.min(...arr), Math.max(...arr)];
+// }
+
+// console.log([1, 2, 3, 4, 5]); //, [1,5]);
+// console.log([2334454, 5]); //, [5, 2334454]);
+
+function greetDevelopers(list) {
+  for (let item of list) {
+    item.greeting = `Hi ${item.firstName}, what do you like the most about ${item.language}?`;
+  }
+  return list;
 }
 
-console.log([1, 2, 3, 4, 5]); //, [1,5]);
-console.log([2334454, 5]); //, [5, 2334454]);
+var list1 = [
+  {
+    firstName: 'Sofia',
+    lastName: 'I.',
+    country: 'Argentina',
+    continent: 'Americas',
+    age: 35,
+    language: 'Java'
+  },
+  {
+    firstName: 'Lukas',
+    lastName: 'X.',
+    country: 'Croatia',
+    continent: 'Europe',
+    age: 35,
+    language: 'Python'
+  },
+  {
+    firstName: 'Madison',
+    lastName: 'U.',
+    country: 'United States',
+    continent: 'Americas',
+    age: 32,
+    language: 'Ruby'
+  }
+];
+
+var answer = [
+  {
+    firstName: 'Sofia',
+    lastName: 'I.',
+    country: 'Argentina',
+    continent: 'Americas',
+    age: 35,
+    language: 'Java',
+    greeting: 'Hi Sofia, what do you like the most about Java?'
+  },
+  {
+    firstName: 'Lukas',
+    lastName: 'X.',
+    country: 'Croatia',
+    continent: 'Europe',
+    age: 35,
+    language: 'Python',
+    greeting: 'Hi Lukas, what do you like the most about Python?'
+  },
+  {
+    firstName: 'Madison',
+    lastName: 'U.',
+    country: 'United States',
+    continent: 'Americas',
+    age: 32,
+    language: 'Ruby',
+    greeting: 'Hi Madison, what do you like the most about Ruby?'
+  }
+];
+
+console.log(greetDevelopers(list1)); //, answer);
