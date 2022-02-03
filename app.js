@@ -2212,68 +2212,104 @@
 // console.log([1, 2, 3, 4, 5]); //, [1,5]);
 // console.log([2334454, 5]); //, [5, 2334454]);
 
-function greetDevelopers(list) {
-  for (let item of list) {
-    item.greeting = `Hi ${item.firstName}, what do you like the most about ${item.language}?`;
+// function greetDevelopers(list) {
+//   for (let item of list) {
+//     item.greeting = `Hi ${item.firstName}, what do you like the most about ${item.language}?`;
+//   }
+//   return list;
+// }
+
+// var list1 = [
+//   {
+//     firstName: 'Sofia',
+//     lastName: 'I.',
+//     country: 'Argentina',
+//     continent: 'Americas',
+//     age: 35,
+//     language: 'Java'
+//   },
+//   {
+//     firstName: 'Lukas',
+//     lastName: 'X.',
+//     country: 'Croatia',
+//     continent: 'Europe',
+//     age: 35,
+//     language: 'Python'
+//   },
+//   {
+//     firstName: 'Madison',
+//     lastName: 'U.',
+//     country: 'United States',
+//     continent: 'Americas',
+//     age: 32,
+//     language: 'Ruby'
+//   }
+// ];
+
+// var answer = [
+//   {
+//     firstName: 'Sofia',
+//     lastName: 'I.',
+//     country: 'Argentina',
+//     continent: 'Americas',
+//     age: 35,
+//     language: 'Java',
+//     greeting: 'Hi Sofia, what do you like the most about Java?'
+//   },
+//   {
+//     firstName: 'Lukas',
+//     lastName: 'X.',
+//     country: 'Croatia',
+//     continent: 'Europe',
+//     age: 35,
+//     language: 'Python',
+//     greeting: 'Hi Lukas, what do you like the most about Python?'
+//   },
+//   {
+//     firstName: 'Madison',
+//     lastName: 'U.',
+//     country: 'United States',
+//     continent: 'Americas',
+//     age: 32,
+//     language: 'Ruby',
+//     greeting: 'Hi Madison, what do you like the most about Ruby?'
+//   }
+// ];
+
+// console.log(greetDevelopers(list1)); //, answer);
+
+function validateWord(s)
+{
+  let obj = {}
+  let word = s.split('').map((item) => {
+    return item.toLowerCase()
+  })
+  
+  for (let letter of word) {
+    if (!obj[letter]) {
+      obj[letter] = 1
+    } else {
+      obj[letter] += 1
+    }
   }
-  return list;
+  console.log(obj);
+  let array = Object.values(obj)
+  
+  console.log(array);
+  let sum = array.reduce((a, b) => {
+    return a + b
+  })
+  if (sum === array[0] * array.length) {
+    return true
+  }
+  return false
+  
 }
 
-var list1 = [
-  {
-    firstName: 'Sofia',
-    lastName: 'I.',
-    country: 'Argentina',
-    continent: 'Americas',
-    age: 35,
-    language: 'Java'
-  },
-  {
-    firstName: 'Lukas',
-    lastName: 'X.',
-    country: 'Croatia',
-    continent: 'Europe',
-    age: 35,
-    language: 'Python'
-  },
-  {
-    firstName: 'Madison',
-    lastName: 'U.',
-    country: 'United States',
-    continent: 'Americas',
-    age: 32,
-    language: 'Ruby'
-  }
-];
 
-var answer = [
-  {
-    firstName: 'Sofia',
-    lastName: 'I.',
-    country: 'Argentina',
-    continent: 'Americas',
-    age: 35,
-    language: 'Java',
-    greeting: 'Hi Sofia, what do you like the most about Java?'
-  },
-  {
-    firstName: 'Lukas',
-    lastName: 'X.',
-    country: 'Croatia',
-    continent: 'Europe',
-    age: 35,
-    language: 'Python',
-    greeting: 'Hi Lukas, what do you like the most about Python?'
-  },
-  {
-    firstName: 'Madison',
-    lastName: 'U.',
-    country: 'United States',
-    continent: 'Americas',
-    age: 32,
-    language: 'Ruby',
-    greeting: 'Hi Madison, what do you like the most about Ruby?'
-  }
-];
-
-console.log(greetDevelopers(list1)); //, answer);
+console.log(validateWord("abcabc"))//,true, "The word was: \"abcabc\" \n");
+console.log(validateWord("Abcabc"))//,true, "The word was: \"Abcabc\" \n");
+console.log(validateWord("abc123"))//,true, "The word was: \"abc123\" \n");
+console.log(validateWord("abcabcd"))//,false, "The word was: \"abcabcd\" \n");
+console.log(validateWord("abc!abc!"))//,true, "The word was: \"abc!abc!\" \n");
+console.log(validateWord("abc:abc"))//,false, "The word was: \"abc:abc\" \n");
