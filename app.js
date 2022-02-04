@@ -2278,38 +2278,49 @@
 
 // console.log(greetDevelopers(list1)); //, answer);
 
-function validateWord(s)
-{
-  let obj = {}
-  let word = s.split('').map((item) => {
-    return item.toLowerCase()
-  })
+// function validateWord(s)
+// {
+//   let obj = {}
+//   let word = s.split('').map((item) => {
+//     return item.toLowerCase()
+//   })
   
-  for (let letter of word) {
-    if (!obj[letter]) {
-      obj[letter] = 1
-    } else {
-      obj[letter] += 1
-    }
-  }
-  console.log(obj);
-  let array = Object.values(obj)
+//   for (let letter of word) {
+//     if (!obj[letter]) {
+//       obj[letter] = 1
+//     } else {
+//       obj[letter] += 1
+//     }
+//   }
   
-  console.log(array);
-  let sum = array.reduce((a, b) => {
-    return a + b
+//   let array = Object.values(obj)
+//   let sum = array.reduce((a, b) => {
+//     return a + b
+//   })
+//   if (sum === array[0] * array.length) {
+//     return true
+//   }
+//   return false
+// }
+
+
+// console.log(validateWord("abcabc"))//,true, "The word was: \"abcabc\" \n");
+// console.log(validateWord("Abcabc"))//,true, "The word was: \"Abcabc\" \n");
+// console.log(validateWord("abc123"))//,true, "The word was: \"abc123\" \n");
+// console.log(validateWord("abcabcd"))//,false, "The word was: \"abcabcd\" \n");
+// console.log(validateWord("abc!abc!"))//,true, "The word was: \"abc!abc!\" \n");
+// console.log(validateWord("abc:abc"))//,false, "The word was: \"abc:abc\" \n");
+
+function solve(nums, div) {
+  return nums.map((item) => {
+    return item += item % div
   })
-  if (sum === array[0] * array.length) {
-    return true
-  }
-  return false
   
 }
 
-
-console.log(validateWord("abcabc"))//,true, "The word was: \"abcabc\" \n");
-console.log(validateWord("Abcabc"))//,true, "The word was: \"Abcabc\" \n");
-console.log(validateWord("abc123"))//,true, "The word was: \"abc123\" \n");
-console.log(validateWord("abcabcd"))//,false, "The word was: \"abcabcd\" \n");
-console.log(validateWord("abc!abc!"))//,true, "The word was: \"abc!abc!\" \n");
-console.log(validateWord("abc:abc"))//,false, "The word was: \"abc:abc\" \n");
+console.log(solve([2,7,5,9,100,34,32,0],3))//,[4,8,7,9,101,35,34,0])
+    console.log(solve([],2))//,[])
+    console.log(solve([1000,999,998,997],5))//,[1000,1003,1001,999])
+    console.log(solve([0,0,0,0],5))//,[0,0,0,0])
+    console.log(solve([4,3,2,1],5))//,[8,6,4,2])
+    console.log(solve([33,23,45,78,65],10))//,[36,26,50,86,70])
