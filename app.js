@@ -2311,16 +2311,27 @@
 // console.log(validateWord("abc!abc!"))//,true, "The word was: \"abc!abc!\" \n");
 // console.log(validateWord("abc:abc"))//,false, "The word was: \"abc:abc\" \n");
 
-function solve(nums, div) {
-  return nums.map((item) => {
-    return item += item % div
-  })
+// function solve(nums, div) {
+//   return nums.map((item) => {
+//     return item += item % div
+//   })
   
+// }
+
+// console.log(solve([2,7,5,9,100,34,32,0],3))//,[4,8,7,9,101,35,34,0])
+//     console.log(solve([],2))//,[])
+//     console.log(solve([1000,999,998,997],5))//,[1000,1003,1001,999])
+//     console.log(solve([0,0,0,0],5))//,[0,0,0,0])
+//     console.log(solve([4,3,2,1],5))//,[8,6,4,2])
+//     console.log(solve([33,23,45,78,65],10))//,[36,26,50,86,70])
+
+function getMiddle(s)
+{
+
+  return s.length % 2 === 1 ? s[Math.floor(s.length / 2)] : s.slice((s.length) / 2 - 1, (s.length) / 2 + 1)
 }
 
-console.log(solve([2,7,5,9,100,34,32,0],3))//,[4,8,7,9,101,35,34,0])
-    console.log(solve([],2))//,[])
-    console.log(solve([1000,999,998,997],5))//,[1000,1003,1001,999])
-    console.log(solve([0,0,0,0],5))//,[0,0,0,0])
-    console.log(solve([4,3,2,1],5))//,[8,6,4,2])
-    console.log(solve([33,23,45,78,65],10))//,[36,26,50,86,70])
+console.log(getMiddle("test"))//,"es");
+    console.log(getMiddle("testing"))//,"t");
+    console.log(getMiddle("middle"))//,"dd");
+    console.log(getMiddle("A"))//,"A");
