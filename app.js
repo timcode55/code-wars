@@ -2325,13 +2325,26 @@
 //     console.log(solve([4,3,2,1],5))//,[8,6,4,2])
 //     console.log(solve([33,23,45,78,65],10))//,[36,26,50,86,70])
 
-function getMiddle(s)
-{
+// function getMiddle(s)
+// {
 
-  return s.length % 2 === 1 ? s[Math.floor(s.length / 2)] : s.slice((s.length) / 2 - 1, (s.length) / 2 + 1)
+//   return s.length % 2 === 1 ? s[Math.floor(s.length / 2)] : s.slice((s.length) / 2 - 1, (s.length) / 2 + 1)
+// }
+
+// console.log(getMiddle("test"))//,"es");
+//     console.log(getMiddle("testing"))//,"t");
+//     console.log(getMiddle("middle"))//,"dd");
+//     console.log(getMiddle("A"))//,"A");
+
+function lastDigit(n, d) {
+  return d <= 0 ? [] : n.toString().split('').slice(-d).map((item) => Number(item)
+  )
 }
 
-console.log(getMiddle("test"))//,"es");
-    console.log(getMiddle("testing"))//,"t");
-    console.log(getMiddle("middle"))//,"dd");
-    console.log(getMiddle("A"))//,"A");
+console.log(lastDigit(1,1))//,[1])
+    console.log(lastDigit(123767,4))//,[3,7,6,7])
+    console.log(lastDigit(0,1))//,[0])
+    console.log(lastDigit(34625647867585,10))//,[5,6,4,7,8,6,7,5,8,5])
+    console.log(lastDigit(1234,0))//,[])
+    console.log(lastDigit(24134,-4))//,[])
+    console.log(lastDigit(1343,5))//,[1,3,4,3])
