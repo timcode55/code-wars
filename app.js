@@ -2336,15 +2336,66 @@
 //     console.log(getMiddle("middle"))//,"dd");
 //     console.log(getMiddle("A"))//,"A");
 
-function lastDigit(n, d) {
-  return d <= 0 ? [] : n.toString().split('').slice(-d).map((item) => Number(item)
-  )
+// function lastDigit(n, d) {
+//   return d <= 0 ? [] : n.toString().split('').slice(-d).map((item) => Number(item)
+//   )
+// }
+
+// console.log(lastDigit(1,1))//,[1])
+//     console.log(lastDigit(123767,4))//,[3,7,6,7])
+//     console.log(lastDigit(0,1))//,[0])
+//     console.log(lastDigit(34625647867585,10))//,[5,6,4,7,8,6,7,5,8,5])
+//     console.log(lastDigit(1234,0))//,[])
+//     console.log(lastDigit(24134,-4))//,[])
+//     console.log(lastDigit(1343,5))//,[1,3,4,3])
+
+// function longestConsec(strarr, k) {
+
+//   let longest = 0;
+//   let longArray = [];
+//   if (k <= 0 || k >= strarr.length) return '';
+//   for (let i = 0; i < strarr.length - k; i++) {
+    
+//     if (strarr[i].length + strarr[i + 1].length > longest) {
+//       longest = strarr[i].length + strarr[i + 1].length
+//       longArray.push(`${strarr[i]}${strarr[i + 1]}`)
+//     }
+//   }
+//   console.log(longArray)
+//   return longArray.pop();
+// }
+
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+//     console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
+//     console.log(longestConsec([], 3), "")
+//     console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+//     console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
+//     console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+
+// function numberOfWays(arr, k) {
+//   let count = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] + arr[j] === k) {
+//         count++
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(numberOfWays([1, 5, 3, 3, 3], 6))
+// console.log(numberOfWays( [1, 2, 3, 4, 3], 6))
+
+function areTheyEqual(array_a, array_b){
+  console.log(array_a.sort((a, b) => a - b))
+  console.log(array_b.sort((a, b) => a - b))
+  return array_a.sort((a, b) => a - b).toString() === array_b.sort((a, b) => a - b).toString()
+  
 }
 
-console.log(lastDigit(1,1))//,[1])
-    console.log(lastDigit(123767,4))//,[3,7,6,7])
-    console.log(lastDigit(0,1))//,[0])
-    console.log(lastDigit(34625647867585,10))//,[5,6,4,7,8,6,7,5,8,5])
-    console.log(lastDigit(1234,0))//,[])
-    console.log(lastDigit(24134,-4))//,[])
-    console.log(lastDigit(1343,5))//,[1,3,4,3])
+console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 3]))
+console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 2]))
