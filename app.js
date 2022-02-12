@@ -2391,8 +2391,6 @@
 // console.log(numberOfWays( [1, 2, 3, 4, 3], 6))
 
 function areTheyEqual(array_a, array_b){
-  console.log(array_a.sort((a, b) => a - b))
-  console.log(array_b.sort((a, b) => a - b))
   return array_a.sort((a, b) => a - b).toString() === array_b.sort((a, b) => a - b).toString()
   
 }
