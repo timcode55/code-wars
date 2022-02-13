@@ -2349,31 +2349,28 @@
 //     console.log(lastDigit(24134,-4))//,[])
 //     console.log(lastDigit(1343,5))//,[1,3,4,3])
 
-// function longestConsec(strarr, k) {
+function longestConsec(strarr, k) {
+  let longest = 0;
+  let longArray = [];
+  if (k <= 0 || k > strarr.length) return '';
+  for (let i = 0; i < strarr.length; i++) {
+    if (strarr.slice(i, i+ k).join('').length > longest) {
+      longest = strarr.slice(i, i + k).join('').length
+      longArray.push(strarr.slice(i, i + k).join(''))
+    }
+  }
+  return longArray.pop()
+}
 
-//   let longest = 0;
-//   let longArray = [];
-//   if (k <= 0 || k >= strarr.length) return '';
-//   for (let i = 0; i < strarr.length - k; i++) {
-    
-//     if (strarr[i].length + strarr[i + 1].length > longest) {
-//       longest = strarr[i].length + strarr[i + 1].length
-//       longArray.push(`${strarr[i]}${strarr[i + 1]}`)
-//     }
-//   }
-//   console.log(longArray)
-//   return longArray.pop();
-// }
-
-// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
-//     console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
-//     console.log(longestConsec([], 3), "")
-//     console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
-//     console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
-//     console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+    console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
+    console.log(longestConsec([], 3), "")
+    console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+    console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
+    console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
+    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
+    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
+    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
 
 // function numberOfWays(arr, k) {
 //   let count = 0;
@@ -2390,10 +2387,10 @@
 // console.log(numberOfWays([1, 5, 3, 3, 3], 6))
 // console.log(numberOfWays( [1, 2, 3, 4, 3], 6))
 
-function areTheyEqual(array_a, array_b){
-  return array_a.sort((a, b) => a - b).toString() === array_b.sort((a, b) => a - b).toString()
+// function areTheyEqual(array_a, array_b){
+//   return array_a.sort((a, b) => a - b).toString() === array_b.sort((a, b) => a - b).toString()
   
-}
+// }
 
-console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 3]))
-console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 2]))
+// console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 3]))
+// console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 2]))
