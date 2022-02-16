@@ -2349,28 +2349,28 @@
 //     console.log(lastDigit(24134,-4))//,[])
 //     console.log(lastDigit(1343,5))//,[1,3,4,3])
 
-function longestConsec(strarr, k) {
-  let longest = 0;
-  let longArray = [];
-  if (k <= 0 || k > strarr.length) return '';
-  for (let i = 0; i < strarr.length; i++) {
-    if (strarr.slice(i, i+ k).join('').length > longest) {
-      longest = strarr.slice(i, i + k).join('').length
-      longArray.push(strarr.slice(i, i + k).join(''))
-    }
-  }
-  return longArray.pop()
-}
+// function longestConsec(strarr, k) {
+//   let longest = 0;
+//   let longArray = [];
+//   if (k <= 0 || k > strarr.length) return '';
+//   for (let i = 0; i < strarr.length; i++) {
+//     if (strarr.slice(i, i+ k).join('').length > longest) {
+//       longest = strarr.slice(i, i + k).join('').length
+//       longArray.push(strarr.slice(i, i + k).join(''))
+//     }
+//   }
+//   return longArray.pop()
+// }
 
-console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
-    console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
-    console.log(longestConsec([], 3), "")
-    console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
-    console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
-    console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
-    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
-    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
-    console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+//     console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
+//     console.log(longestConsec([], 3), "")
+//     console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+//     console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
+//     console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
 
 // function numberOfWays(arr, k) {
 //   let count = 0;
@@ -2387,10 +2387,49 @@ console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2
 // console.log(numberOfWays([1, 5, 3, 3, 3], 6))
 // console.log(numberOfWays( [1, 2, 3, 4, 3], 6))
 
-// function areTheyEqual(array_a, array_b){
-//   return array_a.sort((a, b) => a - b).toString() === array_b.sort((a, b) => a - b).toString()
-  
+// function getMinCodeEntryTime(N, M, C) {
+//   let total = 0;
+//   let start = Math.min(1 + (N - C[0]), C[0] - 1)
+//   // console.log(start)
+//   for (let i = 0; i < C.length - 1; i++) {
+//     total += Math.abs(C[i] - C[i + 1])
+//   }
+//   return total + start;
 // }
 
-// console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 3]))
-// console.log(areTheyEqual([1, 2, 3, 4], [1, 4, 3, 2]))
+// console.log(getMinCodeEntryTime(3, 3, [1, 2, 3]))
+// console.log(getMinCodeEntryTime(10, 4, [9, 4, 4, 8]))
+function solution(s) {
+  let result = [];
+  let tempTotal = 0
+  if (tempTotal < 0 ) return -1
+  let array = s.split(' ')
+  for (let i = 0; i < array.length; i++) {
+    if (!isNaN(array[i])) result.push(Number(array[i]))
+    
+    if (array[i] === 'POP') result.pop()
+    if (array[i] === 'DUP') result.push(result[result.length - 1])
+    if (array[i] === '+') {
+      if (result.length <= 1) return -1
+      tempTotal += result[result.length - 1] + result[result.length - 2]
+      if (tempTotal > 1048575) return -1
+      result = result.slice(0, result.length - 2)
+      result.push(tempTotal);
+      tempTotal = 0;
+    }
+    if (array[i] === '-') {
+      if (result.length <= 1) return -1
+      tempTotal += result[result.length - 1] - result[result.length - 2]
+      result = result.slice(0, result.length - 2)
+      result.push(tempTotal);
+      tempTotal = 0;
+    }
+  }
+  return result[result.length - 1];
+}
+
+console.log(solution('4 5 6 - 7 +'))
+console.log(solution('13 DUP 4 POP 5 DUP + DUP + -'))
+console.log(solution('5 6 + -'))
+console.log(solution('3 DUP 5 - -'))
+console.log(solution('1048575 DUP +'))
