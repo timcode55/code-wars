@@ -2399,37 +2399,58 @@
 
 // console.log(getMinCodeEntryTime(3, 3, [1, 2, 3]))
 // console.log(getMinCodeEntryTime(10, 4, [9, 4, 4, 8]))
-function solution(s) {
-  let result = [];
-  let tempTotal = 0
-  if (tempTotal < 0 ) return -1
-  let array = s.split(' ')
-  for (let i = 0; i < array.length; i++) {
-    if (!isNaN(array[i])) result.push(Number(array[i]))
+// function solution(s) {
+//   let result = [];
+//   let tempTotal = 0
+//   if (tempTotal < 0 ) return -1
+//   let array = s.split(' ')
+//   for (let i = 0; i < array.length; i++) {
+//     if (!isNaN(array[i])) result.push(Number(array[i]))
     
-    if (array[i] === 'POP') result.pop()
-    if (array[i] === 'DUP') result.push(result[result.length - 1])
-    if (array[i] === '+') {
-      if (result.length <= 1) return -1
-      tempTotal += result[result.length - 1] + result[result.length - 2]
-      if (tempTotal > 1048575) return -1
-      result = result.slice(0, result.length - 2)
-      result.push(tempTotal);
-      tempTotal = 0;
-    }
-    if (array[i] === '-') {
-      if (result.length <= 1) return -1
-      tempTotal += result[result.length - 1] - result[result.length - 2]
-      result = result.slice(0, result.length - 2)
-      result.push(tempTotal);
-      tempTotal = 0;
+//     if (array[i] === 'POP') result.pop()
+//     if (array[i] === 'DUP') result.push(result[result.length - 1])
+//     if (array[i] === '+') {
+//       if (result.length <= 1) return -1
+//       tempTotal += result[result.length - 1] + result[result.length - 2]
+//       if (tempTotal > 1048575) return -1
+//       result = result.slice(0, result.length - 2)
+//       result.push(tempTotal);
+//       tempTotal = 0;
+//     }
+//     if (array[i] === '-') {
+//       if (result.length <= 1) return -1
+//       tempTotal += result[result.length - 1] - result[result.length - 2]
+//       result = result.slice(0, result.length - 2)
+//       result.push(tempTotal);
+//       tempTotal = 0;
+//     }
+//   }
+//   return result[result.length - 1];
+// }
+
+// console.log(solution('4 5 6 - 7 +'))
+// console.log(solution('13 DUP 4 POP 5 DUP + DUP + -'))
+// console.log(solution('5 6 + -'))
+// console.log(solution('3 DUP 5 - -'))
+// console.log(solution('1048575 DUP +'))
+
+function findUniq(arr) {
+  let count = {};
+  for (let i = 0; i < arr.length; i++) {
+    !count[arr[i]] ? count[arr[i]] = 1 : count[arr[i]]++
+  }
+  for (let item in count) {
+    if (count[item] === 1) {
+      return Number(item)
     }
   }
-  return result[result.length - 1];
+ 
 }
 
-console.log(solution('4 5 6 - 7 +'))
-console.log(solution('13 DUP 4 POP 5 DUP + DUP + -'))
-console.log(solution('5 6 + -'))
-console.log(solution('3 DUP 5 - -'))
-console.log(solution('1048575 DUP +'))
+
+console.log(findUniq([ 1, 0, 0 ]))//, 1);
+    console.log(findUniq([ 0, 1, 0 ]))//, 1);
+    console.log(findUniq([ 0, 0, 1 ]))//, 1);
+    console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]))//, 2);
+    console.log(findUniq([ 1, 1, 2, 1, 1 ]))//, 2);
+    console.log(findUniq([ 3, 10, 3, 3, 3 ]))//, 10);
