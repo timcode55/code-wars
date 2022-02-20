@@ -2434,23 +2434,16 @@
 // console.log(solution('3 DUP 5 - -'))
 // console.log(solution('1048575 DUP +'))
 
-function findUniq(arr) {
-  let count = {};
-  for (let i = 0; i < arr.length; i++) {
-    !count[arr[i]] ? count[arr[i]] = 1 : count[arr[i]]++
-  }
-  for (let item in count) {
-    if (count[item] === 1) {
-      return Number(item)
+function twoNumberSum(array, targetSum) {
+ 
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(targetSum - array[i], i + 1)) {
+      return [array[i], targetSum - array[i]]
+    } else {
+      continue;
     }
   }
- 
+  return []
 }
 
-
-console.log(findUniq([ 1, 0, 0 ]))//, 1);
-    console.log(findUniq([ 0, 1, 0 ]))//, 1);
-    console.log(findUniq([ 0, 0, 1 ]))//, 1);
-    console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]))//, 2);
-    console.log(findUniq([ 1, 1, 2, 1, 1 ]))//, 2);
-    console.log(findUniq([ 3, 10, 3, 3, 3 ]))//, 10);
+console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
