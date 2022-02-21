@@ -2284,7 +2284,7 @@
 //   let word = s.split('').map((item) => {
 //     return item.toLowerCase()
 //   })
-  
+
 //   for (let letter of word) {
 //     if (!obj[letter]) {
 //       obj[letter] = 1
@@ -2292,7 +2292,7 @@
 //       obj[letter] += 1
 //     }
 //   }
-  
+
 //   let array = Object.values(obj)
 //   let sum = array.reduce((a, b) => {
 //     return a + b
@@ -2302,7 +2302,6 @@
 //   }
 //   return false
 // }
-
 
 // console.log(validateWord("abcabc"))//,true, "The word was: \"abcabc\" \n");
 // console.log(validateWord("Abcabc"))//,true, "The word was: \"Abcabc\" \n");
@@ -2315,7 +2314,7 @@
 //   return nums.map((item) => {
 //     return item += item % div
 //   })
-  
+
 // }
 
 // console.log(solve([2,7,5,9,100,34,32,0],3))//,[4,8,7,9,101,35,34,0])
@@ -2406,7 +2405,7 @@
 //   let array = s.split(' ')
 //   for (let i = 0; i < array.length; i++) {
 //     if (!isNaN(array[i])) result.push(Number(array[i]))
-    
+
 //     if (array[i] === 'POP') result.pop()
 //     if (array[i] === 'DUP') result.push(result[result.length - 1])
 //     if (array[i] === '+') {
@@ -2434,16 +2433,31 @@
 // console.log(solution('3 DUP 5 - -'))
 // console.log(solution('1048575 DUP +'))
 
-function twoNumberSum(array, targetSum) {
- 
+// function twoNumberSum(array, targetSum) {
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (array.includes(targetSum - array[i], i + 1)) {
+//       return [array[i], targetSum - array[i]]
+//     } else {
+//       continue;
+//     }
+//   }
+//   return []
+// }
+
+// console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
+
+function isValidSubsequence(array, sequence) {
+  if (sequence.length === 0) return true;
+  let curIndex = 0;
   for (let i = 0; i < array.length; i++) {
-    if (array.includes(targetSum - array[i], i + 1)) {
-      return [array[i], targetSum - array[i]]
-    } else {
-      continue;
+    if (sequence[curIndex] === array[i]) {
+      curIndex++;
     }
+    if (curIndex === sequence.length) break;
   }
-  return []
+  return curIndex === sequence.length;
 }
 
-console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
+console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6]));
