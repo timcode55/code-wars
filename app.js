@@ -2447,17 +2447,63 @@
 
 // console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
 
-function isValidSubsequence(array, sequence) {
-  if (sequence.length === 0) return true;
-  let curIndex = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (sequence[curIndex] === array[i]) {
-      curIndex++;
-    }
-    if (curIndex === sequence.length) break;
-  }
-  return curIndex === sequence.length;
+// function isValidSubsequence(array, sequence) {
+//   if (sequence.length === 0) return true;
+//   let curIndex = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     if (sequence[curIndex] === array[i]) {
+//       curIndex++;
+//     }
+//     if (curIndex === sequence.length) break;
+//   }
+//   return curIndex === sequence.length;
+// }
+
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
+// console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6]));
+
+function sortedSquaredArray(array) {
+  return array.map((ele) => ele * ele).sort((a, b) => a - b);
 }
 
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
-console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6]));
+console.log(sortedSquaredArray([1, 4, 9, 16, 25]));
+
+function tournamentWinner(competitions, results) {
+  let obj = {};
+  for (let i = 0; i < competitions.length; i++) {
+    if (results[i] === 0) {
+      if (!obj[competitions[i][1]]) {
+        obj[competitions[i][1]] = 1;
+      } else {
+        obj[competitions[i][1]]++;
+      }
+    } else if (results[i] === 1) {
+      if (!obj[competitions[i][0]]) {
+        obj[competitions[i][0]] = 1;
+      } else {
+        obj[competitions[i][0]]++;
+      }
+    }
+  }
+  console.log(obj, "OBJ");
+  let max = Math.max(...Object.values(obj));
+  console.log(max, "MAX");
+  let keys = Object.entries(obj);
+  console.log(keys, "KEYS");
+  for (let key in obj) {
+    if (obj[key] === max) {
+      return key;
+    }
+  }
+  // return obj;
+}
+console.log(
+  tournamentWinner(
+    [
+      ["HTML", "C#"],
+      ["C#", "Python"],
+      ["Python", "HTML"],
+    ],
+    [0, 0, 1]
+  )
+);
