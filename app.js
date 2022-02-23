@@ -2462,48 +2462,55 @@
 // console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
 // console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6]));
 
-function sortedSquaredArray(array) {
-  return array.map((ele) => ele * ele).sort((a, b) => a - b);
+// function sortedSquaredArray(array) {
+//   return array.map((ele) => ele * ele).sort((a, b) => a - b);
+// }
+
+// console.log(sortedSquaredArray([1, 4, 9, 16, 25]));
+
+// function tournamentWinner(competitions, results) {
+//   let obj = {};
+//   for (let i = 0; i < competitions.length; i++) {
+//     if (results[i] === 0) {
+//       if (!obj[competitions[i][1]]) {
+//         obj[competitions[i][1]] = 1;
+//       } else {
+//         obj[competitions[i][1]]++;
+//       }
+//     } else if (results[i] === 1) {
+//       if (!obj[competitions[i][0]]) {
+//         obj[competitions[i][0]] = 1;
+//       } else {
+//         obj[competitions[i][0]]++;
+//       }
+//     }
+//   }
+//   let max = Math.max(...Object.values(obj));
+//   for (let key in obj) {
+//     if (obj[key] === max) {
+//       return key;
+//     }
+//   }
+// }
+// console.log(
+//   tournamentWinner(
+//     [
+//       ["HTML", "C#"],
+//       ["C#", "Python"],
+//       ["Python", "HTML"],
+//     ],
+//     [0, 0, 1]
+//   )
+// );
+function nonConstructibleChange(coins) {
+  let minChange = 0;
+  let sort = coins.sort((a, b) => a - b);
+  for (let coin of sort) {
+    if (coin > minChange + 1) return minChange + 1;
+    minChange += coin;
+  }
+  return minChange + 1;
 }
 
-console.log(sortedSquaredArray([1, 4, 9, 16, 25]));
-
-function tournamentWinner(competitions, results) {
-  let obj = {};
-  for (let i = 0; i < competitions.length; i++) {
-    if (results[i] === 0) {
-      if (!obj[competitions[i][1]]) {
-        obj[competitions[i][1]] = 1;
-      } else {
-        obj[competitions[i][1]]++;
-      }
-    } else if (results[i] === 1) {
-      if (!obj[competitions[i][0]]) {
-        obj[competitions[i][0]] = 1;
-      } else {
-        obj[competitions[i][0]]++;
-      }
-    }
-  }
-  console.log(obj, "OBJ");
-  let max = Math.max(...Object.values(obj));
-  console.log(max, "MAX");
-  let keys = Object.entries(obj);
-  console.log(keys, "KEYS");
-  for (let key in obj) {
-    if (obj[key] === max) {
-      return key;
-    }
-  }
-  // return obj;
-}
-console.log(
-  tournamentWinner(
-    [
-      ["HTML", "C#"],
-      ["C#", "Python"],
-      ["Python", "HTML"],
-    ],
-    [0, 0, 1]
-  )
-);
+console.log(nonConstructibleChange([1, 2, 5]));
+console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]));
