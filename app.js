@@ -2502,15 +2502,26 @@
 //     [0, 0, 1]
 //   )
 // );
-function nonConstructibleChange(coins) {
-  let minChange = 0;
-  let sort = coins.sort((a, b) => a - b);
-  for (let coin of sort) {
-    if (coin > minChange + 1) return minChange + 1;
-    minChange += coin;
+// function nonConstructibleChange(coins) {
+//   let minChange = 0;
+//   let sort = coins.sort((a, b) => a - b);
+//   for (let coin of sort) {
+//     if (coin > minChange + 1) return minChange + 1;
+//     minChange += coin;
+//   }
+//   return minChange + 1;
+// }
+
+// console.log(nonConstructibleChange([1, 2, 5]));
+// console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]));
+
+function minimumWaitingTime(queries) {
+  queries.sort((a, b) => a - b);
+  let minWait = 0;
+  for (let i = 0; i < queries.length - 1; i++) {
+    minWait += queries[i] * (queries.length - i - 1);
   }
-  return minChange + 1;
+  return minWait;
 }
 
-console.log(nonConstructibleChange([1, 2, 5]));
-console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]));
+console.log(minimumWaitingTime([3, 2, 1, 2, 6]));
