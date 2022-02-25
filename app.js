@@ -2515,13 +2515,39 @@
 // console.log(nonConstructibleChange([1, 2, 5]));
 // console.log(nonConstructibleChange([5, 7, 1, 1, 2, 3, 22]));
 
-function minimumWaitingTime(queries) {
-  queries.sort((a, b) => a - b);
-  let minWait = 0;
-  for (let i = 0; i < queries.length - 1; i++) {
-    minWait += queries[i] * (queries.length - i - 1);
+// function minimumWaitingTime(queries) {
+//   queries.sort((a, b) => a - b);
+//   let minWait = 0;
+//   for (let i = 0; i < queries.length - 1; i++) {
+//     minWait += queries[i] * (queries.length - i - 1);
+//   }
+//   return minWait;
+// }
+
+// console.log(minimumWaitingTime([3, 2, 1, 2, 6]));
+
+function classPhotos(redShirtHeights, blueShirtHeights) {
+  redShirtHeights.sort((a, b) => a - b).reverse();
+  blueShirtHeights.sort((a, b) => a - b).reverse();
+  console.log(redShirtHeights, blueShirtHeights);
+  let topRow = [],
+    bottomRow = [];
+
+  if (redShirtHeights[0] > blueShirtHeights[0]) {
+    topRow = redShirtHeights;
+    bottomRow = blueShirtHeights;
+  } else {
+    topRow = blueShirtHeights;
+    bottomRow = redShirtHeights;
   }
-  return minWait;
+
+  for (let i = 0; i < topRow.length; i++) {
+    if (topRow[i] <= bottomRow[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-console.log(minimumWaitingTime([3, 2, 1, 2, 6]));
+console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
+console.log(classPhotos([6, 9, 2, 4, 5, 1], [5, 8, 1, 3, 4, 9]));
