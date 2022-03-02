@@ -2526,28 +2526,67 @@
 
 // console.log(minimumWaitingTime([3, 2, 1, 2, 6]));
 
-function classPhotos(redShirtHeights, blueShirtHeights) {
-  redShirtHeights.sort((a, b) => a - b).reverse();
-  blueShirtHeights.sort((a, b) => a - b).reverse();
-  console.log(redShirtHeights, blueShirtHeights);
-  let topRow = [],
-    bottomRow = [];
+// function classPhotos(redShirtHeights, blueShirtHeights) {
+//   redShirtHeights.sort((a, b) => a - b).reverse();
+//   blueShirtHeights.sort((a, b) => a - b).reverse();
+//   console.log(redShirtHeights, blueShirtHeights);
+//   let topRow = [],
+//     bottomRow = [];
 
-  if (redShirtHeights[0] > blueShirtHeights[0]) {
-    topRow = redShirtHeights;
-    bottomRow = blueShirtHeights;
-  } else {
-    topRow = blueShirtHeights;
-    bottomRow = redShirtHeights;
-  }
+//   if (redShirtHeights[0] > blueShirtHeights[0]) {
+//     topRow = redShirtHeights;
+//     bottomRow = blueShirtHeights;
+//   } else {
+//     topRow = blueShirtHeights;
+//     bottomRow = redShirtHeights;
+//   }
 
-  for (let i = 0; i < topRow.length; i++) {
-    if (topRow[i] <= bottomRow[i]) {
-      return false;
+//   for (let i = 0; i < topRow.length; i++) {
+//     if (topRow[i] <= bottomRow[i]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
+// console.log(classPhotos([6, 9, 2, 4, 5, 1], [5, 8, 1, 3, 4, 9]));
+
+function findThreeLargestNumbers(array) {
+  if (array.length <= 3) return array.sort((a, b) => a - b);
+  let first = Math.min(...array);
+  let second = Math.min(...array);
+  let largest = Math.max(...array);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > second && array[i] !== largest) {
+      second = array[i];
+    }
+    if (array[i] > first && array[i] < second) {
+      first = array[i];
     }
   }
-  return true;
+  return [first, second, largest];
 }
 
-console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
-console.log(classPhotos([6, 9, 2, 4, 5, 1], [5, 8, 1, 3, 4, 9]));
+console.log(
+  findThreeLargestNumbers([141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7])
+);
+
+console.log(findThreeLargestNumbers([7, 8, 3, 11, 43, 55]));
+console.log(findThreeLargestNumbers([55, 43, 11, 3, -3, 10]));
+
+function firstRecurring(array) {
+  let result = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!result[array[i]]) {
+      result[array[i]] = 1;
+    } else {
+      return array[i];
+    }
+  }
+  return undefined;
+}
+
+console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
+console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
+console.log(firstRecurring([2, 3, 4, 5, 3]));
