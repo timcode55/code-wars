@@ -2552,41 +2552,75 @@
 // console.log(classPhotos([5, 8, 1, 3, 4], [6, 9, 2, 4, 5]));
 // console.log(classPhotos([6, 9, 2, 4, 5, 1], [5, 8, 1, 3, 4, 9]));
 
-function findThreeLargestNumbers(array) {
-  if (array.length <= 3) return array.sort((a, b) => a - b);
-  let first = Math.min(...array);
-  let second = Math.min(...array);
-  let largest = Math.max(...array);
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] > second && array[i] !== largest) {
-      second = array[i];
-    }
-    if (array[i] > first && array[i] < second) {
-      first = array[i];
-    }
-  }
-  return [first, second, largest];
-}
+// function findThreeLargestNumbers(array) {
+//   let threeLargest = ["None", "None", "None"];
+//   for (let i = 0; i < array.length; i++) {
+//     updateLargest(threeLargest, array[i]);
+//   }
+//   return threeLargest;
+// }
 
-console.log(
-  findThreeLargestNumbers([141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7])
-);
+// function updateLargest(threeLargest, num) {
+//   if (threeLargest[2] === "None" || num > threeLargest[2]) {
+//     shiftAndUpdate(threeLargest, num, 2);
+//   } else if (threeLargest[1] === "None" || num > threeLargest[1]) {
+//     shiftAndUpdate(threeLargest, num, 1);
+//   } else if (threeLargest[0] === "None" || num > threeLargest[0]) {
+//     shiftAndUpdate(threeLargest, num, 0);
+//   }
+// }
 
-console.log(findThreeLargestNumbers([7, 8, 3, 11, 43, 55]));
-console.log(findThreeLargestNumbers([55, 43, 11, 3, -3, 10]));
+// function shiftAndUpdate(array, num, idx) {
+//   for (let i = 0; i < idx + 1; i++) {
+//     if (i === idx) {
+//       array[i] = num;
+//     } else {
+//       array[i] = array[i + 1];
+//     }
+//   }
+// }
 
-function firstRecurring(array) {
-  let result = {};
-  for (let i = 0; i < array.length; i++) {
-    if (!result[array[i]]) {
-      result[array[i]] = 1;
+// console.log(
+//   findThreeLargestNumbers([141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7])
+// );
+
+// console.log(findThreeLargestNumbers([7, 8, 3, 11, 43, 55]));
+// console.log(findThreeLargestNumbers([55, 43, 11, 3, -3, 10]));
+
+// function firstRecurring(array) {
+//   let result = {};
+//   for (let i = 0; i < array.length; i++) {
+//     if (!result[array[i]]) {
+//       result[array[i]] = 1;
+//     } else {
+//       return array[i];
+//     }
+//   }
+//   return undefined;
+// }
+
+// console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
+// console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
+// console.log(firstRecurring([2, 3, 4, 5, 3]));
+
+function save(sizes, hd) {
+  let count = 0;
+  for (let i = 0; i < sizes.length; i++) {
+    if (hd - sizes[i] >= 0) {
+      count++;
+      hd = hd - sizes[i];
     } else {
-      return array[i];
+      break;
     }
   }
-  return undefined;
+  return count;
 }
 
-console.log(firstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4]));
-console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
-console.log(firstRecurring([2, 3, 4, 5, 3]));
+console.log(save([4, 4, 4, 3, 3], 12)); //, 3));
+console.log(save([4, 4, 4, 3, 3], 11)); //, 2));
+console.log(save([4, 8, 15, 16, 23, 42], 108)); //, 6));
+console.log(save([13], 13)); //, 1));
+console.log(save([1, 2, 3, 4], 250)); //, 4));
+console.log(save([100], 500)); //, 1));
+console.log(save([11, 13, 15, 17, 19], 8)); //, 0));
+console.log(save([45], 12)); //, 0));
