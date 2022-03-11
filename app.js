@@ -2603,24 +2603,48 @@
 // console.log(firstRecurring([2, 1, 1, 2, 3, 5, 1, 2, 4]));
 // console.log(firstRecurring([2, 3, 4, 5, 3]));
 
-function save(sizes, hd) {
-  let count = 0;
-  for (let i = 0; i < sizes.length; i++) {
-    if (hd - sizes[i] >= 0) {
-      count++;
-      hd = hd - sizes[i];
+// function save(sizes, hd) {
+//   let count = 0;
+//   for (let i = 0; i < sizes.length; i++) {
+//     if (hd - sizes[i] >= 0) {
+//       count++;
+//       hd = hd - sizes[i];
+//     } else {
+//       break;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(save([4, 4, 4, 3, 3], 12)); //, 3));
+// console.log(save([4, 4, 4, 3, 3], 11)); //, 2));
+// console.log(save([4, 8, 15, 16, 23, 42], 108)); //, 6));
+// console.log(save([13], 13)); //, 1));
+// console.log(save([1, 2, 3, 4], 250)); //, 4));
+// console.log(save([100], 500)); //, 1));
+// console.log(save([11, 13, 15, 17, 19], 8)); //, 0));
+// console.log(save([45], 12)); //, 0));
+const myArray = [3, 4, 6, 10, 11, 15];
+const alicesArray = [1, 5, 8, 12, 14, 19];
+
+function mergeArrays(myArray, alicesArray) {
+  let result = [];
+  let pointMyArray = 0;
+  let pointAlicesArray = 0;
+  while (
+    pointMyArray <= myArray.length &&
+    pointAlicesArray < alicesArray.length
+  ) {
+    if (myArray[pointMyArray] < alicesArray[pointAlicesArray]) {
+      result.push(myArray[pointMyArray]);
+      pointMyArray++;
     } else {
-      break;
+      result.push(alicesArray[pointAlicesArray]);
+      pointAlicesArray++;
     }
   }
-  return count;
+  return result;
 }
 
-console.log(save([4, 4, 4, 3, 3], 12)); //, 3));
-console.log(save([4, 4, 4, 3, 3], 11)); //, 2));
-console.log(save([4, 8, 15, 16, 23, 42], 108)); //, 6));
-console.log(save([13], 13)); //, 1));
-console.log(save([1, 2, 3, 4], 250)); //, 4));
-console.log(save([100], 500)); //, 1));
-console.log(save([11, 13, 15, 17, 19], 8)); //, 0));
-console.log(save([45], 12)); //, 0));
+console.log(mergeArrays(myArray, alicesArray));
+// logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
