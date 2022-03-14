@@ -2624,27 +2624,70 @@
 // console.log(save([100], 500)); //, 1));
 // console.log(save([11, 13, 15, 17, 19], 8)); //, 0));
 // console.log(save([45], 12)); //, 0));
-const myArray = [3, 4, 6, 10, 11, 15];
-const alicesArray = [1, 5, 8, 12, 14, 19];
+// const myArray = [3, 4, 6, 10, 11, 15];
+// const alicesArray = [1, 5, 8, 12, 14, 19];
 
-function mergeArrays(myArray, alicesArray) {
-  let result = [];
-  let pointMyArray = 0;
-  let pointAlicesArray = 0;
-  while (
-    pointMyArray <= myArray.length &&
-    pointAlicesArray < alicesArray.length
-  ) {
-    if (myArray[pointMyArray] < alicesArray[pointAlicesArray]) {
-      result.push(myArray[pointMyArray]);
-      pointMyArray++;
+// function mergeArrays(myArray, alicesArray) {
+//   let result = [];
+//   let pointMyArray = 0;
+//   let pointAlicesArray = 0;
+//   while (
+//     pointMyArray <= myArray.length &&
+//     pointAlicesArray < alicesArray.length
+//   ) {
+//     if (myArray[pointMyArray] < alicesArray[pointAlicesArray]) {
+//       result.push(myArray[pointMyArray]);
+//       pointMyArray++;
+//     } else {
+//       result.push(alicesArray[pointAlicesArray]);
+//       pointAlicesArray++;
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(mergeArrays(myArray, alicesArray));
+// logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
+
+// var maxProfit = function (prices) {
+//   let cache = {};
+//   let maxProfit = 0;
+//   let max = Math.max(...prices);
+//   let newMax = max;
+//   let desc = true;
+//   for (let i = 0; i < prices.length; i++) {
+//     if (prices[i] === max) {
+//       newMax = Math.max(...prices.slice(i + 1));
+//     }
+//     if (newMax - prices[i] > maxProfit) {
+//       maxProfit = newMax - prices[i];
+//       desc = false;
+//     }
+//   }
+//   return (desc = true ? 0 : maxProfit);
+// };
+
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+// console.log(maxProfit([7, 6, 4, 3, 1]));
+
+function maxChar(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]]) {
+      obj[str[i]]++;
     } else {
-      result.push(alicesArray[pointAlicesArray]);
-      pointAlicesArray++;
+      obj[str[i]] = 1;
     }
   }
-  return result;
+  let values = Object.values(obj);
+  let max = Math.max(...values);
+  console.log(values, max);
+  for (let item in obj) {
+    if (obj[item] === max) {
+      return item;
+    }
+  }
 }
 
-console.log(mergeArrays(myArray, alicesArray));
-// logs [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
+console.log(maxChar("abcccccccd"));
+console.log(maxChar("apple 1231111"));
