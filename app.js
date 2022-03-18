@@ -2670,24 +2670,47 @@
 // console.log(maxProfit([7, 1, 5, 3, 6, 4]));
 // console.log(maxProfit([7, 6, 4, 3, 1]));
 
-function maxChar(str) {
+// function maxChar(str) {
+//   let obj = {};
+//   for (let i = 0; i < str.length; i++) {
+//     if (obj[str[i]]) {
+//       obj[str[i]]++;
+//     } else {
+//       obj[str[i]] = 1;
+//     }
+//   }
+//   let values = Object.values(obj);
+//   let max = Math.max(...values);
+//   for (let item in obj) {
+//     if (obj[item] === max) {
+//       return item;
+//     }
+//   }
+// }
+
+// console.log(maxChar("abcccccccd"));
+// console.log(maxChar("apple 1231111"));
+
+function generateDocument(characters, document) {
   let obj = {};
-  for (let i = 0; i < str.length; i++) {
-    if (obj[str[i]]) {
-      obj[str[i]]++;
-    } else {
-      obj[str[i]] = 1;
+  let obj2 = {};
+  for (let char of characters) {
+    obj[char] = obj[char] + 1 || 1;
+  }
+  for (let ele of document) {
+    obj2[ele] = obj2[ele] + 1 || 1;
+  }
+  for (let key in obj2) {
+    for (let item in obj) {
+      if (obj[key] < obj2[key] || obj[key] === undefined) {
+        return false;
+      }
     }
   }
-  let values = Object.values(obj);
-  let max = Math.max(...values);
-  console.log(values, max);
-  for (let item in obj) {
-    if (obj[item] === max) {
-      return item;
-    }
-  }
+  return true;
 }
 
-console.log(maxChar("abcccccccd"));
-console.log(maxChar("apple 1231111"));
+console.log(
+  generateDocument("Bste!hetsi ogEAxpelrt x ", "AlgoExpert is the Best!")
+);
+console.log(generateDocument("A", "a"));
