@@ -2691,26 +2691,43 @@
 // console.log(maxChar("abcccccccd"));
 // console.log(maxChar("apple 1231111"));
 
-function generateDocument(characters, document) {
-  let obj = {};
-  let obj2 = {};
-  for (let char of characters) {
-    obj[char] = obj[char] + 1 || 1;
-  }
-  for (let ele of document) {
-    obj2[ele] = obj2[ele] + 1 || 1;
-  }
-  for (let key in obj2) {
-    for (let item in obj) {
-      if (obj[key] < obj2[key] || obj[key] === undefined) {
-        return false;
-      }
+// function generateDocument(characters, document) {
+//   let obj = {};
+//   let obj2 = {};
+//   for (let char of characters) {
+//     obj[char] = obj[char] + 1 || 1;
+//   }
+//   for (let ele of document) {
+//     obj2[ele] = obj2[ele] + 1 || 1;
+//   }
+//   for (let key in obj2) {
+//     for (let item in obj) {
+//       if (obj[key] < obj2[key] || obj[key] === undefined) {
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(
+//   generateDocument("Bste!hetsi ogEAxpelrt x ", "AlgoExpert is the Best!")
+// );
+// console.log(generateDocument("A", "a"));
+
+const max_sub_array_of_size_k = function (k, arr) {
+  if (arr.length === 0) return -1;
+  let sumLength = arr.slice(0, k).reduce((a, b) => a + b);
+  let maxSub = sumLength;
+  let nextSub = sumLength;
+  for (let i = 0; i < arr.length - k; i++) {
+    nextSub = nextSub - arr[i] + arr[i + k];
+    if (nextSub > maxSub) {
+      maxSub = nextSub;
     }
   }
-  return true;
-}
+  return maxSub;
+};
 
-console.log(
-  generateDocument("Bste!hetsi ogEAxpelrt x ", "AlgoExpert is the Best!")
-);
-console.log(generateDocument("A", "a"));
+console.log(max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]));
+console.log(max_sub_array_of_size_k(2, [2, 3, 4, 1, 5]));
