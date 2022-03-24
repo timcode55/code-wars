@@ -2715,19 +2715,46 @@
 // );
 // console.log(generateDocument("A", "a"));
 
-const max_sub_array_of_size_k = function (k, arr) {
-  if (arr.length === 0) return -1;
-  let sumLength = arr.slice(0, k).reduce((a, b) => a + b);
-  let maxSub = sumLength;
-  let nextSub = sumLength;
-  for (let i = 0; i < arr.length - k; i++) {
-    nextSub = nextSub - arr[i] + arr[i + k];
-    if (nextSub > maxSub) {
-      maxSub = nextSub;
+// const max_sub_array_of_size_k = function (k, arr) {
+//   if (arr.length === 0) return -1;
+//   let sumLength = arr.slice(0, k).reduce((a, b) => a + b);
+//   let maxSub = sumLength;
+//   let nextSub = sumLength;
+//   for (let i = 0; i < arr.length - k; i++) {
+//     nextSub = nextSub - arr[i] + arr[i + k];
+//     if (nextSub > maxSub) {
+//       maxSub = nextSub;
+//     }
+//   }
+//   return maxSub;
+// };
+
+// console.log(max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]));
+// console.log(max_sub_array_of_size_k(2, [2, 3, 4, 1, 5]));
+
+function anagrams(stringA, stringB) {
+  let object = {};
+  let object2 = {};
+
+  for (let item of stringA) {
+    object[item] = object[item] + 1 || 1;
+  }
+  for (let item of stringB) {
+    object2[item] = object2[item] + 1 || 1;
+  }
+  if (Object.keys(object).length !== Object.keys(object2).length) {
+    return false;
+  }
+  console.log(object);
+  console.log(object2);
+  for (let char in object) {
+    if (object[char] !== object2[char]) {
+      return false;
     }
   }
-  return maxSub;
-};
+  return true;
+}
 
-console.log(max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]));
-console.log(max_sub_array_of_size_k(2, [2, 3, 4, 1, 5]));
+console.log(anagrams("rail safety", "fairy tales"));
+console.log(anagrams("hello", "llohe"));
+console.log(anagrams("rail sa", "fairy tales"));
