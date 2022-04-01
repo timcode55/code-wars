@@ -2732,29 +2732,46 @@
 // console.log(max_sub_array_of_size_k(3, [2, 1, 5, 1, 3, 2]));
 // console.log(max_sub_array_of_size_k(2, [2, 3, 4, 1, 5]));
 
-function anagrams(stringA, stringB) {
-  let object = {};
-  let object2 = {};
+// function anagrams(stringA, stringB) {
+//   let object = {};
+//   let object2 = {};
 
-  for (let item of stringA) {
-    object[item] = object[item] + 1 || 1;
-  }
-  for (let item of stringB) {
-    object2[item] = object2[item] + 1 || 1;
-  }
-  if (Object.keys(object).length !== Object.keys(object2).length) {
-    return false;
-  }
-  console.log(object);
-  console.log(object2);
-  for (let char in object) {
-    if (object[char] !== object2[char]) {
+//   for (let item of stringA) {
+//     object[item] = object[item] + 1 || 1;
+//   }
+//   for (let item of stringB) {
+//     object2[item] = object2[item] + 1 || 1;
+//   }
+//   if (Object.keys(object).length !== Object.keys(object2).length) {
+//     return false;
+//   }
+//   for (let char in object) {
+//     if (object[char] !== object2[char]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(anagrams("rail safety", "fairy tales"));
+// console.log(anagrams("hello", "llohe"));
+// console.log(anagrams("rail sa", "fairy tales"));
+
+function isPalindrome(s) {
+  s.toLowerCase().replace(/[\W_]/g, "");
+  console.log(s, "s");
+
+  let left = s[0];
+  let right = s[s.length - 1];
+
+  while (left < right) {
+    if (s[left] !== s[right]) {
       return false;
     }
   }
   return true;
 }
 
-console.log(anagrams("rail safety", "fairy tales"));
-console.log(anagrams("hello", "llohe"));
-console.log(anagrams("rail sa", "fairy tales"));
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("lol"));
+console.log(isPalindrome("race a car"));
