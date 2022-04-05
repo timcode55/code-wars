@@ -2757,21 +2757,47 @@
 // console.log(anagrams("hello", "llohe"));
 // console.log(anagrams("rail sa", "fairy tales"));
 
-function isPalindrome(s) {
-  s.toLowerCase().replace(/[\W_]/g, "");
-  console.log(s, "s");
+// function isPalindrome(s) {
+//   s.toLowerCase().replace(/[\W_]/g, "");
+//   console.log(s, "s");
 
-  let left = s[0];
-  let right = s[s.length - 1];
+//   let left = s[0];
+//   let right = s[s.length - 1];
 
-  while (left < right) {
-    if (s[left] !== s[right]) {
-      return false;
-    }
+//   while (left < right) {
+//     if (s[left] !== s[right]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(isPalindrome("racecar"));
+// console.log(isPalindrome("lol"));
+// console.log(isPalindrome("race a car"));
+
+function dataReverse(data) {
+  const result = [];
+  let left = 0;
+  while (left < data.length) {
+    result.unshift(...data.slice(left, left + 8));
+    left += 8;
   }
-  return true;
+  return result;
 }
 
-console.log(isPalindrome("racecar"));
-console.log(isPalindrome("lol"));
-console.log(isPalindrome("race a car"));
+const data1 = [
+  1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0,
+  1, 0, 1, 0, 1, 0,
+];
+const data2 = [
+  1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+  1, 1, 1, 1, 1, 1,
+];
+const data3 = [0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1];
+const data4 = [0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0];
+
+console.log(dataReverse(data1));
+console.log(dataReverse(data2));
+console.log(dataReverse(data3));
+console.log(dataReverse(data4));
