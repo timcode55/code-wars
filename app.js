@@ -2802,28 +2802,61 @@
 // console.log(dataReverse(data3));
 // console.log(dataReverse(data4));
 
-function threeSum(array, targetSum) {
+// function threeSum(array, targetSum) {
+//   array = array.sort((a, b) => a - b);
+//   const result = [];
+//   for (let i = 0; i < array.length - 2; i++) {
+//     let currentNum = array[i];
+//     let left = i + 1;
+//     let right = array.length - 1;
+//     while (left < right) {
+//       let sum = currentNum + array[left] + array[right];
+//       console.log(sum, "SUM");
+//       if (sum === targetSum) {
+//         result.push([currentNum, array[left], array[right]]);
+//         left++;
+//         right--;
+//       } else if (sum < targetSum) {
+//         left++;
+//       } else if (sum > targetSum) {
+//         right--;
+//       }
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(threeSum([12, 3, 1, 2, -6, 5, -8, 6], 0)); //([-8, 2, 6], [-8, 3, 5], [-6, 1, 5], 0))
+// console.log(threeSum([-1, 0, 1, 2, -1, -4], 0)); //([-8, 2, 6], [-8, 3, 5], [-6, 1, 5], 0))
+
+var threeSum = function (array) {
   array = array.sort((a, b) => a - b);
+  if (array.length === 1) return [];
   const result = [];
   for (let i = 0; i < array.length - 2; i++) {
+    // if (array[i] !== array[i - 1]) {
     let currentNum = array[i];
     let left = i + 1;
     let right = array.length - 1;
     while (left < right) {
       let sum = currentNum + array[left] + array[right];
-      console.log(sum, "SUM");
-      if (sum === targetSum) {
+      if (sum === 0) {
         result.push([currentNum, array[left], array[right]]);
+        while (array[left] === array[left + 1]) left++;
+        while (array[right] === array[right - 1]) right--;
         left++;
         right--;
-      } else if (sum < targetSum) {
+      } else if (sum < 0) {
         left++;
-      } else if (sum > targetSum) {
+      } else if (sum > 0) {
         right--;
       }
     }
+    // }
   }
   return result;
-}
+};
 
 console.log(threeSum([12, 3, 1, 2, -6, 5, -8, 6], 0)); //([-8, 2, 6], [-8, 3, 5], [-6, 1, 5], 0))
+console.log(threeSum([-1, 0, 1, 2, -1, -4], 0)); //([-8, 2, 6], [-8, 3, 5], [-6, 1, 5], 0))
+console.log(threeSum([-2, 0, 0, 2, 2], 0)); //([-8, 2, 6], [-8, 3, 5], [-6, 1, 5], 0))
