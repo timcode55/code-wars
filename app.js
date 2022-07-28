@@ -3005,35 +3005,70 @@
 
 // console.log(longestPeak([1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]));
 
-function removeZeros(array) {
-  let result = [];
-  let nonZeroCount = 0;
-  let zeroCount = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] === 0 || array[i] === "0") {
-      zeroCount++;
+// function removeZeros(array) {
+//   let result = [];
+//   let nonZeroCount = 0;
+//   let zeroCount = 0;
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i] === 0 || array[i] === "0") {
+//       zeroCount++;
+//     } else {
+//       result[nonZeroCount] = array[i];
+//       nonZeroCount++;
+//     }
+//   }
+//   while (zeroCount > 0) {
+//     result[result.length] = 0;
+//     zeroCount--;
+//   }
+//   return result;
+// }
+
+// console.log(removeZeros([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]));
+
+// function persistence(num) {
+//   if (num.toString().split("").length === 1) return 0;
+
+//   const multNums = (array) => {
+//     return array.reduce((a, b) => a * b);
+//   };
+
+//   const splitNum = (num) => {
+//     return num.toString().split("");
+//   };
+
+//   let count = 0;
+//   const recurse = (num) => {
+//     let array = splitNum(num);
+//     let newNum = multNums(array);
+//     count++;
+
+//     if (splitNum(newNum).length > 1) {
+//       recurse(newNum);
+//     }
+//   };
+//   recurse(num);
+//   return count;
+
+//   // return count;
+// }
+
+// console.log(persistence(39)); //,3);
+// console.log(persistence(4)); //,0);
+// console.log(persistence(25)); //,2);
+// console.log(persistence(999)); //,4);
+
+function isNice(arr) {
+  if (arr.length === 0) return false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr.includes(arr[i] + 1) || arr.includes(arr[i] - 1)) {
+      continue;
     } else {
-      result[nonZeroCount] = array[i];
-      nonZeroCount++;
+      return false;
     }
   }
-  while (zeroCount > 0) {
-    result[result.length] = 0;
-    zeroCount--;
-  }
-  return result;
-
-  // Sort "array" so that all elements with the value of zero are moved to the
-  // end of the array, while the other elements maintain order.
-  // [0, 1, 2, 0, 3] --> [1, 2, 3, 0, 0]
-  // Zero elements also maintain order in which they occurred.
-  // [0, "0", 1, 2, 3] --> [1, 2, 3, 0, "0"]
-
-  // Do not use any temporary arrays or objects. Additionally, you're not able
-  // to use any Array or Object prototype methods such as .shift(), .push(), etc
-
-  // the correctly sorted array should be returned.
-  // return array.sort((a, b) => b - a);
+  return true;
 }
 
-console.log(removeZeros([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]));
+console.log(isNice([2, 10, 9, 3])); //),true);
+console.log(isNice([3, 4, 5, 7])); //),false);
