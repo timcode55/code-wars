@@ -332,9 +332,9 @@
 // 	}
 // 	for (let i = 0; i < s.length; i++) {
 // 		if (i === s.length - 1) {
-// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase(), i);
+// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase( i);
 // 		} else {
-// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase(), i) + '-';
+// 			newString += s[i].toUpperCase() + addLower(s[i].toLowerCase( i) + '-';
 // 		}
 // 	}
 // 	return newString;
@@ -651,7 +651,7 @@
 
 // function highAndLow(numbers) {
 // 	let array = numbers.split(' ');
-// 	return [ Math.max(...array), Math.min(...array) ].join(' ');
+// 	return [ Math.max(...array Math.min(...array) ].join(' ');
 // }
 
 // console.log(highAndLow('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6')); //, "542 -214");
@@ -672,7 +672,7 @@
 // 		[ 3, 5, 4, -9, -1 ],
 // 		[ 1, 5, -7, -8, -9 ],
 // 		[ -3, 2, 1, -5, 6 ]
-// 	]),
+// 	]
 // 	[ [ 0, 4, -5, -9, 3 ], [ 6, 0, -7, 4, -5 ], [ 3, 5, 1, -9, -1 ], [ 1, 5, -7, 0, -9 ], [ -3, 2, 1, -5, 1 ] ]
 // );
 // console.log(
@@ -682,7 +682,7 @@
 // 		[ 3, 5, 1, -9, -1 ],
 // 		[ 1, 5, -7, 15, -9 ],
 // 		[ -3, 2, 1, -5, -6 ]
-// 	]),
+// 	]
 // 	[ [ 0, 4, -5, -9, 3 ], [ 6, 1, -7, 4, -5 ], [ 3, 5, 1, -9, -1 ], [ 1, 5, -7, 1, -9 ], [ -3, 2, 1, -5, 0 ] ]
 // );
 // console.log(
@@ -693,7 +693,7 @@
 // 		[ 1, 5, -7, 15, -9, 3 ],
 // 		[ -3, 2, 1, -5, -6, 0 ],
 // 		[ 8, 2, 0, -2, 4, -5 ]
-// 	]),
+// 	]
 // 	[
 // 		[ 0, 4, -5, -9, 3, 8 ],
 // 		[ 6, 1, -7, 4, -5, -1 ],
@@ -703,7 +703,7 @@
 // 		[ 8, 2, 0, -2, 4, 0 ]
 // 	]
 // );
-// console.log(matrix([ [ 1, 1, -5, 5 ], [ 2, -4, 11, 2 ], [ 3, 1, -1, 4 ], [ 2, -6, 8, 10 ] ]), [
+// console.log(matrix([ [ 1, 1, -5, 5 ], [ 2, -4, 11, 2 ], [ 3, 1, -1, 4 ], [ 2, -6, 8, 10 ] ] [
 // 	[ 1, 1, -5, 5 ],
 // 	[ 2, 0, 11, 2 ],
 // 	[ 3, 1, 0, 4 ],
@@ -771,7 +771,7 @@
 //   let number = BigInt(digits.join(""));
 //   number++;
 //   let myFunc = (num) => Number(num);
-//   return Array.from(String(number), myFunc);
+//   return Array.from(String(number myFunc);
 // };
 // console.log(plusOne(digits));
 // const words = [
@@ -962,7 +962,7 @@
 // function someRecursive(array, callback) {
 //   if (array.length === 0) return false;
 //   if (callback(array[0])) return true;
-//   return someRecursive(array.slice(1), callback);
+//   return someRecursive(array.slice(1 callback);
 // }
 
 // console.log(someRecursive([1, 2, 3, 4], isOdd)); // true
@@ -1039,7 +1039,7 @@
 //       idx = array2.indexOf(array1[0], idx + 1);
 //     }
 
-//     recurse(array1.slice(1), array2);
+//     recurse(array1.slice(1 array2);
 //   }
 //   recurse(jewels, stones);
 //   return count;
@@ -1146,7 +1146,7 @@
 //   ];
 //   for (let i = 0; i < sentence.length; i++) {
 //     if (letters.includes(sentence[i])) {
-//       letters.splice(letters.indexOf(sentence[i]), 1);
+//       letters.splice(letters.indexOf(sentence[i] 1);
 //     }
 //   }
 //   if (letters.length === 0) {
@@ -1184,7 +1184,7 @@
 //       }
 //     }
 //     result.unshift(max);
-//     arr.splice(arr.indexOf(max), 1);
+//     arr.splice(arr.indexOf(max 1);
 //     recurse(arr);
 //   }
 //   recurse(array);
@@ -1388,8 +1388,8 @@
 //     if (!nums2.includes(nums1[i])) {
 //       nums1.splice(i, 1);
 //     } else {
-//       console.log(nums2.indexOf(nums1[i]), "nums2indewx");
-//       nums2.splice(nums2.indexOf(nums1[i]), 1);
+//       console.log(nums2.indexOf(nums1[i] "nums2indewx");
+//       nums2.splice(nums2.indexOf(nums1[i] 1);
 //     }
 //     console.log(nums2, "NUMS2");
 //     console.log(nums1, "NUMS1");
@@ -1483,9 +1483,9 @@
 //   };
 // }
 
-// console.log(fibonacci(40), "slow");
+// console.log(fibonacci(40 "slow");
 // const memo = fibonacciMaster();
-// console.log(memo(40), "memo");
+// console.log(memo(40 "memo");
 
 // class Queue {
 //   constructor() {
@@ -1993,7 +1993,7 @@
 
 // console.log(squareDigits(2112)); //, 4114))//;
 
-// console.log(squareDigits(0), 0);
+// console.log(squareDigits(0 0);
 
 // const object = {
 //   1: "golf",
@@ -2112,7 +2112,7 @@
 // function twoOldestAges(ages) {
 //   let result = [];
 //   result.push(Math.max(...ages));
-//   ages.splice(ages.indexOf(Math.max(...ages)), 1);
+//   ages.splice(ages.indexOf(Math.max(...ages) 1);
 //   result.push(Math.max(...ages));
 //   return result.reverse();
 // }
@@ -2206,7 +2206,7 @@
 // console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])); //, 16 , "Sum should be 16");
 
 // function minMax(arr) {
-//   return [Math.min(...arr), Math.max(...arr)];
+//   return [Math.min(...arr Math.max(...arr)];
 // }
 
 // console.log([1, 2, 3, 4, 5]); //, [1,5]);
@@ -2361,15 +2361,15 @@
 //   return longArray.pop()
 // }
 
-// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
-//     console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
-//     console.log(longestConsec([], 3), "")
-//     console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2), "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
-//     console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2), "wlwsasphmxxowiaxujylentrklctozmymu")
-//     console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2), "")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3), "ixoyx3452zzzzzzzzzzzz")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15), "")
-//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0), "")
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2 "abigailtheta")
+//     console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1 "oocccffuucccjjjkkkjyyyeehh")
+//     console.log(longestConsec([], 3 "")
+//     console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2 "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+//     console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2 "wlwsasphmxxowiaxujylentrklctozmymu")
+//     console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2 "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3 "ixoyx3452zzzzzzzzzzzz")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15 "")
+//     console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0 "")
 
 // function numberOfWays(arr, k) {
 //   let count = 0;
@@ -2388,7 +2388,7 @@
 
 // function getMinCodeEntryTime(N, M, C) {
 //   let total = 0;
-//   let start = Math.min(1 + (N - C[0]), C[0] - 1)
+//   let start = Math.min(1 + (N - C[0] C[0] - 1)
 //   // console.log(start)
 //   for (let i = 0; i < C.length - 1; i++) {
 //     total += Math.abs(C[i] - C[i + 1])
@@ -3058,17 +3058,44 @@
 // console.log(persistence(25)); //,2);
 // console.log(persistence(999)); //,4);
 
-function isNice(arr) {
-  if (arr.length === 0) return false;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr.includes(arr[i] + 1) || arr.includes(arr[i] - 1)) {
-      continue;
-    } else {
-      return false;
-    }
-  }
-  return true;
-}
+// function isNice(arr) {
+//   if (arr.length === 0) return false;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr.includes(arr[i] + 1) || arr.includes(arr[i] - 1)) {
+//       continue;
+//     } else {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-console.log(isNice([2, 10, 9, 3])); //),true);
-console.log(isNice([3, 4, 5, 7])); //),false);
+// console.log(isNice([2, 10, 9, 3])); //true);
+// console.log(isNice([3, 4, 5, 7])); //false);
+
+// var runningSum = function (nums) {
+//   for (let i = 1; i < nums.length; i++) {
+//     nums[i] = nums[i - 1] + nums[i];
+//   }
+//   return nums;
+// };
+
+// console.log(runningSum([1, 2, 3, 4]));
+// console.log(runningSum([1, 1, 1, 1, 1]));
+// console.log(runningSum([3, 1, 2, 10, 1]));
+
+var pivotIndex = function (nums) {
+  let leftSum = 0;
+  let rightSum = nums.reduce((a, b) => a + b) - nums[0];
+  if (leftSum === rightSum) return 0;
+  for (let i = 1; i < nums.length; i++) {
+    leftSum += nums[i - 1];
+    rightSum -= nums[i];
+    console.log(rightSum, leftSum);
+    if (leftSum === rightSum) return i;
+  }
+  return -1;
+};
+
+console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
+console.log(pivotIndex([2, 1, -1]));
