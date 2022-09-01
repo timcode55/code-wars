@@ -29,7 +29,7 @@ function findMissingLetter(array) {
   ];
   let index = alphabet.indexOf(array[0].toLowerCase());
   for (let i = 1; i < array.length; i++) {
-    if (array[i] !== alphabet[index + 1]) {
+    if (array[i].toLowerCase() !== alphabet[index + 1]) {
       let result = alphabet[index + 1];
       return array[0] === array[0].toUpperCase()
         ? result.toUpperCase()
@@ -41,3 +41,4 @@ function findMissingLetter(array) {
 
 console.log(findMissingLetter(["a", "b", "c", "d", "f"])); //, 'e');
 console.log(findMissingLetter(["O", "Q", "R", "S"])); //, 'P');
+console.log(findMissingLetter(["G", "H", "J", "K", "L", "M"])); //, 'I');
