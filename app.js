@@ -3084,18 +3084,420 @@
 // console.log(runningSum([1, 1, 1, 1, 1]));
 // console.log(runningSum([3, 1, 2, 10, 1]));
 
-var pivotIndex = function (nums) {
-  let leftSum = 0;
-  let rightSum = nums.reduce((a, b) => a + b) - nums[0];
-  if (leftSum === rightSum) return 0;
-  for (let i = 1; i < nums.length; i++) {
-    leftSum += nums[i - 1];
-    rightSum -= nums[i];
-    console.log(rightSum, leftSum);
-    if (leftSum === rightSum) return i;
-  }
-  return -1;
-};
+// var pivotIndex = function (nums) {
+//   let leftSum = 0;
+//   let rightSum = nums.reduce((a, b) => a + b) - nums[0];
+//   if (leftSum === rightSum) return 0;
+//   for (let i = 1; i < nums.length; i++) {
+//     leftSum += nums[i - 1];
+//     rightSum -= nums[i];
+//     if (leftSum === rightSum) return i;
+//   }
+//   return -1;
+// };
 
-console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
-console.log(pivotIndex([2, 1, -1]));
+// console.log(pivotIndex([1, 7, 3, 6, 5, 6]));
+// console.log(pivotIndex([2, 1, -1]));
+
+// const isIsomorphic = (s, t) => {
+//   let countA = {};
+//   let countB = {};
+//   for (let i = 0; i < s.length; i++) {
+//     let sChar = s[i];
+//     let tChar = t[i];
+//     if (!countA[sChar]) {
+//       countA[sChar] = tChar;
+//     }
+//     if (!countB[tChar]) {
+//       countB[tChar] = sChar;
+//     }
+//     if (countA[sChar] !== tChar || countB[tChar] !== sChar) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+
+// console.log(isIsomorphic("egg", "add"));
+// console.log(isIsomorphic("foo", "bar"));
+// console.log(isIsomorphic("paper", "title"));
+
+// var isSubsequence = function (s, t) {
+//   let left = 0;
+//   let right = 0;
+
+//   while (left < s.length && right < t.length) {
+//     if (s[left] === t[right]) {
+//       left++;
+//       right++;
+//     } else {
+//       right++;
+//     }
+//   }
+//   return left === s.length;
+// };
+
+// console.log(isSubsequence("abc", "ahbgdc"));
+// console.log(isSubsequence("axc", "ahbgdc"));
+// console.log(isSubsequence("aaaaaa", "bbaaa"));
+
+// const bubbleSort = (arr) => {
+//   for (let i = arr.length - 1; i > 0; i--) {
+//     for (let j = 0; j < i; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         let temp = arr[j + 1];
+//         arr[j + 1] = arr[j];
+//         arr[j] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// };
+
+// const selectionSort = function (array) {
+//   let min;
+//   for (let i = 0; i < array.length; i++) {
+//     min = i;
+//     for (let j = i + 1; j < array.length; j++) {
+//       if (array[j] < array[min]) {
+//         min = j;
+//       }
+//     }
+//     if (i !== min) {
+//       let temp = array[i];
+//       array[i] = array[min];
+//       array[min] = temp;
+//     }
+//   }
+//   return array;
+// };
+
+// console.log(selectionSort([3, 6, 76, 98, 43, 12, 9, 2, 103, 23]));
+
+// function insertionSort(array) {
+//   let temp;
+//   for (let i = 1; i < array.length; i++) {
+//     temp = array[i];
+//     for (var j = i - 1; j >= 0 && array[j] > temp; j--) {
+//       array[j + 1] = array[j];
+//     }
+//     array[j + 1] = temp;
+//   }
+//   return array;
+// }
+
+// console.log(insertionSort([2, 5, 12, 3, 99, 34, 43, 7]));
+
+// function merge(array1, array2) {
+//   let combined = [];
+//   let i = 0;
+//   let j = 0;
+//   while (i < array1.length && j < array2.length) {
+//     if (array1[i] < array2[j]) {
+//       combined.push(array1[i]);
+//       i++;
+//     } else {
+//       combined.push(array2[j]);
+//       j++;
+//     }
+//   }
+//   while (i < array1.length) {
+//     combined.push(array1[i]);
+//     i++;
+//   }
+//   while (j < array2.length) {
+//     combined.push(array2[j]);
+//     j++;
+//   }
+// }
+
+// function mergeSort(array) {
+//   if (array.length === 1) return array;
+
+//   let mid = Math.floor(array.length / 2);
+//   let left = array.slice(0, mid);
+//   let right = array.slice(mid);
+
+//   merge(mergeSort(left), mergeSort(right));
+// }
+
+// function merge(array1, array2) {
+//   let combined = [];
+//   let i = 0;
+//   let j = 0;
+//   while (i < array1.length && j < array2.length) {
+//     if (array1[i] < array2[j]) {
+//       combined.push(array1[i]);
+//       i++;
+//     } else {
+//       combined.push(array2[j]);
+//       j++;
+//     }
+//   }
+//   while (i < array1.length) {
+//     combined.push(array1[i]);
+//     i++;
+//   }
+//   while (j < array2.length) {
+//     combined.push(array2[j]);
+//     j++;
+//   }
+//   return combined;
+// }
+
+// function mergeSort(array) {
+//   if (array.length === 1) return array;
+
+//   let mid = Math.floor(array.length / 2);
+//   let left = array.slice(0, mid);
+//   let right = array.slice(mid);
+
+//   return merge(mergeSort(left), mergeSort(right));
+// }
+
+// console.log(mergeSort([3, 2, 54, 32, 78, 5, 43, 12]));
+// const isValidPalindrome = function (s) {
+//   s = s.replace(/[^A-Za-z0-9]/g, "").toLowerCase();
+//   return s === s.split("").reverse().join("");
+// };
+
+// const isAlmostPalindrome = function (s) {
+//   let left = 0,
+//     right = s.length - 1;
+//   while (left < right) {
+//     if (s[left] !== s[right]) {
+//       return (
+//         validSubPalindrome(s, left + 1, right) ||
+//         validSubPalindrome(s, left, right - 1)
+//       );
+//     }
+//     left++;
+//     right--;
+//   }
+//   return true;
+// };
+
+// const validSubPalindrome = function (s, left, right) {
+//   while (left < right) {
+//     if (s[left] !== s[right]) {
+//       return false;
+//     }
+//     left++;
+//     right--;
+//   }
+//   return true;
+// };
+
+// console.log(isAlmostPalindrome("aabcaa"));
+// console.log(isAlmostPalindrome("aabbfaa"));
+// console.log(isAlmostPalindrome("abc"));
+// console.log(isAlmostPalindrome("a"));
+// console.log(isAlmostPalindrome(""));
+// // console.log(isAlmostPalindrome("A man, a plan, a canal: Panama"));
+
+// const reverseLinkedList = function (head) {
+//   let prev = null;
+//   let current = head;
+//   while (current) {
+//     let next = current.next;
+//     current.next = prev;
+//     prev = current;
+//     current = next;
+//   }
+//   return prev;
+// }
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor(value) {
+    const newNode = new Node(value);
+    this.head = newNode;
+    this.tail = this.head;
+    this.length = 1;
+  }
+
+  push(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  pop() {
+    if (!this.head) return undefined;
+    let temp = this.head;
+    let pre = this.head;
+    while (temp.next) {
+      pre = temp;
+      temp = temp.next;
+    }
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return temp;
+  }
+
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let temp = this.head;
+    this.head = this.head.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    temp.next = null;
+    return temp;
+  }
+
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  set(index, value) {
+    let nodeToUpdate = this.get(index);
+    if (nodeToUpdate) {
+      nodeToUpdate.value = value;
+      return true;
+    }
+    return false;
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.push(value);
+    if (index === 0) return this.unshift(value);
+
+    const newNode = new Node(value);
+    const temp = this.get(index - 1);
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const before = this.get(index - 1);
+    const temp = before.next;
+
+    before.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+
+  reverse() {
+    let prev = null;
+    let current = this.head;
+
+    while (current) {
+      let nextTemp = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextTemp;
+    }
+
+    return prev;
+  }
+  reverseBetween(m, n) {
+    let currentPos = 1,
+      currentNode = this.head;
+    let start = this.head;
+
+    while (currentPos < m) {
+      start = currentNode;
+      currentNode = currentNode.next;
+      currentPos++;
+    }
+
+    let newList = null,
+      tail = currentNode;
+
+    while (currentPos >= m && currentPos <= n) {
+      const next = currentNode.next;
+      currentNode.next = newList;
+      newList = currentNode;
+      currentNode = next;
+      currentPos++;
+    }
+
+    start.next = newList;
+    tail.next = currentNode;
+
+    if (m > 1) {
+      return this.head;
+    } else {
+      return newList;
+    }
+  }
+  kthToLastNode(k, head) {
+    const object = {};
+    let current = this.head;
+    let count = 1;
+    while (current) {
+      const next = current.next;
+      console.log(next, "NEXT");
+      object[count] = current;
+      current = next;
+      count++;
+    }
+    console.log(count, "COUNT");
+    return object[count - k];
+    // Return the kth to last node in the linked list
+
+    // return head;
+  }
+}
+
+// let myLinkedList = new LinkedList(1);
+// myLinkedList.push(2);
+// myLinkedList.push(3);
+// myLinkedList.push(4);
+// myLinkedList.push(5);
+let myLinkedList = new LinkedList("Angel Food");
+myLinkedList.push("Bundt");
+myLinkedList.push("Cheese");
+myLinkedList.push("Devil's Food");
+myLinkedList.push("Eccles");
+
+console.log(myLinkedList);
+// console.log(myLinkedList.reverse(), "REVERSE");
+// console.log(myLinkedList.reverseBetween(3, 4), "REVERSEBW");
+console.log(myLinkedList.kthToLastNode(2, 1), "kthlast");
