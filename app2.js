@@ -372,51 +372,70 @@ const isValid = (s) => {
 
 // console.log(findMinRotated([5, 7, 11, 1, 2, 3, 4]));
 
-const products = [
-  {
-    title: "Phone case",
-    price: 23,
-    quantity: 2,
-    category: "Accessories",
-  },
-  {
-    title: "Android phone",
-    price: 150,
-    quantity: 1,
-    category: "Phones",
-  },
-  {
-    title: "Headphones",
-    price: 78,
-    quantity: 1,
-    category: "Accessories",
-  },
-  {
-    title: "Sport Watch",
-    price: 55,
-    quantity: 2,
-    category: "Watches",
-  },
-];
+// const products = [
+//   {
+//     title: "Phone case",
+//     price: 23,
+//     quantity: 2,
+//     category: "Accessories",
+//   },
+//   {
+//     title: "Android phone",
+//     price: 150,
+//     quantity: 1,
+//     category: "Phones",
+//   },
+//   {
+//     title: "Headphones",
+//     price: 78,
+//     quantity: 1,
+//     category: "Accessories",
+//   },
+//   {
+//     title: "Sport Watch",
+//     price: 55,
+//     quantity: 2,
+//     category: "Watches",
+//   },
+// ];
 
-/* Create a function "quantityByCategories" with one parameter "products".
+// /* Create a function "quantityByCategories" with one parameter "products".
 
-This function "quantityByCategories" should return an object with keys equal to categories and values equal to sum of all quantities in each category.
-*/
+// This function "quantityByCategories" should return an object with keys equal to categories and values equal to sum of all quantities in each category.
+// */
 
-const quantityByCategories = (products) =>
-  products.reduce((categories, product) => {
-    if (!categories[product.category]) {
-      categories[product.category] = product.quantity;
-    } else {
-      categories[product.category] += product.quantity;
-    }
-    return categories;
-    // console.log(categories, product);
-  }, {});
-console.log(quantityByCategories(products));
-/* {
-  Accessories: 3,
-  Phones: 1,
-  Watches: 2
-} */
+// const quantityByCategories = (products) =>
+//   products.reduce((categories, product) => {
+//     if (!categories[product.category]) {
+//       categories[product.category] = product.quantity;
+//     } else {
+//       categories[product.category] += product.quantity;
+//     }
+//     return categories;
+//     // console.log(categories, product);
+//   }, {});
+// console.log(quantityByCategories(products));
+// /* {
+//   Accessories: 3,
+//   Phones: 1,
+//   Watches: 2
+// } */
+
+// ADD CODE HERE
+// ADD CODE HERE
+function union(arrays) {
+  return arrays.reduce((resultArray, array) => {
+    array.forEach((ele) => {
+      if (!resultArray.includes(ele)) {
+        resultArray.push(ele);
+      }
+    });
+    return resultArray;
+  }, []);
+}
+
+// Uncomment these to check your work!
+const arr1 = [5, 10, 15];
+const arr2 = [15, 88, 1, 5, 7];
+const arr3 = [100, 15, 10, 1, 5];
+console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100]
